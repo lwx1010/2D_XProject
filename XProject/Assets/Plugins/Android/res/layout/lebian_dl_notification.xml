@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <ImageView
+        android:id="@+id/lebian_note_image"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8.0dip"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="8dp" />
+
+    <LinearLayout
+        android:id="@+id/lebian_note_progress_layout"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_alignTop="@id/lebian_note_image"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@id/lebian_note_image"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/lebian_note_progress_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/lebian_note_down_tv"
+                style="@style/lebian_note_down_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:textSize="14sp" />
+
+            <ProgressBar
+                android:id="@+id/lebian_note_download_pb"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="8dip"
+                android:progressDrawable="@drawable/lebian_barcolor" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/lebian_note_down_type"
+            android:layout_width="44dip"
+            android:layout_height="44dip"
+            android:layout_marginLeft="5dp"
+            android:paddingBottom="4dip"
+            android:paddingLeft="8dip"
+            android:scaleType="fitCenter" />
+
+        <ImageView
+            android:id="@+id/lebian_note_down_stop"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_marginLeft="5dp"
+            android:paddingBottom="4dip"
+            android:scaleType="fitCenter" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<!-- 注释1： 该配置使用.9.png图片，并将相应的9png图片以相同的名字放在res\drawable-nodpi目录下 -->
+    <item android:id="@android:id/background">
+        <nine-patch android:src="@drawable/lebian_progress_bar_bg"></nine-patch>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <nine-patch android:src="@drawable/lebian_progress_bar"></nine-patch>
+        </clip>
+    </item>
+</layer-list>
