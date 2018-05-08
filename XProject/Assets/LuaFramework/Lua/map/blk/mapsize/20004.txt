@@ -1,1 +1,0 @@
-mapwidth:140,mapheghit:140
