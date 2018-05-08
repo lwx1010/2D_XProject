@@ -1,0 +1,1 @@
+mapwidth:100,mapheghit:100

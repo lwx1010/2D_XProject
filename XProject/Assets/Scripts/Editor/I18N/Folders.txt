@@ -1,0 +1,8 @@
+key:.prefab
+Assets/Res/Prefab/Gui
+key:.cs
+Assets/Scripts
+Assets/LuaFramework/Scripts
+key:.lua
+Assets/LuaFramework/Lua
+Assets/LuaFramework/ToLua/Lua

@@ -1,0 +1,49 @@
+-- @Author:
+-- @Last Modified time: 2017-01-01 00:00:00
+-- @Desc:
+
+#SCRIPTNAME# = {}
+local this = #SCRIPTNAME#
+
+--- 由LuaBehaviour自动调用
+function #SCRIPTNAME#.Awake(obj)
+	this.gameObject = obj
+	this.transform = obj.transform
+
+	this.widgets = {
+#WIDGETS#
+	}
+	LuaUIHelper.bind(this.gameObject , #SCRIPTNAME# )
+end
+
+function #SCRIPTNAME#.show( )
+    createPanel("#CREATEPATH#", 1, this.OnInit)
+end
+
+--- 由LuaBehaviour自动调用
+function #SCRIPTNAME#.OnInit()
+    --每次显示自动修改UI中所有Panel的depth
+    LuaUIHelper.addUIDepth(this.gameObject , #SCRIPTNAME#)
+	this._registeEvents(this.event)
+
+end
+
+-- 注册界面事件监听
+function #SCRIPTNAME#._registeEvents(event)
+    
+end
+
+--- 关闭界面
+function #SCRIPTNAME#._onClickClose( )
+    panelMgr:ClosePanel("#CLOSEPATH#")
+end
+
+--- 由LuaBehaviour自动调用
+function #SCRIPTNAME#.OnClose()
+    LuaUIHelper.removeUIDepth(this.gameObject)  --还原全局深度
+end
+
+--- 由LuaBehaviour自动调用--
+function #SCRIPTNAME#.OnDestroy()
+
+end

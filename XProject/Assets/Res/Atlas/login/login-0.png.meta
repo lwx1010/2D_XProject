@@ -1,0 +1,421 @@
+fileFormatVersion: 2
+guid: d6921478d11a5ee439b924e0dd84fce8
+timeCreated: 1525420582
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: netloading
+    21300002: ui_button_back
+    21300004: ui_button_entergame
+    21300006: ui_button_female01
+    21300008: ui_button_female02
+    21300010: ui_button_male01
+    21300012: ui_button_male02
+    21300014: ui_button_open
+    21300016: ui_button_start
+    21300018: ui_chuangjianjuese_box
+    21300020: ui_denglu_icon_decoration
+    21300022: ui_denglu_icon_gonggao
+    21300024: ui_denglu_icon_uonghu
+    21300026: ui_denglu_lightdot_busy
+    21300028: ui_denglu_lightdot_fix
+    21300030: ui_denglu_lightdot_fluent
+    21300032: ui_denglu_lightdot_normal
+    21300034: ui_denglu_serverbottom
+    21300036: ui_denglu_serverbottom_choose
+    21300038: ui_denglu_shurukuang
+    21300040: ui_denglu_tag_new
+    21300042: ui_denglu_tag_recommend
+    21300044: ui_icon_shaizi
+    21300046: ui_word_jianke01
+    21300048: ui_word_jianke02
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: 47
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: 33
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ui_button_back
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 393
+        width: 138
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_entergame
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 916
+        width: 325
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_female01
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 503
+        width: 156
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_female02
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 746
+        width: 177
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_male01
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 382
+        width: 150
+        height: 173
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_male02
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 708
+        width: 170
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_open
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 986
+        width: 51
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_start
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 628
+        width: 278
+        height: 286
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_chuangjianjuese_box
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 911
+        width: 50
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_denglu_icon_decoration
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 709
+        width: 47
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_denglu_icon_gonggao
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 557
+        width: 170
+        height: 187
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_denglu_icon_uonghu
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 526
+        width: 170
+        height: 180
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_denglu_lightdot_busy
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 632
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_denglu_lightdot_fix
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 632
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_denglu_lightdot_fluent
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 632
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_denglu_lightdot_normal
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 673
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_denglu_serverbottom
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 797
+        width: 159
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_denglu_serverbottom_choose
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 680
+        width: 158
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_denglu_shurukuang
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 914
+        width: 632
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_denglu_tag_new
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 636
+        width: 47
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_denglu_tag_recommend
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 706
+        width: 47
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_shaizi
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 798
+        width: 108
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_word_jianke01
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 665
+        width: 110
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_word_jianke02
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 7
+        width: 90
+        height: 619
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
+  spritePackingTag: login
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
