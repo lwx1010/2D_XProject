@@ -1,0 +1,14 @@
+<TextureConfigs>
+  <TextureSetting AssetDesc="特效贴图" MatchFile="" MipMaps="False">
+    <Folder Path="Assets/Effect" />
+  </TextureSetting>
+  <TextureSetting AssetDesc="UITextures" MatchFile="" MipMaps="False">
+    <Folder Path="Assets/Res/Texture" />
+  </TextureSetting>
+  <TextureSetting AssetDesc="场景贴图" MatchFile="" MipMaps="True">
+    <Folder Path="Assets/Models/Terrian" />
+  </TextureSetting>
+  <TextureSetting AssetDesc="模型贴图" MatchFile="" MipMaps="False">
+    <Folder Path="Assets/Models/Npc" />
+  </TextureSetting>
+</TextureConfigs>

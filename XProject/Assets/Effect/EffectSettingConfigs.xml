@@ -1,0 +1,18 @@
+<EffectConfigs>
+  <EffectSetting AssetDesc="UI特效" MatchFile="" MaxMatrials="5" MaxParticels="50">
+    <Folder Path="Assets/Effect/Ui_Effect" />
+  </EffectSetting>
+  <EffectSetting AssetDesc="特效" MatchFile="" MaxMatrials="10" MaxParticels="100">
+    <Folder Path="Assets/Effect/Scene" />
+  </EffectSetting>
+  <EffectSetting AssetDesc="技能特效" MatchFile="" MaxMatrials="8" MaxParticels="500">
+    <Folder Path="Assets/Effect/npc" />
+    <Folder Path="Assets/Effect/Tongyongtexiao" />
+  </EffectSetting>
+  <EffectSetting AssetDesc="其他通用特效" MatchFile="" MaxMatrials="8" MaxParticels="100">
+    <Folder Path="Assets/Effect/Body_effect" />
+  </EffectSetting>
+  <EffectSetting AssetDesc="主角特效" MatchFile="" MaxMatrials="10" MaxParticels="160">
+    <Folder Path="Assets/Effect/female" />
+  </EffectSetting>
+</EffectConfigs>

@@ -1,0 +1,21 @@
+<linker>
+	<assembly fullname="mscorlib">
+		<type fullname="System.Security.Cryptography" preserve="all"/>
+		<type fullname="System.Reflection.Assembly" preserve="all" />
+		<type fullname="System.Reflection.MonoCMethod" preserve="fields" />
+		<type fullname="System.Reflection.MonoEvent" preserve="fields" />
+		<type fullname="System.Reflection.MonoEventInfo" preserve="fields" />
+		<type fullname="System.Reflection.MonoField" preserve="fields" />
+		<type fullname="System.Reflection.MonoGenericClass" preserve="fields" />
+		<type fullname="System.Reflection.MonoGenericMethod" preserve="fields" />
+		<type fullname="System.Reflection.MonoGenericCMethod" preserve="fields" />
+		<type fullname="System.Reflection.MonoMethod" preserve="fields" />
+		<type fullname="System.Reflection.MonoMethodInfo" preserve="fields" />
+		<type fullname="System.Reflection.MonoPropertyInfo" preserve="fields" />
+		<type fullname="System.Reflection.MonoProperty" preserve="fields" />
+	</assembly>
+	<assembly fullname="System">
+    <namespace fullname="System.Net" preserve="all"/>
+    <namespace fullname="System.ComponentModel" preserve="all"/>
+	</assembly>
+</linker>

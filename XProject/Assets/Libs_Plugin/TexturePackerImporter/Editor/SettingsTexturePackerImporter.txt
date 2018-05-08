@@ -1,0 +1,12 @@
+version: 2
+importPivots: 1
+tpsheetFileNames:
+- Assets/Libs_Plugin/TexturePackerImporter/Example/SpriteSheet/sprites.tpsheet
+- Assets/Res/Atlas/mainskill/mainskill.tpsheet
+textureFileNames:
+- Assets/Libs_Plugin/TexturePackerImporter/Example/SpriteSheet/sprites.png
+- Assets/Res/Atlas/mainskill/mainskill-0.png
+normalmapFileNames:
+- Assets/Libs_Plugin/TexturePackerImporter/Example/SpriteSheet/sprites_n.png
+- 
+enableDebugOutput: 0

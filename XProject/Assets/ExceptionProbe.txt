@@ -1,0 +1,138 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public sealed class ExceptionProbe
+{
+    //NullReferenceException
+
+    //OutOfMemoryException
+
+    //OverflowException
+
+    //RankException
+
+    //OperationCanceledException
+
+    //PlatformNotSupportedException
+
+    //ArrayTypeMismatchException
+
+    //ArithmeticException
+    public class TestArithmeticException : TestException {
+        public override string exceptionName ()
+        {
+            return base.exceptionName ().Replace ("Test", "");
+        }
+        public override void occur () {
+            
+            string a = "";
+            string b = a.IndexOf("", 2);
+            // do something
+        }
+    }
+
+    // DivideByZeroException
+
+    //ArgumentException
+    public class TestArgumentException : TestException {
+        public override string exceptionName ()
+        {
+            return base.exceptionName ().Replace ("Test", "");
+        }
+        public override void occur () {
+            
+            string a = "";
+            string b = a.Replace ("", "");
+            // do something
+        }
+    }
+
+    //ArgumentOutOfRangeException
+    public class TestArgumentOutOfRangeException : TestException {
+        public override string exceptionName ()
+        {
+            return base.exceptionName ().Replace ("Test", "");
+        }
+        public override void occur () {
+            
+            string a = "";
+            string b = a.IndexOf("", 2);
+            // do something
+        }
+    }
+
+    //ArgumentNullException
+    public class TestArgumentNullException : TestException {
+        public override string exceptionName ()
+        {
+            return base.exceptionName ().Replace ("Test", "");
+        }
+        public override void occur () {
+            
+            string a = "";
+            string b = a.Replace (null, "");
+            // do something
+        }
+    }
+
+    //IndexOutOfRangeException
+    public class TestIndexOutOfRangeException : TestException
+    {
+
+        public override string exceptionName ()
+        {
+            return base.exceptionName ().Replace ("Test", "");
+        }
+
+        public override void occur ()
+        {
+
+            int[] arrays = {1, 2, 3};
+            int e = arrays [3];
+            if (e == 3) {
+                // do something
+            }
+        }
+    }
+
+    //InsufficientMemoryException
+
+    //InvalidCastException
+
+    //InvalidOperationException
+    //ObjectDisposedException
+
+    //InvalidProgramException
+
+    //MethodAccessException
+
+    //MemberAccessException
+    //MissingMemberException
+    //MissingFieldException
+    //MissingMethodException
+
+    //MulticastNotSupportedException
+
+    //NotFiniteNumberException
+    //NotImplementedException
+    //NotSupportedException
+
+    //StackOverflowException
+
+    //UnauthorizedAccessException
+
+    public abstract class TestException
+    {
+        public string exceptionName ()
+        {
+            return GetType().Name;
+        }
+        
+        public string message ()
+        {
+            return "This is test exception";
+        }
+        
+        public abstract void occur ();
+    }
+}

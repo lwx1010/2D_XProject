@@ -1,0 +1,237 @@
+[
+	{
+		"id":"112",
+		"title":"调新手引导",
+		"format":"/protomsg 112",
+		"desc":"调新手引导"
+	},
+	{
+		"id":"130",
+		"title":"获得道具",
+		"format":"/protomsg 30 %s %s",
+		"args":"道具ID|数量",
+		"desc":"获得道具"
+	},
+	{
+		"id":"131",
+		"title":"功勋",
+		"format":"/protomsg 1 a set %s %s",
+		"args":"功勋&GongXun,历练&LiLian|数量",
+		"desc":"功勋"
+	},
+	{
+		"id":"2014",
+		"title":"设置等级",
+		"format":"/protomsg 2014 %s",
+		"args":"等级",
+		"desc":"升级~"
+	},
+	{
+		"id":"2000",
+		"title":"属性更改",
+		"format":"/protomsg 1 a set %s %s",
+		"args":"攻击&Ap,防御&Dp,当前血量&Hp,最大血量&HpMax,Vip等级&Vip,功勋&GongXun,历练&LiLian|数值",
+		"desc":"属性更改~"
+	},
+	{
+		"id":"166",
+		"title":"充值元宝",
+		"format":"/protomsg 166 %s",
+		"args":"元宝",
+		"desc":"充值元宝~"
+	},
+	{
+		"id":"167",
+		"title":"周月卡指令",
+		"format":"/protomsg 166 %s",
+		"args":"周卡&120 9,月卡&300 10,永久卡&1980 11,十倍返利&880 12",
+		"desc":"周卡、月卡、永久卡和十倍返利~"
+	},
+	{
+		"id":"168",
+		"title":"小额惠购",
+		"format":"/protomsg %s",
+		"args":"1元礼包&10 13,3元礼包&30 14,6元礼包&60 15",
+		"desc":"小额惠购，1元、3元、6元礼包~"
+	},
+	{
+		"id":"2002",
+		"title":"开启功能",
+		"format":"/protomsg 2002 %s",
+		"args":"功能编号",
+		"desc":"无参表示开启全部功能~"
+	},
+	{
+		"id":"2004",
+		"title":"调任务",
+		"format":"/protomsg 2004 %s",
+		"args":"任务编号",
+		"desc":"调任务"
+	},
+	{
+		"id":"30009",
+		"title":"开启武林大会",
+		"format":"/protomsg 30009",
+		"desc":"开启武林大会"
+	},
+	{
+		"id":"2001",
+		"title":"重置护送次数",
+		"format":"/protomsg 2001",
+		"desc":"重置护送次数"
+	},
+	{
+		"id":"2003",
+		"title":"增加内功经验",
+		"format":"/protomsg 2003 %s",
+		"args":"增加数值",
+		"desc":"增加内功经验"
+	},
+	{
+		"id":"2010",
+		"title":"开启华山论剑",
+		"format":"/protomsg 2010",
+		"desc":"开启华山论剑"
+	},
+	{
+		"id":"2011",
+		"title":"关闭华山论剑",
+		"format":"/protomsg 2011",
+		"desc":"关闭华山论剑"
+	},
+	{
+		"id":"10081",
+		"title":"重置单人副本",
+		"format":"/protomsg 10081",
+		"desc":"重置单人副本"
+	},
+	{
+		"id":"4017",
+		"title":"帮派首领",
+		"format":"/protomsg 4017 %s",
+		"args":"状态",
+		"desc":"帮派首领, 7-关闭 , 8-开启"
+	},
+	{
+		"id":"4044",
+		"title":"激活称号",
+		"format":"/protomsg 4044 2 %s",
+		"args":"称号编号",
+		"desc":"激活称号"
+	},
+	{
+		"id":"9018",
+		"title":"跳天数",
+		"format":"/protomsg 9018 3 %s",
+		"args":"参数",
+		"desc":"最后一个不能高于当前年份时间，倒过来计算，如账号是1月3号创建，那么日期参数不能超过3"
+	},
+	{
+		"id":"10038",
+		"title":"加怪物",
+		"format":"/protomsg 10038 %s",
+		"args":"怪物ID",
+		"desc":"加怪物"
+	},
+	{
+		"id":"10039",
+		"title":"刷新世界BOSS",
+		"format":"/protomsg 10039",
+		"desc":"刷新世界BOSS"
+	},
+	{
+		"id":"10076",
+		"title":"传送",
+		"format":"/protomsg 10076 %s %s",
+		"args":"X|Z",
+		"desc":"传送"
+	},
+	{
+		"id":"10044",
+		"title":"测试掉落",
+		"format":"/protomsg 10044 %s",
+		"args":"掉落ID",
+		"desc":"获得掉落对应奖励"
+	},
+	{
+		"id":"10051",
+		"title":"获得对应Buff(战斗)",
+		"format":"/protomsg 10051 %s",
+		"args":"Buff ID",
+		"desc":"获得对应战斗Buff"
+	},
+	{
+		"id":"10077",
+		"title":"获得对应Buff(非战斗)",
+		"format":"/protomsg 10077 %s %s",
+		"args":"Buff类型|SubType子类型",
+		"desc":"获得对应非战斗Buff"
+	},
+	{
+		"id":"10080",
+		"title":"副本获得物品",
+		"format":"/protomsg 10080 %s %s",
+		"args":"物品ID|副本次数",
+		"desc":"副本获得物品"
+	},
+	{
+		"id":"30004",
+		"title":"开启王府夺宝",
+		"format":"/protomsg 30004",
+		"desc":"开启王府夺宝"
+	},
+	{
+		"id":"30005",
+		"title":"结束王府夺宝",
+		"format":"/protomsg 30005",
+		"desc":"结束王府夺宝"
+	},
+	{
+		"id":"30007",
+		"title":"进入王府夺宝",
+		"format":"/protomsg 30007",
+		"desc":"进入王府夺宝"
+	},
+	{
+		"id":"30008",
+		"title":"增加VIP经验",
+		"format":"/protomsg 30008 %s",
+		"args":"数值",
+		"desc":"增加VIP经验"
+	},
+	{
+		"id":"30011",
+		"title":"重置上古天剑",
+		"format":"/protomsg 30011",
+		"desc":"重置上古天剑"
+	},
+	{
+		"id":"50153",
+		"title":"获得对应技能",
+		"format":"/protomsg 50153 %s %s",
+		"args":"技能ID|技能等级",
+		"desc":"获得对应技能"
+	},
+	{
+		"id":"50157",
+		"title":"开放帮派争霸",
+		"format":"/protomsg 50157",
+		"desc":"开放  帮派争霸"
+	},
+	{
+		"id":"50158",
+		"title":"结束帮派争霸",
+		"format":"/protomsg 50158",
+		"desc":"结束  帮派争霸"
+	}
+]
+
+
+
+
+
+
+
+
+
+
