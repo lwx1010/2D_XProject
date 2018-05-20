@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace LuaDataBind
 {
+#if NGUI
     /// <summary>
     ///   Set the items of a UIGrid depending on the items of the collection data value.
     /// </summary>
@@ -27,4 +28,5 @@ namespace LuaDataBind
             this.Target.Reposition();
         }
     }
+#endif
 }

@@ -2,6 +2,7 @@
 
 namespace LuaDataBind
 {
+#if NGUI
     /// <summary>
     ///   Gets the value of a UIInput element.
     /// </summary>
@@ -23,4 +24,5 @@ namespace LuaDataBind
             return Target.value; 
         }
     }
+#endif
 }

@@ -16,7 +16,7 @@ Network["S2c_chat_system"] = function(pb)
 		CHATLOGIC.ReceiveSystemMsg(pb)
 		RollTextCtrl.ShowRollText(pb.msg, false)
 	elseif pb.type == 2 then 
-		CtrlManager.PopUpNotifyText(pb.msg)
+		MainCtrl.PopUpNotifyText(pb.msg)
 		--CHATLOGIC.ReceiveSystemMsg(pb)
 	elseif pb.type == 4 then
 		CHATLOGIC.ReceiveSystemMsg(pb)

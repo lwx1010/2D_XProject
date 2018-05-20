@@ -2,8 +2,6 @@
 -- @Last Modified time: 2017-07-13 10:48:42
 -- @Desc: 服务器列表选择
 
-local LoginCtrl = LoginCtrl
-
 ServersPanel = {}
 local this = ServersPanel
 
@@ -14,11 +12,12 @@ function ServersPanel.Awake(obj)
 
 	this.widgets = {
 		{field="leftCell",path="LeftViewGroup2.cell",src="GameObject"},
-		{field="serverCell",path="RightViewGroup1.item",src="GameObject"},
-		{field="btnClose",path="BtnClose",src=LuaButton, onClick = this._onClickClose},
+		{field="ServerCell",path="RightViewGroup1.item",src="GameObject"},
+		{field="btnClose",path="BtnClose",src=LuaButton, onClick = function(gObj) this._onClickClose() end },
 		{field="leftviewport",path="LeftViewGroup2.viewport",src="GameObject"},
-		{field="leftContent",path="LeftViewGroup2.viewport.leftContent",src="GameObject"},
 		{field="rightViewport",path="RightViewGroup1.viewport",src="GameObject"},
+		---custom extendsion
+		{field="leftContent",path="LeftViewGroup2.viewport.leftContent",src="GameObject"},
 		{field="rightContent",path="RightViewGroup1.viewport.rightContent",src="GameObject"},
 
 	}
@@ -27,15 +26,6 @@ end
 
 --由LuaBehaviour自动调用
 function ServersPanel.Start()
-
-	this._initLeftTab()
-
-
-	--默认最近登录
-	--this._initRightServers()
-
-	this.leftCells[1].mainToggle.isOn = true
-	ServersPanel._initRightServers(this.leftCells[1].cellData.serverInfos)
 
 end
 
@@ -46,12 +36,17 @@ end
 
 --由LuaBehaviour自动调用
 function ServersPanel.OnInit()
+	this._initLeftTab()
+	--默认最近登录
+	--this._initRightServers()
+	this.leftCells[1].mainToggle.isOn = true
+	ServersPanel._initRightServers(this.leftCells[1].cellData.serverInfos)
+
 	LuaUIHelper.addUIDepth(this.gameObject , ServersPanel)
 	if this.leftCells and #this.leftCells > 0 then
 		this.leftCells[1].mainToggle.isOn = true
 		ServersPanel._initRightServers(this.leftCells[1].cellData.serverInfos)
 	end
-
 end
 
 function ServersPanel._initLeftTab( )
@@ -215,10 +210,10 @@ end
 
 
 function ServersPanel._createRightCell( name , cellData )
-	local myServerCell = GoPool.swapnGameObject(this.serverCellPool , this.serverCell , this.rightContent.transform)
+	local myServerCell = GoPool.swapnGameObject(this.serverCellPool , this.ServerCell, this.rightContent.transform)
 	myServerCell.name = name
 
-	local newCell = ServersPanel.ServerCell.new(myServerCell , cellData)
+	local newCell = ServersPanel.ServerCellItem.new(myServerCell, cellData)
 	newCell:Awake()
 
 	this.rightCells[#this.rightCells + 1] = newCell
@@ -304,9 +299,9 @@ end
 
 ----------------------右则服务器Cell--------------------------------
 
-ServersPanel.ServerCell = class("ServersPanel_ServerCell")
+ServersPanel.ServerCellItem = class("ServersPanel_ServerCellItem")
 
-function ServersPanel.ServerCell:ctor( gObj , cellData )
+function ServersPanel.ServerCellItem:ctor( gObj , cellData )
 	self.gameObject = gObj
 	self.cellData = cellData --ServerInfo
 
@@ -315,7 +310,7 @@ function ServersPanel.ServerCell:ctor( gObj , cellData )
 	ServersPanel.behaviour:AddClick(gObj , handler(self , self._onClick))
 end
 
-function ServersPanel.ServerCell:Awake()
+function ServersPanel.ServerCellItem:Awake()
     self.widgets = {
 		{field="serverNameLab",path="serverName",src=LuaText},
 		{field="imgServerStatus",path="statusIcon",src=LuaImage},
@@ -330,7 +325,7 @@ function ServersPanel.ServerCell:Awake()
 end
 
 
-function ServersPanel.ServerCell:_initCell( )
+function ServersPanel.ServerCellItem:_initCell( )
 
 	local serverInfo = self.cellData.serverInfo
 	self.serverNameLab.text = serverInfo.serverName
@@ -346,7 +341,7 @@ function ServersPanel.ServerCell:_initCell( )
 	end
 end
 
-function ServersPanel.ServerCell:_getServerImgStatus( state )
+function ServersPanel.ServerCellItem:_getServerImgStatus( state )
 
 	--正常
 	if state == 2 then	return "ui_denglu_lightdot_normal"	end
@@ -358,10 +353,10 @@ function ServersPanel.ServerCell:_getServerImgStatus( state )
 	return "ui_denglu_lightdot_fluent"
 end
 
-function ServersPanel.ServerCell:_onClick( )
+function ServersPanel.ServerCellItem:_onClick( )
 	ServersPanel.setCurrentServer(self.cellData)
 end
 
-function ServersPanel.ServerCell:OnDestroy()
+function ServersPanel.ServerCellItem:OnDestroy()
 
 end

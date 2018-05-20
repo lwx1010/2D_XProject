@@ -2,6 +2,7 @@
 
 namespace LuaDataBind
 {
+#if NGUI
     /// <summary>
     ///   Sets the items of a UIPopupList depending on a string data list.
     /// </summary>
@@ -32,4 +33,5 @@ namespace LuaDataBind
         }
         
     }
+#endif
 }

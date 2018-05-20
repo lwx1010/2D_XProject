@@ -256,7 +256,7 @@ namespace LuaFramework {
                 string fileName = path.Replace(extension , "");
                 extension = extension.Substring(1);
 
-                ResourceManager.LoadAudioClipAsync(fileName, extension)
+                ResourceManager.LoadAudioClipBundleAsync(fileName, extension)
                       .Then((audioClip) =>
                       {
                           if (audioClip == null) throw new Exception(string.Format("Cant Load AudioClip! Path :{0}", path));
@@ -307,7 +307,7 @@ namespace LuaFramework {
 
             IPromise<AudioData> adPromise = new Promise<AudioData>((s, j) =>
             {
-                ResourceManager.LoadAudioClipAsync(fileName, extension)
+                ResourceManager.LoadAudioClipBundleAsync(fileName, extension)
                         .Then((audioClip) =>
                         {
                             if (audioClip == null) throw new Exception(string.Format("Cant Load AudioClip! Path :{0}", path));
@@ -353,7 +353,7 @@ namespace LuaFramework {
             if (bgm == null)
             {
                 bgm = new AudioData(path, SoundType.BGM, true, SoundParent.transform, Vector3.zero, 128, 1, 1, (volume > 1f ? 1f : volume));
-                ResourceManager.LoadAudioClipAsync(path, "ogg")
+                ResourceManager.LoadAudioClipBundleAsync(path, "ogg")
                       .Then((audioClip) =>
                       {
                           if (audioClip == null) throw new Exception(string.Format("Cant Load AudioClip! Path :{0}", path));

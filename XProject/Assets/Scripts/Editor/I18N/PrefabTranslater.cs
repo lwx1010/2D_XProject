@@ -18,7 +18,7 @@ namespace Riverlake.Editor.I18N
 
             GameObject prefab = AssetDatabase.LoadAssetAtPath(assetPath, typeof(GameObject)) as GameObject;
             GameObject instance = GameObject.Instantiate(prefab) as GameObject;
-
+#if NGUI
             UILabel[] labels = instance.GetComponentsInChildren<UILabel>(true);
             for (int q = 0; q < labels.Length; q++)
             {
@@ -41,7 +41,7 @@ namespace Riverlake.Editor.I18N
                 if (rx.IsMatch(text) && !trsMap.ContainWorld(text))
                       trsMap.AddWorld(text);
             }
-
+#endif
             GameObject.DestroyImmediate(instance);
 
             return trsMap;
@@ -53,7 +53,7 @@ namespace Riverlake.Editor.I18N
 
             GameObject prefab = AssetDatabase.LoadAssetAtPath(transMap.FilePath, typeof(GameObject)) as GameObject;
             GameObject instance = GameObject.Instantiate(prefab) as GameObject;
-
+#if NGUI
             UILabel[] labels = instance.GetComponentsInChildren<UILabel>(true);
             for (int q = 0; q < labels.Length; q++)
             {
@@ -78,7 +78,7 @@ namespace Riverlake.Editor.I18N
             }
 
             PrefabUtility.ReplacePrefab(instance, prefab);
-
+#endif
             GameObject.DestroyImmediate(instance);
         }
     }

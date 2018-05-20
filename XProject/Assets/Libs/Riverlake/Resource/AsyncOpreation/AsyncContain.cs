@@ -90,7 +90,7 @@ namespace Riverlake.Resources
         /// <param name="weight">权重，用于计算进度</param>
         public void AddLoader(string path, int weight = 1)
         {
-            this.AddLoader(ResourceManager.LoadAssetAsync(path) , weight);            
+            this.AddLoader(ResourceManager.LoadBundleAsync(path) , weight);            
         }
 
         public bool MoveNext()

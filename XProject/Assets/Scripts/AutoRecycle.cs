@@ -22,6 +22,6 @@ public sealed class AutoRecycle : MonoBehaviour
     void Recycle()
     {
         //yield return Yielders.GetWaitForSeconds(delay);
-        gameObject.RecycleDontDestroy();
+        //gameObject.RecycleDontDestroy();
     }
 }

@@ -106,7 +106,12 @@ public sealed class StartScene : MonoBehaviour
         {
             TextAsset obj = Resources.Load<TextAsset>("config");
 #if UNITY_EDITOR
-            if (obj == null) Debug.LogError(LanguageTips.NO_CONFIG_VIA_EDITORMODE);
+            if (obj == null)
+            {
+                File.Copy("Assets/config.txt.example", "Assets/Resources/config.txt", true);
+                UnityEditor.AssetDatabase.Refresh();
+                obj = Resources.Load<TextAsset>("config");
+            }
 #else
             if (obj == null)
             {

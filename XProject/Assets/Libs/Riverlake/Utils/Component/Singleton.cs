@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 namespace Riverlake
 {
@@ -86,7 +87,12 @@ namespace Riverlake
 			}
 		}
 
-        public void Init()
+	    protected virtual void Awake()
+	    {
+	        this.Init();
+	    }
+
+        protected virtual void Init()
         {
 
         }
@@ -110,4 +116,34 @@ namespace Riverlake
 			applicationIsQuitting = true;
 		}
 	}
+
+
+    public abstract class ASingleton<T> where T : class 
+    {
+        private static T _instance;
+
+        private static byte[] _lock = new byte[0];
+
+        public static T Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    lock (_lock)
+                    {
+                        _instance = Activator.CreateInstance<T>();
+                    }
+                }
+                return _instance;
+                
+            }
+        }
+
+
+        public virtual void OnDestroy()
+        {
+            _instance = null;
+        }
+    }
 }

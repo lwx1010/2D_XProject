@@ -4,12 +4,14 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 using UR = UnityEngine.Resources;
+using Riverlake.Resources;
 
 namespace Riverlake
 {
     public class ProgressBar : MonoBehaviour
     {
         public static ProgressBar curProgressBar;
+        private static GameObject barGo;
 
         public static readonly string PrefabResourceName = "Progress Bar";
         private static readonly string DefaultBgPath = "Other/loading/ui_loading_box";
@@ -33,15 +35,21 @@ namespace Riverlake
             return Show();
         }
 
-        public static ProgressBar Show(Action onFinished = null, Image.FillMethod fillMethod = Image.FillMethod.Vertical, bool leftFill = true)
+        public static ProgressBar Show(Action onFinished = null, Image.FillMethod fillMethod = Image.FillMethod.Horizontal, bool leftFill = true)
         {
             return Show(DefaultBgPath, DefaultFgPath, onFinished, fillMethod, leftFill); ;
         }
 
-        public static ProgressBar Show(string bgPath, string fgPath, Action onFinished = null, Image.FillMethod fillMethod = Image.FillMethod.Vertical, bool leftFill = true)
+        public static ProgressBar Show(string bgPath, string fgPath, Action onFinished = null, Image.FillMethod fillMethod = Image.FillMethod.Horizontal, bool leftFill = true)
         {
-            if (curProgressBar != null) GameObject.DestroyImmediate(curProgressBar);
-            curProgressBar = (Instantiate(UR.Load<GameObject>(PrefabResourceName)) as GameObject).GetComponent<ProgressBar>();
+            if (barGo != null) GameObject.DestroyImmediate(barGo);
+
+            barGo = null;
+            curProgressBar = null;
+            var tempGo = Instantiate(ResourceManager.LoadGameObjectAssets(PrefabResourceName));
+            barGo = tempGo;
+            GameObject.DontDestroyOnLoad(barGo);
+            curProgressBar = tempGo.GetComponent<ProgressBar>();
             curProgressBar.onFinish = onFinished;
 
             curProgressBar.progressBg.sprite = UR.Load<Sprite>(bgPath) as Sprite;
@@ -94,12 +102,14 @@ namespace Riverlake
 
         public void Hide()
         {
-            if (curProgressBar != null)
-            DestroyImmediate(curProgressBar.gameObject);
+            if (barGo != null) DestroyImmediate(barGo);
+            barGo = null;
+            curProgressBar = null;
         }
 
         private void OnDestroy()
         {
+            barGo = null;
             curProgressBar = null;
         }
     }

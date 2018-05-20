@@ -1,5 +1,5 @@
 
-Êi
+—u
 common/toproto/all/all.proto"•
 S2c_question_ask
 question_id (
@@ -448,7 +448,46 @@ scene_name (	"#
 S2c_hero_engineday
 day ("$
 C2s_hero_tipsbuff
-item_id (	"Æ
+item_id (	"¼
+Hunshou_info
+	hunshouno (
+score (
+step (
+duanwei (
+exp (
+star ( 
+skilllst (2.Hunshou_skill
+state	 (
+stamp
+ (
+bressexp (")
+C2s_hunshou_baseui
+placeholder ("F
+S2c_hunshou_baseui
+ephunshouno (
+info (2.Hunshou_info"=
+Hunshou_skill
+skillid (
+level (
+flag ("B
+S2c_hunshou_info
+	hunshouno (
+info (2.Hunshou_info"&
+C2s_hunshou_equip
+	hunshouno ("6
+S2c_hunshou_equip
+result (
+	hunshouno (";
+C2s_hunshou_operator
+	hunshouno (
+opertype ("I
+C2s_hunshou_skill
+	hunshouno (
+opertype (
+skillid ("I
+S2c_hunshou_skill
+	hunshouno (!
+	skillinfo (2.Hunshou_skill"Æ
 Item_list_info
 
 Id (	
@@ -744,7 +783,45 @@ questionno (
 S2c_menu_enterfuben
 map_no ("+
 C2s_menu_leavefuben
-place_holder ("%
+place_holder (""
+C2s_mount_upstage
+param ("'
+C2s_mount_breakthrough
+param ("%
+C2s_mount_useneidan
+itemNo ("$
+C2s_mount_upskill
+skillId ("*
+C2s_mount_upprotency
+
+protencyId ("/
+C2s_mount_activatehuanxing
+	fashionId (",
+C2s_mount_putonhuanxing
+	fashionId ("/
+S2c_mount_putonhuanxing
+curFashionId ("(
+C2s_mount_gethuanxingui
+param ("Q
+S2c_mount_gethuanxingui
+	fashionId (
+curFashionId (
+score ("(
+C2s_mount_getgetstageui
+param ("}
+S2C_mount_getgetstageui
+bress (
+
+breakEndTm (
+curExp (
+score (
+stageLvl (
+danLvl ("'
+C2s_mount_getneidanui
+itemNo (">
+S2c_mount_getneidanui
+tdUseNum (
+totalUseNum ("%
 C2s_npc_battle_info
 npc_no ("o
 S2c_npc_battle_info

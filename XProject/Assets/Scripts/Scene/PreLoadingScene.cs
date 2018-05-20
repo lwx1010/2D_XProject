@@ -17,8 +17,6 @@ public sealed class PreLoadingScene : ASceneLoadingTransition
     public static AudioListener al;
     public GameObject loadingCanvas;
     public Image backImage;
-    public Image progressBar;
-    public Image progressBarBg;
 
     [HideInInspector]
     public Action<float> processAction;
@@ -27,19 +25,15 @@ public sealed class PreLoadingScene : ASceneLoadingTransition
 
     public static int curIndex = 1;
 
+    private ProgressBar progressBar;
+
     protected override void Awake()
     {
         base.Awake();
         backImage.sprite = ResourceManager.LoadSpriteAssets(string.Format("Other/loading/loading{0}.jpg", curIndex++));
         curIndex = curIndex > 4 ? 1 : curIndex;
 
-        progressBar.sprite = ResourceManager.LoadSpriteAssets("Other/loading/ui_loading_01.png");
-        progressBar.SetNativeSize();
-        progressBar.type = Image.Type.Filled;
-        progressBar.fillMethod = Image.FillMethod.Horizontal;
-        progressBar.fillAmount = 0;
-
-        progressBarBg.sprite = ResourceManager.LoadSpriteAssets("Other/loading/ui_loading_box.png");
+        progressBar = ProgressBar.Show();
 
         ProcessAction = OnProgressChanged;
     }
@@ -71,6 +65,9 @@ public sealed class PreLoadingScene : ASceneLoadingTransition
         yield return this.StartCoroutine(loadSceneBundle());
 
         yield return this.StartCoroutine(OnLoading());
+
+        //CameraManager.Instance.AfterLoading();
+        //RoleManager.Instance.AfterLoading();
     }
 
 
@@ -86,7 +83,7 @@ public sealed class PreLoadingScene : ASceneLoadingTransition
     void OnProgressChanged(float value)
     {
         if (progressBar != null)
-            progressBar.fillAmount = value;
+            progressBar.UpdateProgress(value);
     }
 
     protected override void OnDestroy()
@@ -95,7 +92,9 @@ public sealed class PreLoadingScene : ASceneLoadingTransition
         {
             abcr.assetBundle.Unload(false);
             abcr = null;
-        } 
+        }
+        if (progressBar != null)
+            progressBar.Hide();
     }
 
     public static void DestroySelf()

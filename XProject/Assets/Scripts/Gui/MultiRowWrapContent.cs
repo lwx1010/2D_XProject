@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+#if NGUI 
 public class MultiRowWrapContent : UIWrapContent
 {
     public int RowNum = 6;
@@ -103,7 +104,7 @@ public class MultiRowWrapContent : UIWrapContent
                 {
                     distance += mPanel.clipOffset.x - mTrans.localPosition.x;
                     if (!UICamera.IsPressed(t.gameObject))
-                        NGUITools.SetActive(t.gameObject, (distance > min && distance < max), false);
+                        EngineTools.SetActive(t.gameObject, (distance > min && distance < max), false);
                 }
             }
         }
@@ -151,7 +152,7 @@ public class MultiRowWrapContent : UIWrapContent
                 {
                     distance += mPanel.clipOffset.y - mTrans.localPosition.y;
                     if (!UICamera.IsPressed(t.gameObject))
-                        NGUITools.SetActive(t.gameObject, (distance > min && distance < max), false);
+                        EngineTools.SetActive(t.gameObject, (distance > min && distance < max), false);
                 }
             }
         }
@@ -159,3 +160,4 @@ public class MultiRowWrapContent : UIWrapContent
         mScroll.InvalidateBounds();
     }
 }
+#endif

@@ -2,6 +2,7 @@
 
 namespace LuaDataBind
 {
+#if NGUI
     /// <summary>
     ///   Set the bar value of a UIProgressBar depending on the float data value.
     /// </summary>
@@ -14,4 +15,5 @@ namespace LuaDataBind
               this.Target.value = newValue;
         }
     }
+#endif
 }

@@ -49,6 +49,8 @@ public sealed class LanguageTips
 
     public const string DOWNLOAD_FILE_ING = "正在更新中， 请不要关闭游戏。";
 
+    public const string AUTO_ADJUST_FILES = "正在校验文件: ";
+
     public const string LOADING_GAME_ING = "正在加载中";
 
     public const string LOADING_LUA_ING = "正在读取游戏数据";

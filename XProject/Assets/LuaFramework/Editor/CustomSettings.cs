@@ -13,12 +13,15 @@ using Config;
 using CinemaDirector;
 using Riverlake.LuaFramework.Controller.Transition;
 using Riverlake.Resources;
-using Riverlake.Scene;
 using UnityEngine.EventSystems;
 
 public static class CustomSettings
 {
+#if ART_PROJ
+    public static string FrameworkPath = Application.dataPath + "/External/LuaFramework";
+#else
     public static string FrameworkPath = Application.dataPath + "/LuaFramework";
+#endif
     public static string saveDir = FrameworkPath + "/ToLua/Source/Generate/";
     public static string luaDir = FrameworkPath + "/Lua/";
     public static string toluaBaseType = FrameworkPath + "/ToLua/BaseType/";
@@ -186,7 +189,6 @@ public static class CustomSettings
         _GT(typeof(LuaHelper)),
         _GT(typeof(ByteBuffer)),
         _GT(typeof(LuaBehaviour)),
-        _GT(typeof(EndlessScroller)),
 
         _GT(typeof(GameManager)),
         _GT(typeof(LuaManager)),
@@ -204,10 +206,16 @@ public static class CustomSettings
         _GT(typeof(LoadDelayAsync)).SetNameSpace("Riverlake.Resources"),
         _GT(typeof(NetworkReachability)),
 
+#if NGUI
         _GT(typeof(UITweener)),
-
-        _GT(typeof(LineRenderer)),
+        _GT(typeof(ItemCell)),
+        _GT(typeof(UIParticles)),
+        _GT(typeof(EndlessScroller)),
+        _GT(typeof(EventDelegate)),
         _GT(typeof(ScrollTextEffect)),
+        _GT(typeof(MultiRowWrapContent)),
+#endif
+        _GT(typeof(LineRenderer)),
         _GT(typeof(CameraUtil)),
         _GT(typeof(AutoDestroy)),
 
@@ -216,21 +224,18 @@ public static class CustomSettings
         _GT(typeof(User_Config)).SetNameSpace("Config"),
         _GT(typeof(ServerInfo)),
         _GT(typeof(List<ServerInfo>)),
+        _GT(typeof(List<string>)),
         _GT(typeof(SystemInfo)),
-        _GT(typeof(ItemCell)),
         _GT(typeof(DelayEnable)),
         _GT(typeof(AnimatorPlayEnd)),
         _GT(typeof(ScreenResolution)),
-
-        _GT(typeof(EventDelegate)),
+        
         _GT(typeof(LuaComponent)),
         _GT(typeof(TimeConverter)),
         _GT(typeof(SensitiveWordLogic)),
-        _GT(typeof(UIParticles)),
         _GT(typeof(PrefabLoader)),
         _GT(typeof(MessageBox)),
         _GT(typeof(PlatformHelper)),
-        _GT(typeof(MultiRowWrapContent)),
         _GT(typeof(ChatVoiceService)),
         _GT(typeof(PreLoadingScene)),
         _GT(typeof(GameVersion)),
@@ -240,7 +245,6 @@ public static class CustomSettings
 
         //Riverlake
         _GT(typeof(IniFile)).SetNameSpace("Riverlake"),
-        _GT(typeof(ObjectPool)).SetNameSpace("Riverlake"),
         _GT(typeof(MD5)).SetNameSpace("Riverlake.Crypto"),
         _GT(typeof(ResourceManager)).SetNameSpace("Riverlake.Resources"),
 

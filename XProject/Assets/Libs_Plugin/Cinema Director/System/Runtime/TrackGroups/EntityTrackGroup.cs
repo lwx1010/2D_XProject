@@ -91,7 +91,7 @@ namespace CinemaDirector
 
             new Promise<GameObject>((s, j) =>
             {
-                GameObject modelGO = ResourceManager.LoadPrefab(string.Format("Prefab/{0}", Model));
+                GameObject modelGO = ResourceManager.LoadPrefabBundle(string.Format("Prefab/{0}", Model));
                 modelGO = GameObject.Instantiate(modelGO);
 
                 Animator modelAnimator = modelGO.GetComponentInChildren<Animator>();
@@ -103,7 +103,7 @@ namespace CinemaDirector
             {
                 if (!string.IsNullOrEmpty(Wings) && Wings != "0")
                 {
-                    GameObject wingeGO = ResourceManager.LoadPrefab(string.Format("Prefab/Model/wings/{0}", Wings));
+                    GameObject wingeGO = ResourceManager.LoadPrefabBundle(string.Format("Prefab/Model/wings/{0}", Wings));
                     wingeGO = GameObject.Instantiate(wingeGO);
                     Animator animator = wingeGO.GetComponentInChildren<Animator>();
                     animator.enabled = true;
@@ -115,7 +115,7 @@ namespace CinemaDirector
             {
                 if (!string.IsNullOrEmpty(Weapon) && IsWeapon)
                 {
-                    GameObject weaponGO = ResourceManager.LoadPrefab(string.Format("Prefab/Model/weapon/{0}", Weapon));
+                    GameObject weaponGO = ResourceManager.LoadPrefabBundle(string.Format("Prefab/Model/weapon/{0}", Weapon));
                     weaponGO = GameObject.Instantiate(weaponGO);
                     ////Util.SetParent(weaponGO, Util.Find(go.transform, "wuqi01").gameObject);
                     weaponGO.transform.localPosition = WeaponPos;
@@ -130,7 +130,7 @@ namespace CinemaDirector
                 Debug.LogException(e);
             }).Done(go =>
             {
-                
+                //AddFastShadow(go);
             });
         }
 

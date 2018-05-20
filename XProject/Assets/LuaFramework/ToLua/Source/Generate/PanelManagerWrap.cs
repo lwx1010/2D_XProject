@@ -8,6 +8,7 @@ public class PanelManagerWrap
 	{
 		L.BeginClass(typeof(PanelManager), typeof(Riverlake.Singleton<PanelManager>));
 		L.RegFunction("GetSingleton", GetSingleton);
+		L.RegFunction("GetNotifyTrans", GetNotifyTrans);
 		L.RegFunction("CreatePanel", CreatePanel);
 		L.RegFunction("ClosePanel", ClosePanel);
 		L.RegFunction("Clear", Clear);
@@ -23,6 +24,23 @@ public class PanelManagerWrap
 		{
 			ToLua.CheckArgsCount(L, 0);
 			PanelManager o = PanelManager.GetSingleton();
+			ToLua.Push(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetNotifyTrans(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			PanelManager obj = (PanelManager)ToLua.CheckObject<PanelManager>(L, 1);
+			UnityEngine.Transform o = obj.GetNotifyTrans();
 			ToLua.Push(L, o);
 			return 1;
 		}

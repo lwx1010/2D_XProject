@@ -430,7 +430,7 @@ function MapLogic.ShowSafeSceneTip()
 	-- print("----------ShowSafeSceneTip------------")
     if not roleMgr.mainRole then return end
 
-    local map = mapData[roleMgr.curSceneNo]
+    local map = mapData[MapData.curMapNo]
     if not map then
         logError("地图数据错误")
         return
@@ -477,7 +477,7 @@ end
 
 function MapLogic.ShowSafeAreaTip(x, z)
 	-- print("----------ShowSafeAreaTip------------")
-    local map = mapData[roleMgr.curSceneNo]
+    local map = mapData[MapData.curMapNo]
     if not map then
         logError("地图数据错误")
         return
@@ -531,7 +531,7 @@ end
 
 --判断是在安全区域 1安全场景不可杀人 2安全场景可敌对 3安全区域 4杀戮区域 5安全场景可仇杀 6安全场景可仇杀可敌对 7杀戮区域可仇杀
 function MapLogic.ChargeIsInSafeArea(x, z)
-    local map = mapData[roleMgr.curSceneNo]
+    local map = mapData[MapData.curMapNo]
     if not map then
         logError("地图数据错误")
         return
@@ -625,7 +625,8 @@ function MapLogic.CreateClientEffect(info)
 end
 
 function MapLogic.CreateClientEffects(sceneNo)
-	local map = mapData[roleMgr.curSceneNo]
+	print("====================")
+	local map = mapData[MapData.curMapNo]
     if not map then
         logError("地图数据错误")
         return

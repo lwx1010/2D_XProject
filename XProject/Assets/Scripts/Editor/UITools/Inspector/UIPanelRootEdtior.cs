@@ -21,18 +21,14 @@ namespace UIHelper
 
             EditorGUIUtility.labelWidth = 120;
             Transform parentTrans = root.transform.parent;
-            bool isRoot = false;
+            bool isRoot = true;
             if (parentTrans)
             {
                 UIPanelRoot parentRoot = parentTrans.GetComponentInParent<UIPanelRoot>();
                 if (parentRoot)
-                    EditorGUILayout.PropertyField(serializedObject.FindProperty("Field"));
-                else
                 {
-                    //                    GUI.color = Color.yellow;
-                    //                    EditorGUILayout.PropertyField(serializedObject.FindProperty("Controller"));
-                    isRoot = true;
-                    //                    GUI.color = Color.white;
+                    isRoot = false;
+                    EditorGUILayout.PropertyField(serializedObject.FindProperty("Field"));
                 }
             }
 

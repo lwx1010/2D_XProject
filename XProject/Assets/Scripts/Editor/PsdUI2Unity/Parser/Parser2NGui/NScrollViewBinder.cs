@@ -62,7 +62,7 @@ namespace EditorTool.PsdExport
                 {
                     reducePosition(childTrans);
                     LayerWordBinder.swapComponent<UIDragScrollView>(childTrans.gameObject);
-                    NGUITools.AddWidgetCollider(childTrans.gameObject);
+                    GameTools.AddWidgetCollider(childTrans.gameObject);
                 }
 
             }

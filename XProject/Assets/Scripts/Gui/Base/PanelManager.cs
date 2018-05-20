@@ -17,6 +17,7 @@ class PanelData
     public int Weight { get; set; }
     public float CreateTime { get; set; }
     public GameObject PanelObject { get; set; }
+    public LuaBehaviour behaviour { get; set; }
     /// <summary>
     /// 根节点的sortingOrder
     /// </summary>
@@ -99,22 +100,20 @@ public class PanelManager : Singleton<PanelManager> {
         _curShowPanel = string.Empty;
     }
 
+    public Transform GetNotifyTrans()
+    {
+        return this.FindParent().transform;
+    }
+
     private GameObject FindParent()
     {
-        Canvas rootCav = GameObject.FindObjectOfType<Canvas>();
-        if(rootCav == null)
+        GameObject rootGo = GameObject.Find("UIRoot");
+        if(rootGo == null)
         {
-            GameObject root = new GameObject("UIRoot");
-            rootCav = root.AddComponent<Canvas>();
-            rootCav.renderMode = RenderMode.ScreenSpaceOverlay;
-            CanvasScaler scaler = root.AddComponent<CanvasScaler>();
-            scaler.referenceResolution = new Vector2(1920, 1080);
-            scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
-            scaler.matchWidthOrHeight = 1f;
-            root.AddComponent<UIScreenMatch>();
-            root.AddComponent<GraphicRaycaster>();
+            rootGo = new GameObject("UIRoot");
+            rootGo.layer = LayerMask.NameToLayer("UI");
         }
-        return rootCav.gameObject;
+        return rootGo;
     }
 
     /// <summary>
@@ -153,6 +152,7 @@ public class PanelManager : Singleton<PanelManager> {
             panelData.Name = name;
             panelData.Weight = weight;
             panelData.PanelObject = go;
+            panelData.behaviour = behaviour;
             uiList.Put(name, panelData);
             uiShowList.Add(name);
             if (func != null) func.Call(go);
@@ -193,6 +193,7 @@ public class PanelManager : Singleton<PanelManager> {
             if (_curShowPanel == name)
                 _curDepth--;
             panelObj.ResetOrder();
+            panelObj.behaviour.OnClose();
             poolManager.Release<PanelData>(panelObj);
         }
             

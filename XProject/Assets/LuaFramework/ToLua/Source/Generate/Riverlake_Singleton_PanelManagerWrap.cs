@@ -7,28 +7,11 @@ public class Riverlake_Singleton_PanelManagerWrap
 	public static void Register(LuaState L)
 	{
 		L.BeginClass(typeof(Riverlake.Singleton<PanelManager>), typeof(UnityEngine.MonoBehaviour), "Singleton_PanelManager");
-		L.RegFunction("Init", Init);
 		L.RegFunction("DestroySelf", DestroySelf);
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("Instance", get_Instance, null);
 		L.EndClass();
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Init(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 1);
-			Riverlake.Singleton<PanelManager> obj = (Riverlake.Singleton<PanelManager>)ToLua.CheckObject<Riverlake.Singleton<PanelManager>>(L, 1);
-			obj.Init();
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

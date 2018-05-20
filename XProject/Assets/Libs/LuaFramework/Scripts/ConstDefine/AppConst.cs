@@ -11,7 +11,7 @@ public class AppConst {
 #if UNITY_EDITOR
     public static bool DebugMode = true;                         //调试模式-用于内部测试,影响释放
 #else
-    public const bool DebugMode = false;                        //调试模式-用于内部测试
+    public static bool DebugMode = false;                        //调试模式-用于内部测试
 #endif
 
     /// <summary>
@@ -22,19 +22,19 @@ public class AppConst {
 #if UNITY_EDITOR
     public static bool UpdateMode = false;                       //更新模式-默认关闭
 #else
-    public const bool UpdateMode = true;                       //更新模式-默认开启(非编辑器)
+    public static bool UpdateMode = true;                       //更新模式-默认开启(非编辑器)
 #endif
 #if UNITY_IOS
-    public const bool LuaByteMode = false;                       //Lua字节码模式-默认关闭
+    public static bool LuaByteMode = false;                       //Lua字节码模式-默认关闭
 #else
-    public const bool LuaByteMode = true;                       //Lua字节码模式-默认关闭
+    public static bool LuaByteMode = true;                       //Lua字节码模式-默认关闭
 #endif
 #if UNITY_EDITOR
     public static bool AssetBundleMode = false;                  //资源AssetBundle模式
     public static bool LuaBundleMode = false;                    //Lua代码AssetBundle模式-默认关闭
 #else
-    public const bool AssetBundleMode = true;                   //资源AssetBundle模式
-    public const bool LuaBundleMode = true;                     //Lua代码AssetBundle模式-不是编辑器模式下默认打开
+    public static bool AssetBundleMode = true;                   //资源AssetBundle模式
+    public static bool LuaBundleMode = true;                     //Lua代码AssetBundle模式-不是编辑器模式下默认打开
 #endif
 
 

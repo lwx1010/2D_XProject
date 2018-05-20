@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace LuaDataBind
 {
+#if NGUI
     /// <summary>
     ///   Set the fill amount of a UISprite depending on the float data value.
     /// </summary>
@@ -18,4 +19,5 @@ namespace LuaDataBind
             }
         }
     }
+#endif
 }

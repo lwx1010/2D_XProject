@@ -16,7 +16,7 @@ public class AutoDestroy : MonoBehaviour
 
     void AutoRecycle()
     {
-        gameObject.RecycleDontDestroy();
+        //gameObject.RecycleDontDestroy();
     }
 
     void OnDisable()

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using UnityEngine.UI;
 
 public class I18NUtil : Editor
 {
@@ -164,7 +165,7 @@ public class I18NUtil : Editor
         {
             //因为这里是写例子，所以我用的是UILabel 
             //这里应该是写你用于图文混排的脚本。
-            UILabel label = chind.GetComponent<UILabel>();
+            Text label = chind.GetComponent<Text>();
             if (label != null)
             {
                 string text = label.text;

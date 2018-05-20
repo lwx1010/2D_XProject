@@ -31,7 +31,7 @@ namespace AssetChecker
         {
             if (settings == null) this.Initizalize();
 
-            NGUIEditorTools.DrawHeader("贴图查询设置");
+            GUILayoutHelper.DrawHeader("贴图查询设置");
             using (new EditorGUILayout.HorizontalScope())
             {
                 GUILayout.FlexibleSpace();
@@ -54,7 +54,7 @@ namespace AssetChecker
             }
 
             GUILayout.Space(5);
-            NGUIEditorTools.DrawSeparator();
+            GUILayoutHelper.DrawSeparator();
             if (settings != null)
             {
                 scrollPos = GUILayout.BeginScrollView(scrollPos);
@@ -62,7 +62,7 @@ namespace AssetChecker
                 {
                     GUILayout.Space(5);
                     drawSetting(settings[i]);
-                    NGUIEditorTools.DrawSeparator();
+                    GUILayoutHelper.DrawSeparator();
                 }
 
                 if (removeSettings.Count > 0)

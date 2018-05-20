@@ -5,3 +5,10 @@
 local MAIN_VIEW_NAME = ...
 
 import(".SkillUiPanel")
+import(".FunctionBtnPanel")
+import(".MainUiTaskPanel")
+import(".MiniMapPanel")
+import(".JoystickPanel")
+import(".MainUiChatPanel")
+import(".PlayerBar")
+import(".TestUiPanel")

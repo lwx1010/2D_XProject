@@ -1,0 +1,7 @@
+<resources>
+
+    <dimen name="fd_padding_small">8dp</dimen>
+    <dimen name="fd_padding_medium">8dp</dimen>
+    <dimen name="fd_padding_large">16dp</dimen>
+
+</resources>

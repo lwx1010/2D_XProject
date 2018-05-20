@@ -2,6 +2,7 @@
 
 namespace LuaDataBind
 {
+#if NGUI
     /// <summary>
     ///   Set the value of a UIWidget depending on the color data value.
     /// </summary>
@@ -13,4 +14,5 @@ namespace LuaDataBind
             this.Target.color = value;
         }
     }
+#endif
 }

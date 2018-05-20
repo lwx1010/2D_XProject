@@ -13,13 +13,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PsdPath: 
   curGUIType: 1
-  m_DefaultImportPath: Textures
+  m_DefaultImportPath: Res/Atlas
   mAtlaImportPath: Res/Atlas
   mTempletImportPath: Perfabs/DevGUI/Templet
   assetDirArr:
   - key: bigpng
-    folder: Res/Texture
+    folder: Res/Atlas
   - key: bigjpg
     folder: Res/Texture
   DefaultTextSize: 20
-  defaultFont: Resources/Font/FZCuYuan.ttf
+  defaultFont: Font/FZCuYuan.ttf

@@ -18,7 +18,7 @@ namespace EditorTool.PsdExport
                 text.pivot = UIWidget.Pivot.Left ;
              
                 LayerWordBinder.NGUICopySprite(bgTrans.gameObject , mainObj , true);
-                NGUITools.AddWidgetCollider(mainObj);
+                GameTools.AddWidgetCollider(mainObj);
 
                 UIInput inputField = LayerWordBinder.swapComponent<UIInput>(mainObj);
                 inputField.label = text;

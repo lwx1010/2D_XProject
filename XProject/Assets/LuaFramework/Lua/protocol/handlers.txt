@@ -1,1 +1,1 @@
-AoiHandler;BattleHandler;ChatHandler;HeroHandler;ItemHandler;LoginHandler
+AoiHandler;BattleHandler;ChatHandler;DogzHandler;HeroHandler;ItemHandler;LoginHandler;ReliveHandler

@@ -63,7 +63,7 @@ namespace AssetChecker
 
             if (searchFilter != after)
             {
-                NGUISettings.searchField = after;
+                //NGUISettings.searchField = after;
                 searchFilter = after;
             }
             GUILayout.EndHorizontal();

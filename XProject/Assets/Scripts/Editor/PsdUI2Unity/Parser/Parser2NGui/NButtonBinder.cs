@@ -33,7 +33,7 @@ namespace EditorTool.PsdExport
                     gObj.transform.localPosition = originPos;
                 }
 
-                NGUITools.AddWidgetCollider(gObj);
+                GameTools.AddWidgetCollider(gObj);
 
             }
             catch (Exception)

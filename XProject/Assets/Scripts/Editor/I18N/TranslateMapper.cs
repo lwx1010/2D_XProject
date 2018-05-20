@@ -95,8 +95,8 @@ namespace Riverlake.Editor.I18N
             }
 
             TranslatorWorld tWorld = new TranslatorWorld();
-            tWorld.Source = srcWorld;
-            tWorld.Dest = translateWorld;
+            tWorld.Source = srcWorld.Trim();
+            tWorld.Dest = translateWorld.Trim();
             worlds.Add(tWorld);
         }
 

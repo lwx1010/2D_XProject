@@ -34,7 +34,7 @@ namespace EditorTool.PsdExport
 
                 slider.backgroundWidget = mainObj.GetComponent<UIWidget>();
                 slider.value = 0.2f;
-                NGUITools.AddWidgetCollider(mainObj);
+                GameTools.AddWidgetCollider(mainObj);
             }
             catch (Exception)
             {

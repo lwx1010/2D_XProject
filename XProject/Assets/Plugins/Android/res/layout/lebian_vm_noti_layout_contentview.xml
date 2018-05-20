@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/lebian_vm_noti_id_fullcontent"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView android:id="@+id/lebian_vm_noti_id_origcontent"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:scaleType="fitXY" />
+    <RelativeLayout
+        android:id="@+id/lebian_vm_noti_id_button_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/lebian_vm_noti_id_button_toppading_0"
+                  android:layout_width="1.0px"
+                  android:layout_height="wrap_content" />
+        <TextView android:id="@+id/lebian_vm_noti_id_button_leftpadding_0"
+                  android:layout_width="wrap_content"
+                  android:layout_height="1.0px"
+                  android:layout_below="@id/lebian_vm_noti_id_button_toppading_0" />
+        <ImageView android:id="@+id/lebian_vm_noti_id_button_content_0"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:scaleType="centerCrop"
+                   android:layout_toRightOf="@id/lebian_vm_noti_id_button_leftpadding_0"
+                   android:layout_below="@id/lebian_vm_noti_id_button_toppading_0" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/lebian_vm_noti_id_button_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/lebian_vm_noti_id_button_toppading_1"
+                  android:layout_width="1.0px"
+                  android:layout_height="wrap_content" />
+        <TextView android:id="@+id/lebian_vm_noti_id_button_leftpadding_1"
+                  android:layout_width="wrap_content"
+                  android:layout_height="1.0px"
+                  android:layout_below="@id/lebian_vm_noti_id_button_toppading_1" />
+        <ImageView android:id="@+id/lebian_vm_noti_id_button_content_1"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:scaleType="centerCrop"
+                   android:layout_toRightOf="@id/lebian_vm_noti_id_button_leftpadding_1"
+                   android:layout_below="@id/lebian_vm_noti_id_button_toppading_1" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/lebian_vm_noti_id_button_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/lebian_vm_noti_id_button_toppading_2"
+                  android:layout_width="1.0px"
+                  android:layout_height="wrap_content" />
+        <TextView android:id="@+id/lebian_vm_noti_id_button_leftpadding_2"
+                  android:layout_width="wrap_content"
+                  android:layout_height="1.0px"
+                  android:layout_below="@id/lebian_vm_noti_id_button_toppading_2" />
+        <ImageView android:id="@+id/lebian_vm_noti_id_button_content_2"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:scaleType="centerCrop"
+                   android:layout_toRightOf="@id/lebian_vm_noti_id_button_leftpadding_2"
+                   android:layout_below="@id/lebian_vm_noti_id_button_toppading_2" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/lebian_vm_noti_id_button_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/lebian_vm_noti_id_button_toppading_3"
+                  android:layout_width="1.0px"
+                  android:layout_height="wrap_content" />
+        <TextView android:id="@+id/lebian_vm_noti_id_button_leftpadding_3"
+                  android:layout_width="wrap_content"
+                  android:layout_height="1.0px"
+                  android:layout_below="@id/lebian_vm_noti_id_button_toppading_3" />
+        <ImageView android:id="@+id/lebian_vm_noti_id_button_content_3"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:scaleType="centerCrop"
+                   android:layout_toRightOf="@id/lebian_vm_noti_id_button_leftpadding_3"
+                   android:layout_below="@id/lebian_vm_noti_id_button_toppading_3" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/lebian_vm_noti_id_button_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/lebian_vm_noti_id_button_toppading_4"
+                  android:layout_width="1.0px"
+                  android:layout_height="wrap_content" />
+        <TextView android:id="@+id/lebian_vm_noti_id_button_leftpadding_4"
+                  android:layout_width="wrap_content"
+                  android:layout_height="1.0px"
+                  android:layout_below="@id/lebian_vm_noti_id_button_toppading_4" />
+        <ImageView android:id="@+id/lebian_vm_noti_id_button_content_4"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:scaleType="centerCrop"
+                   android:layout_toRightOf="@id/lebian_vm_noti_id_button_leftpadding_4"
+                   android:layout_below="@id/lebian_vm_noti_id_button_toppading_4" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/lebian_vm_noti_id_button_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/lebian_vm_noti_id_button_toppading_5"
+                  android:layout_width="1.0px"
+                  android:layout_height="wrap_content" />
+        <TextView android:id="@+id/lebian_vm_noti_id_button_leftpadding_5"
+                  android:layout_width="wrap_content"
+                  android:layout_height="1.0px"
+                  android:layout_below="@id/lebian_vm_noti_id_button_toppading_5" />
+        <ImageView android:id="@+id/lebian_vm_noti_id_button_content_5"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:scaleType="centerCrop"
+                   android:layout_toRightOf="@id/lebian_vm_noti_id_button_leftpadding_5"
+                   android:layout_below="@id/lebian_vm_noti_id_button_toppading_5" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/lebian_vm_noti_id_button_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/lebian_vm_noti_id_button_toppading_6"
+                  android:layout_width="1.0px"
+                  android:layout_height="wrap_content" />
+        <TextView android:id="@+id/lebian_vm_noti_id_button_leftpadding_6"
+                  android:layout_width="wrap_content"
+                  android:layout_height="1.0px"
+                  android:layout_below="@id/lebian_vm_noti_id_button_toppading_6" />
+        <ImageView android:id="@+id/lebian_vm_noti_id_button_content_6"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:scaleType="centerCrop"
+                   android:layout_toRightOf="@id/lebian_vm_noti_id_button_leftpadding_6"
+                   android:layout_below="@id/lebian_vm_noti_id_button_toppading_6" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/lebian_vm_noti_id_button_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/lebian_vm_noti_id_button_toppading_7"
+                  android:layout_width="1.0px"
+                  android:layout_height="wrap_content" />
+        <TextView android:id="@+id/lebian_vm_noti_id_button_leftpadding_7"
+                  android:layout_width="wrap_content"
+                  android:layout_height="1.0px"
+                  android:layout_below="@id/lebian_vm_noti_id_button_toppading_7" />
+        <ImageView android:id="@+id/lebian_vm_noti_id_button_content_7"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:scaleType="centerCrop"
+                   android:layout_toRightOf="@id/lebian_vm_noti_id_button_leftpadding_7"
+                   android:layout_below="@id/lebian_vm_noti_id_button_toppading_7" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/lebian_vm_noti_id_button_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/lebian_vm_noti_id_button_toppading_8"
+                  android:layout_width="1.0px"
+                  android:layout_height="wrap_content" />
+        <TextView android:id="@+id/lebian_vm_noti_id_button_leftpadding_8"
+                  android:layout_width="wrap_content"
+                  android:layout_height="1.0px"
+                  android:layout_below="@id/lebian_vm_noti_id_button_toppading_8" />
+        <ImageView android:id="@+id/lebian_vm_noti_id_button_content_8"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:scaleType="centerCrop"
+                   android:layout_toRightOf="@id/lebian_vm_noti_id_button_leftpadding_8"
+                   android:layout_below="@id/lebian_vm_noti_id_button_toppading_8" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/lebian_vm_noti_id_button_9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView android:id="@+id/lebian_vm_noti_id_button_toppading_9"
+                  android:layout_width="1.0px"
+                  android:layout_height="wrap_content" />
+        <TextView android:id="@+id/lebian_vm_noti_id_button_leftpadding_9"
+                  android:layout_width="wrap_content"
+                  android:layout_height="1.0px"
+                  android:layout_below="@id/lebian_vm_noti_id_button_toppading_9" />
+        <ImageView android:id="@+id/lebian_vm_noti_id_button_content_9"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:scaleType="centerCrop"
+                   android:layout_toRightOf="@id/lebian_vm_noti_id_button_leftpadding_9"
+                   android:layout_below="@id/lebian_vm_noti_id_button_toppading_9" />
+    </RelativeLayout>
+</FrameLayout>

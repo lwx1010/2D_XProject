@@ -113,8 +113,8 @@ namespace EditorTool.PsdExport
 
                 if (text.overflowMethod == UILabel.Overflow.ClampContent)
                 {
-                    NGUIEditorTools.RegisterUndo("Snap Dimensions", text);
-                    NGUIEditorTools.RegisterUndo("Snap Dimensions", text.transform);
+                    GUILayoutHelper.RegisterUndo("Snap Dimensions", text);
+                    GUILayoutHelper.RegisterUndo("Snap Dimensions", text.transform);
                     text.MakePixelPerfect();
                 }
 

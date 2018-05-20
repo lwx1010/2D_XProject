@@ -2,6 +2,7 @@
 
 namespace LuaDataBind
 {
+#if NGUI
     /// <summary>
     ///   Gets the text value of a UIPopupList element.
     /// </summary>
@@ -27,4 +28,5 @@ namespace LuaDataBind
 
         #endregion
     }
+#endif
 }

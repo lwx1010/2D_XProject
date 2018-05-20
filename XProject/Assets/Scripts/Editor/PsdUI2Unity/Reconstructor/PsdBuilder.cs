@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.CompilerServices;
 using System.Xml;
-using Assets.Editor.UITools;
 using PhotoshopFile;
 using UIHelper;
 using UnityEditor;
@@ -19,20 +17,22 @@ namespace EditorTool.PsdExport
 	    public static GameObject FindUIRoot()
 	    {
 #if UGUI
-            Canvas rootCanvas = GameObject.FindObjectOfType<Canvas>();
-	        if (rootCanvas != null) return rootCanvas.gameObject;
-            GameObject root = new GameObject("UIRoot(UGUI)");
+            GameObject root = new GameObject("Canvas");
             Canvas can = root.AddComponent<Canvas>();
             can.renderMode = RenderMode.ScreenSpaceOverlay;
-            root.AddComponent<CanvasScaler>();
+            var scaler = root.AddComponent<CanvasScaler>();
+            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            scaler.referenceResolution = new Vector2(1280, 720);
+            scaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
             root.AddComponent<GraphicRaycaster>();
             return root;  
 #elif NGUI
             UIRoot root = GameObject.FindObjectOfType<UIRoot>();
             if(root == null)
-                NGUITools.CreateUI(false);
+                GameTools.CreateUI(false);
 	        return GameObject.FindObjectOfType<UICamera>().gameObject;
 #endif
+	        return null;
 	    }
 
 		#region convenience functions
@@ -247,7 +247,9 @@ namespace EditorTool.PsdExport
 	        SpriteAlignment align, IPsdConstructor constructor)
 	    {
             GameObject spriteObject = constructor.CreateGameObject(settings.Filename, root);
-	        spriteObject.name += "[name:_root_]";
+#if NGUI
+            spriteObject.name += "[name:_root_]";
+#endif
             LayerWordBinder.registWord();
 
             PSDLayerGroupInfo rootGroup = new PSDLayerGroupInfo(settings.Filename, settings.Psd.Layers.Count - 1, true, true);

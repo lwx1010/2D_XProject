@@ -8,7 +8,6 @@ using System.Text;
 using Riverlake.Crypto;
 using System;
 using System.Linq;
-using Assets.Editor.UITools;
 using ZstdNet;
 using Config;
 
@@ -21,6 +20,7 @@ public class AssetBundleEditor : EditorWindow
         window.Show();
     }
 
+    [MenuItem("AssetBundlePacker/关闭ab编辑器")]
     static void CloseEditor()
     {
         var window = EditorWindow.GetWindow<AssetBundleEditor>();
@@ -60,7 +60,7 @@ public class AssetBundleEditor : EditorWindow
 
     private Vector2 deltaPosition;
 
-    private string DEFAULT_CONFIG_NAME = Application.dataPath + "/ab_config.xml";
+    private string DEFAULT_CONFIG_NAME = "Assets/ab_config.xml";
 
     private string Apk_Save_Path;
 
@@ -137,9 +137,9 @@ public class AssetBundleEditor : EditorWindow
             autoConnectProfile = EditorGUILayout.Toggle("Autoconnect Profile", autoConnectProfile, GUILayout.Width(200));
             GUI.contentColor = Color.white;
 
-            EditorGUILayout.LabelField("", GUILayout.Width(20));
-            EditorGUILayout.LabelField(string.Format("{0}: {1}", ABLanguage.RES_VERSION, gameVersion.ToString()), GUILayout.Width(150));
-            EditorGUILayout.LabelField(string.Format("{0}: {1}", ABLanguage.APK_VERSION, apkVersion.ToString()), GUILayout.Width(150));
+            //EditorGUILayout.LabelField("", GUILayout.Width(20));
+            //EditorGUILayout.LabelField(string.Format("{0}: {1}", ABLanguage.RES_VERSION, gameVersion.ToString()), GUILayout.Width(150));
+            //EditorGUILayout.LabelField(string.Format("{0}: {1}", ABLanguage.APK_VERSION, apkVersion.ToString()), GUILayout.Width(150));
 
             EditorGUILayout.LabelField(ABLanguage.PACK_CONFIG, GUILayout.Width(100));
             GUI.contentColor = Color.white;
@@ -254,31 +254,31 @@ public class AssetBundleEditor : EditorWindow
             Instance = this;
             abTypeMaps = new Dictionary<string, string>();
             ABData.datas.Clear();
-#if !UNITY_IOS
-            SVNHelper.UpdateVersion();
-#endif
-            // 拷贝资源版本号
-#if UNITY_IOS
-            var destVersionPath = ABPackHelper.VERSION_PATH + "version_ios.txt";
-#else
-            var destVersionPath = ABPackHelper.VERSION_PATH + "version.txt";
-#endif
-            if (!File.Exists(destVersionPath)) destVersionPath = ABPackHelper.ASSET_PATH + LuaConst.osDir + "/version.txt";
-            var versionPath = ABPackHelper.BUILD_PATH + LuaConst.osDir + "/version.txt";
-            File.Copy(destVersionPath, versionPath, true);
-            if (File.Exists(versionPath))
-                gameVersion = GameVersion.CreateVersion(File.ReadAllText(versionPath));
-            else
-                gameVersion = GameVersion.CreateVersion(Application.version);
-            // 读取游戏版本号
-            destVersionPath = ABPackHelper.VERSION_PATH + "apk_version.txt";
-            if (File.Exists(destVersionPath))
-            {
-                var ver = File.ReadAllText(destVersionPath);
-                apkVersion = Convert.ToInt32(ver);
-            }
-            else
-                apkVersion = 0;
+//#if !UNITY_IOS
+//            SVNHelper.UpdateVersion();
+//#endif
+//            // 拷贝资源版本号
+//#if UNITY_IOS
+//            var destVersionPath = ABPackHelper.VERSION_PATH + "version_ios.txt";
+//#else
+//            var destVersionPath = ABPackHelper.VERSION_PATH + "version.txt";
+//#endif
+//            if (!File.Exists(destVersionPath)) destVersionPath = ABPackHelper.ASSET_PATH + LuaConst.osDir + "/version.txt";
+//            var versionPath = ABPackHelper.BUILD_PATH + LuaConst.osDir + "/version.txt";
+//            File.Copy(destVersionPath, versionPath, true);
+//            if (File.Exists(versionPath))
+//                gameVersion = GameVersion.CreateVersion(File.ReadAllText(versionPath));
+//            else
+//                gameVersion = GameVersion.CreateVersion(Application.version);
+//            // 读取游戏版本号
+//            destVersionPath = ABPackHelper.VERSION_PATH + "apk_version.txt";
+//            if (File.Exists(destVersionPath))
+//            {
+//                var ver = File.ReadAllText(destVersionPath);
+//                apkVersion = Convert.ToInt32(ver);
+//            }
+//            else
+//                apkVersion = 0;
 
             if (!File.Exists(DEFAULT_CONFIG_NAME))
                 return;
@@ -296,13 +296,20 @@ public class AssetBundleEditor : EditorWindow
 
     void OnDisable()
     {
-        if (save) SaveConfig();
-        Instance = null;
-        ABData.datas.Clear();
-        abTypeMaps.Clear();
-        abTypeMaps = null;
-        gameVersion = null;
-        Apk_Save_Path = null;
+        try
+        {
+            if (save) SaveConfig();
+            Instance = null;
+            ABData.datas.Clear();
+            abTypeMaps.Clear();
+            abTypeMaps = null;
+            gameVersion = null;
+            Apk_Save_Path = null;
+        }
+        catch (Exception e)
+        {
+
+        }
     }
 
     void SetResourcesFolder()
@@ -592,9 +599,6 @@ public class AssetBundleEditor : EditorWindow
 
     void SetAbName()
     {
-        //更新GUI Texture 转换
-        UITexutreConvertWindow.CovertUITexturePathLower();
-
         string savePath = ABPackHelper.BUILD_PATH + LuaConst.osDir + "/tempsizefile.txt";
         if (File.Exists(savePath)) File.Delete(savePath);
         AssetDatabase.Refresh();

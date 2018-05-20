@@ -27,7 +27,7 @@ namespace EditorTool.PsdExport
                 NHelper.TransformOffsetParent(gObj.transform , bgTrans, orginPos);
                 gObj.transform.localPosition = orginPos;
 
-                NGUITools.AddWidgetCollider(gObj);
+                GameTools.AddWidgetCollider(gObj);
             }
             catch (Exception)
             {

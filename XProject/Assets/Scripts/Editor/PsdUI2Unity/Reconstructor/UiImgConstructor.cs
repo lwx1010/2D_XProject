@@ -66,28 +66,61 @@ namespace EditorTool.PsdExport
 
 //            Vector2 sprPivot = PsdBuilder.GetPivot(settings);
 //            uiImg.pivot = NGUIMath.GetPivot(sprPivot);
-#else
+#elif ART_PROJ
             var uiImg = imageObject.AddComponent<Image>();
-            string[] sprites = Directory.GetFiles("Assets/Textures/", "*.png", SearchOption.AllDirectories);
-            foreach(var file in sprites)
+            string[] all_sprites = Directory.GetFiles("Assets/Textures", "*.png", SearchOption.AllDirectories);
+            foreach(var file in all_sprites)
             {
                 string tmpName = Path.GetFileNameWithoutExtension(file);
-                if (tmpName.Equals(spriteName))
+                var tmp = AssetDatabase.LoadAssetAtPath<Sprite>(file);
+                if (tmp.name == spriteName)
                 {
-                    sprite = AssetDatabase.LoadAssetAtPath<Sprite>(file);
+                    sprite = tmp as Sprite;
+                    break;
                 }
             }
             uiImg.sprite = sprite;
+            if (sprite != null && sprite.border != Vector4.zero)
+                uiImg.type = Image.Type.Sliced;
             //uiImg.SetNativeSize();
             uiImg.rectTransform.sizeDelta = new Vector2((int)layer.Rect.width, (int)layer.Rect.height);
 			uiImg.rectTransform.SetAsFirstSibling();
 
 			//Vector2 sprPivot = PsdBuilder.GetPivot(settings);
 			//uiImg.rectTransform.pivot = sprPivot;
+#else
+            var uiImg = imageObject.AddComponent<Image>();
+            string[] all_sprites = Directory.GetFiles("Assets/Res/Atlas", "*.png", SearchOption.AllDirectories);
+            foreach (var file in all_sprites)
+            {
+                string tmpName = Path.GetFileNameWithoutExtension(file);
+                var sprites = AssetDatabase.LoadAllAssetsAtPath(file);
+
+                bool created = false;
+                foreach (var tmp in sprites)
+                {
+                    if (tmp.name == spriteName)
+                    {
+                        sprite = tmp as Sprite;
+                        created = true;
+                        break;
+                    }
+                }
+                if (created) break;
+            }
+            uiImg.sprite = sprite;
+            if (sprite != null && sprite.border != Vector4.zero)
+                uiImg.type = Image.Type.Sliced;
+            //uiImg.SetNativeSize();
+            uiImg.rectTransform.sizeDelta = new Vector2((int)layer.Rect.width, (int)layer.Rect.height);
+            uiImg.rectTransform.SetAsFirstSibling();
+
+            //Vector2 sprPivot = PsdBuilder.GetPivot(settings);
+            //uiImg.rectTransform.pivot = sprPivot;
 #endif
         }
 
-		public void HandleGroupOpen(GameObject groupParent) { }
+        public void HandleGroupOpen(GameObject groupParent) { }
 
 		public void HandleGroupClose(GameObject groupParent)
 		{

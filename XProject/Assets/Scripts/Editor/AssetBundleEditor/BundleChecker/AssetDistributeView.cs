@@ -23,7 +23,7 @@ namespace BundleChecker
             if (curRes.Dependencies.Count > 0)
             {
                 drawDependencieAsset();
-                NGUIEditorTools.DrawSeparator();
+                GUILayoutHelper.DrawSeparator();
             }
 
             drawAllBundles();
@@ -47,7 +47,7 @@ namespace BundleChecker
         {
             EditorGUILayout.HelpBox(tipStr , MessageType.Info);
             //all assets
-            NGUIEditorTools.DrawHeader("All AssetBundle");
+            GUILayoutHelper.DrawHeader("All AssetBundle");
 
             //Search
             GUILayout.BeginHorizontal();
@@ -135,7 +135,7 @@ namespace BundleChecker
 
         private void drawDependencieAsset()
         {
-            NGUIEditorTools.DrawHeader("Dependencies");
+            GUILayoutHelper.DrawHeader("Dependencies");
 
             int column = 3;
             int columnWidth = Mathf.Max( 1, (int)(ABMainChecker.MainChecker.Width - 30)/ column);

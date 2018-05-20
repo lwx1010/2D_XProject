@@ -31,7 +31,7 @@ namespace BundleChecker
 
             drawTitle();
 
-            NGUIEditorTools.DrawHeader("详情");
+            GUILayoutHelper.DrawHeader("详情");
 
             if (lastTabIndex != curTabIndex)
             {
@@ -88,7 +88,7 @@ namespace BundleChecker
             GUILayout.Label("是否冗余", GUILayout.Width(100));
             GUILayout.EndHorizontal();
 
-            NGUIEditorTools.DrawSeparator();
+            GUILayoutHelper.DrawSeparator();
             
             scrollPos = GUILayout.BeginScrollView(scrollPos , GUILayout.MinHeight(ABMainChecker.MainChecker.Height * 0.4f));
             int indexRow = 0;
@@ -103,7 +103,7 @@ namespace BundleChecker
             GUILayout.EndScrollView();
 
             GUILayout.Space(5);
-            NGUIEditorTools.DrawSeparator();
+            GUILayoutHelper.DrawSeparator();
             GUILayout.Space(5);
 
             GUILayout.BeginHorizontal();
@@ -203,7 +203,7 @@ namespace BundleChecker
         {
             float width = ABMainChecker.MainChecker.Width*0.5f - 10;
             GUILayout.BeginVertical(GUILayout.Width(width));
-            NGUIEditorTools.DrawHeader("依赖的AssetBundle");
+            GUILayoutHelper.DrawHeader("依赖的AssetBundle");
             depScrollPos = GUILayout.BeginScrollView(depScrollPos);
 
             int indexRow = 0;
@@ -232,7 +232,7 @@ namespace BundleChecker
         {
             float width = ABMainChecker.MainChecker.Width * 0.5f - 10;
             GUILayout.BeginVertical(GUILayout.Width(width));
-            NGUIEditorTools.DrawHeader("被其它AssetBundle依赖");
+            GUILayoutHelper.DrawHeader("被其它AssetBundle依赖");
             beDepScrollPos = GUILayout.BeginScrollView(beDepScrollPos);
 
             int indexRow = 0;
@@ -317,7 +317,7 @@ namespace BundleChecker
             GUILayout.Label("详情", GUILayout.Width(100));
             GUILayout.EndHorizontal();
 
-            NGUIEditorTools.DrawSeparator();
+            GUILayoutHelper.DrawSeparator();
 
             scrollPos = GUILayout.BeginScrollView(scrollPos);
             List<ResoucresBean> resList = curBundle.GetAllAssets(EResoucresTypes.ShaderType);
@@ -370,7 +370,7 @@ namespace BundleChecker
             }
             GUILayout.EndHorizontal();
 
-            NGUIEditorTools.DrawSeparator();
+            GUILayoutHelper.DrawSeparator();
 
             scrollPos = GUILayout.BeginScrollView(scrollPos);
             int indexRow = 0;

@@ -7,8 +7,8 @@ using DG.Tweening;
 
 public class UButtonScale : UButtonBase
 {
-    public float scaleXOnPressed = 1.1f;
-    public float scaleYOnPressed = 1.1f;
+    public float scaleXOnPressed = 0.8f;
+    public float scaleYOnPressed = 0.8f;
     public float scaleDurationOnPressed = 0.3f;
     public float scaleDurationOnReleased = 0.3f;
 

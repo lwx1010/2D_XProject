@@ -35,10 +35,10 @@ public sealed class PrefabLoader : MonoBehaviour
     void Awake()
     {
         effectLayer = LayerMask.NameToLayer("RoleEffect");
-        for (int i = 0; i < prefabs.Length; ++i)
-        {
-            ObjectPool.CreatePool(prefabs[i], 1);
-        }
+        //for (int i = 0; i < prefabs.Length; ++i)
+        //{
+        //    ObjectPool.CreatePool(prefabs[i], 1);
+        //}
         transCache = transform;
         LoadPrefab();
     }
@@ -55,13 +55,13 @@ public sealed class PrefabLoader : MonoBehaviour
 		{
 			if (prefabs[i] == null)
 				continue;
-			var go = prefabs[i].Spawn();
-            spawnedGoes.Add(go);
-            var trans = go.transform;
-            trans.SetParent(transCache);
-            trans.localScale = scale.Length == 0 ? Vector3.one : scale[i];
-            trans.localPosition = position.Length == 0 ? Vector3.zero : position[i];
-            trans.localRotation = rotation.Length == 0 ? Quaternion.identity : Quaternion.Euler(rotation[i]);
+			//var go = prefabs[i].Spawn();
+   //         spawnedGoes.Add(go);
+   //         var trans = go.transform;
+   //         trans.SetParent(transCache);
+   //         trans.localScale = scale.Length == 0 ? Vector3.one : scale[i];
+   //         trans.localPosition = position.Length == 0 ? Vector3.zero : position[i];
+   //         trans.localRotation = rotation.Length == 0 ? Quaternion.identity : Quaternion.Euler(rotation[i]);
         }
 	}
 

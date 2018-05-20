@@ -1,4 +1,5 @@
 ﻿using System;
+using LuaInterface;
 
 namespace Riverlake.Resources
 {
@@ -16,12 +17,21 @@ namespace Riverlake.Resources
 
         }
 
+        public LoadAssetAsync(UnityEngine.Object asset , string path)
+            : base(path)
+        {
+            mainAsset = asset;
+        }
+
         public override void OnLoad()
         {
 #if UNITY_EDITOR
-            mainAsset = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(assetPath);
-            if (mainAsset == null)
-                UnityEngine.Debug.LogError("Cant find Asset! " + assetPath);
+            if(mainAsset == null)
+            {
+                mainAsset = UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(assetPath);
+                if (mainAsset == null)
+                    UnityEngine.Debug.LogError("Cant find Asset! " + assetPath);
+            }
 #endif
         }
 
@@ -32,6 +42,7 @@ namespace Riverlake.Resources
             return true;
         }
 
+        [NoToLua]
         public override T GetAsset<T>()
         {
             return (T)mainAsset;

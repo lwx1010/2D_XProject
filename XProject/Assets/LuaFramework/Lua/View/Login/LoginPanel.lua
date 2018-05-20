@@ -27,6 +27,7 @@ function LoginPanel.InitPanel()
 	this.logoGo = transform:Find("Logo").gameObject
 	this.msgLabel = this.showMsgGo:GetComponent('Text')
 	--this.loginCollider = transform:Find("LoginCollider").gameObject
+
 end
 
 function LoginPanel.Start()

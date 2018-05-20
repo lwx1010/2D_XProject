@@ -5,7 +5,7 @@ namespace AssetChecker
     public class GUISetting
     {
         public static string SelectFilePath;
-        public static Color SelectColor = NGUIText.ParseColor32("0088CCFF", 0);
+        public static Color SelectColor = EngineTools.ParseColor32("0088CCFF", 0);
 
         public const string TOP_BAR_LABEL_STYLE_NAME = "TopBarLabel";
         public const string TOP_BAR_BTN_STYLE_NAME = "TopBarButton";
@@ -14,11 +14,11 @@ namespace AssetChecker
         //评级
         public static Color[] ScoreColors = new[]
         {
-            NGUIText.ParseColor32("17F133FF",0),
-            NGUIText.ParseColor32("87FF7DFF",0),
-            NGUIText.ParseColor32("F3FF36FF" , 0),
-            NGUIText.ParseColor32("B50404FF" , 0),
-            NGUIText.ParseColor32("590404FF" , 0)
+            EngineTools.ParseColor32("17F133FF",0),
+            EngineTools.ParseColor32("87FF7DFF",0),
+            EngineTools.ParseColor32("F3FF36FF" , 0),
+            EngineTools.ParseColor32("B50404FF" , 0),
+            EngineTools.ParseColor32("590404FF" , 0)
         };
         public static string[] ScoreNames = new[] {"完美", "优秀", "合格", "超标", "你咋不上天了"};
         /// <summary>

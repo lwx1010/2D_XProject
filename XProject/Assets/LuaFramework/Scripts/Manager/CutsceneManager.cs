@@ -165,6 +165,47 @@ namespace LuaFramework
             soundMgr.StopSound(SoundManager.SoundType.Story);
         }
 
+
+        /// <summary>
+        /// 设置场景中的所有SceneEntity是否渲染阴影
+        /// </summary>
+        /// <param name="isVisiable"></param>
+        public void SetSceneShadow(bool isVisiable)
+        {
+            //LightFace lightFace = LightFace.Get();
+            //if (lightFace != null)
+            //{
+            //    if (isVisiable)
+            //    {
+            //        this.StartCoroutine(this.restartProjecterShadow());
+            //    }
+            //    else
+            //    {
+            //        lightFace.ShadowsOn = true;
+            //        LightFace.GlobalShadowCullingMode = LightFace.ProjectionCulling.ProjectorBounds;
+            //        lightFace.ProCamera.ClearAllLayer();
+            //        lightFace.OnShadowResolutionChange(3);
+            //        lightFace.ProCamera.ShowLayerName("Plot");
+            //    }
+            //}
+            
+            //this.setSceneEntityShadow(RoleManager.npcs , isVisiable);
+            //this.setSceneEntityShadow(RoleManager.monsters , isVisiable);
+            //this.setSceneEntityShadow(RoleManager.roles , isVisiable);
+            //this.setSceneEntityShadow(RoleManager.roleParts, isVisiable);
+            //this.setSceneEntityShadow(RoleManager.xunLuoEntities , isVisiable);
+            //this.setSceneEntityShadow(RoleManager.aiderNpcs, isVisiable);
+        }
+
+        private IEnumerator restartProjecterShadow()
+        {
+            //LightFace lightFace = LightFace.Get();
+            //lightFace.ProCamera.MainCamera = Camera.main;
+            yield return Yielders.EndOfFrame;
+            //RoleManager.Instance.UpdateBlockSetting();
+        }
+
+
         //private void setSceneEntityShadow(List<SceneEntity> entitys, bool isVisable)
         //{
         //    if (entitys == null || entitys.Count <= 0) return;
@@ -295,7 +336,7 @@ namespace LuaFramework
         private IEnumerator loadCutsceneAsync(int cutsceneId)
         {
             string cutscenePath = string.Concat("Prefab/Cutscene/Cutscene", cutsceneId);
-            ALoadOperation operation = ResourceManager.LoadAssetAsync(cutscenePath);
+            ALoadOperation operation = ResourceManager.LoadBundleAsync(cutscenePath);
             yield return this.StartCoroutine(operation);
 
             GameObject gObj = operation.GetAsset<GameObject>();
@@ -383,7 +424,7 @@ namespace LuaFramework
             for (int i = 0; i < cutsenes.Count; i++)
             {
                 string resPath = string.Concat("Prefab/Cutscene/Cutscene", cutsenes[i]);
-                ALoadOperation loadAssetAsync = ResourceManager.LoadAssetAsync(resPath);
+                ALoadOperation loadAssetAsync = ResourceManager.LoadBundleAsync(resPath);
                 loadAssetAsync.OnFinish = instanceCutscene;
                 stageLoader.AddLoader(loadAssetAsync, 5);
             }

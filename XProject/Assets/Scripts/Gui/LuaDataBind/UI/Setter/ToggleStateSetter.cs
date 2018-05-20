@@ -2,6 +2,7 @@
 
 namespace LuaDataBind
 {
+#if NGUI
     /// <summary>
     ///   Set the state of a UIToggle depending on the bool data value.
     /// </summary>
@@ -13,4 +14,5 @@ namespace LuaDataBind
             this.Target.value = value;
         }
     }
+#endif
 }

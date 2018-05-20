@@ -37,6 +37,7 @@ namespace EditorTool.PsdExport
         }
     }
 
+#if NGUI
     public class NAtlasHelper
     {
         
@@ -78,7 +79,7 @@ namespace EditorTool.PsdExport
         }
 
 
-        #region -----------------封装的Atlas数据-------------------------
+#region -----------------封装的Atlas数据-------------------------
         public class UIAtlasData
         {
             public string FilePath;
@@ -126,11 +127,11 @@ namespace EditorTool.PsdExport
                 }
             }
         }
-        #endregion
+#endregion
         
     }
 
-
+#endif
     public class NTempletHelper
     {
         private static Dictionary<string , string> templetNameAndPaths = new Dictionary<string, string>(); 

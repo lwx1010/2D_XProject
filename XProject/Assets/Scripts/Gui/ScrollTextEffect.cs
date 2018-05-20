@@ -6,6 +6,7 @@ using System.Collections;
 using UnityEngine;
 using LuaFramework;
 
+#if NGUI
 /// <summary>
 /// 剧情世界观滚动文本
 /// </summary>
@@ -80,3 +81,4 @@ public class ScrollTextEffect : MonoBehaviour
         panelMgr.ClosePanel(panelName);
     }
 }
+#endif

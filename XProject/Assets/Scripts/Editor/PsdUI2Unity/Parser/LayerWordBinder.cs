@@ -25,6 +25,7 @@ namespace EditorTool.PsdExport
             importParser["img"] = new ImageBinder();
             importParser["ignore"] = new IgnoreBinder();
             importParser["font"] = new FontBinder();
+            importParser["rotate"] = new RotationBinder();
             // 脚本组件
             if (PsdSetting.Instance.curGUIType == GUIType.UGUI)
             {

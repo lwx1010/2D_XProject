@@ -26,6 +26,10 @@ namespace CinemaDirector
             if (this.shotCamera != null)
             {
                 this.shotCamera.gameObject.SetActive(true);
+
+                //LightFace lightFace = LightFace.Get();
+                //if (lightFace != null)
+                //    lightFace.ProCamera.MainCamera = shotCamera;
             }
         }
 

@@ -7,5 +7,6 @@ local DATAMODEL_NAME = ...
 import(".Login.init")
 import(".Setting.init")
 import(".MapData")
+import(".Dogz.init")
 
  

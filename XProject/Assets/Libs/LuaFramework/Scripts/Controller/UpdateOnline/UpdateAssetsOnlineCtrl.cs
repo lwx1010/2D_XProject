@@ -22,6 +22,7 @@ public class UpdateAssetsOnlineCtrl
     private List<string> downloadErrorFiles = new List<string>();
 
     private List<string> extractLeftFiles = new List<string>();
+
     private int curSingleStreamingIndex = 0;
     private int totalSingleStreamingCount = 0;
 
@@ -155,15 +156,16 @@ public class UpdateAssetsOnlineCtrl
             Directory.CreateDirectory(dataPath);
         }
 
-        List<string> needDownloadFiles = new List<string>();
-        downloadedSize = 0;
+        //List<string> needDownloadFiles = new List<string>();
         //curFileSize = 0;
        
         filesText = www.text;
         www.Dispose();
 
         string[] files = filesText.Split('\n');
-        totalSize = gameMgr.GetTotalDownloadSize(files, needDownloadFiles);
+        yield return gameMgr.AdjustFileStatus(files, bar);
+        downloadedSize = 0;
+        totalSize = gameMgr.GetTotalDownloadSize();
 
         if (totalSize > 0)
         {
@@ -213,7 +215,7 @@ public class UpdateAssetsOnlineCtrl
 
         //启动多线程下载
         //startMulThreadUpdate(needDownloadFiles);
-        startResumingUpdate(needDownloadFiles);
+        startResumingUpdate(gameMgr.needDownloadFiles);
     }
 
     public void UpdateResumingDownloadProgress()

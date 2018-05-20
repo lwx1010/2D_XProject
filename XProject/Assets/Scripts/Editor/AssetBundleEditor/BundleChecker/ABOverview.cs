@@ -52,7 +52,7 @@ namespace BundleChecker
         public void OnGUI()
         {
             
-            NGUIEditorTools.DrawHeader("检测AssetBundle");
+            GUILayoutHelper.DrawHeader("检测AssetBundle");
             GUILayout.BeginHorizontal();
                 
                 if (GUILayout.Button("Asset Bundles", "DropDown" ,GUILayout.Width(120)))
@@ -80,7 +80,7 @@ namespace BundleChecker
             GUI.backgroundColor = Color.white;
 
             //Overview
-            NGUIEditorTools.DrawSeparator();
+            GUILayoutHelper.DrawSeparator();
             drawOverview();
 
             switch (curView)
@@ -103,6 +103,7 @@ namespace BundleChecker
         private void drawOverview()
         {
             ABMainChecker mainCheckr = ABMainChecker.MainChecker;
+            if (mainCheckr == null || mainCheckr.BundleList == null) return;
             GUILayout.BeginHorizontal();
             if (GUILayout.Button(string.Format("总资源数：{0}" , mainCheckr.BundleList.Count) , GUILayout.Height(50)))
             {
@@ -139,7 +140,7 @@ namespace BundleChecker
         private void drawAllAssetBundle()
         {
             //all assets
-            NGUIEditorTools.DrawHeader("All AssetBundle");
+            GUILayoutHelper.DrawHeader("All AssetBundle");
             //Search
             GUILayout.BeginHorizontal();
             {
@@ -251,7 +252,7 @@ namespace BundleChecker
         private void drawAllRedundancyAsset()
         {
             //all assets
-            NGUIEditorTools.DrawHeader("All Redundancy AssetBundle");
+            GUILayoutHelper.DrawHeader("All Redundancy AssetBundle");
 
             
             GUILayout.BeginHorizontal();
@@ -359,7 +360,7 @@ namespace BundleChecker
         private void drawMissingAsset()
         {
             //all assets
-            NGUIEditorTools.DrawHeader("All Missing AssetBundle");
+            GUILayoutHelper.DrawHeader("All Missing AssetBundle");
 
             List<ResoucresBean> missingResList = ABMainChecker.MainChecker.MissingRes;
 
@@ -553,7 +554,7 @@ namespace BundleChecker
             return infos.ToArray();
         }
 
-        public static string overwiewDefaultFolder = string.Concat(Application.dataPath, "OverView_defultFolder");
+        public static string overwiewDefaultFolder =  "Assets/OverView_defultFolder";
         public string CurFolderRoot
         {
             get

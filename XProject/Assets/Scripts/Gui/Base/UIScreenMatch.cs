@@ -7,8 +7,8 @@ public class UIScreenMatch : MonoBehaviour {
 
     void Start()
     {
-        float standard_width = 1920f;        //初始宽度  
-        float standard_height = 1080f;       //初始高度  
+        float standard_width = 1280;        //初始宽度  
+        float standard_height = 720;       //初始高度  
         float device_width = 0f;                //当前设备宽度  
         float device_height = 0f;               //当前设备高度  
         float adjustor = 0f;         //屏幕矫正比例  

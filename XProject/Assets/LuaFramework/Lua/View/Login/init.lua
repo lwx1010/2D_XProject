@@ -7,4 +7,6 @@ local LOGIN_VIEW_NAME = ...
 
 import(".LoginPanel")
 import(".NoticesPanel")
+import(".LeftCell")
+import(".ServerCell")
 import(".ServersPanel")

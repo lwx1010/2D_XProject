@@ -2,7 +2,7 @@
 
 namespace LuaDataBind
 {
-    
+#if NGUI
     /// <summary>
     ///   Set the sprite name of a UISprite depending on the string data value.
     /// </summary>
@@ -15,4 +15,5 @@ namespace LuaDataBind
             this.Target.spriteName = newValue;
         }
     }
+#endif
 }

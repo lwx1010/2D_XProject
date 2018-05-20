@@ -49,14 +49,27 @@ function Game.OnInitOK()
     end
     SystemSetting.initRendererQuality(curRendererQuality)
 
-    -- 本地推送
-    -- local pushXls = require("xlsdata/client/PushXls")
-    -- local pushJson = json.encode(pushXls)
-    -- NativeSDK.StartPushService(pushJson);
+	-- 本地推送
+	-- local pushXls = require("xlsdata/client/PushXls")
+	-- local pushJson = json.encode(pushXls)
+	-- NativeSDK.StartPushService(pushJson);
 
-    this.EnterLogin()
+	-- 加载Shader Property
+	this._loadShaderPropertys()
+
+	this.EnterLogin()
 end
 
+-- 加载Shader全局参数
+function Game._loadShaderPropertys()
+
+    local shaderFiles = List_string.New()
+    shaderFiles:Add("ActorPropertys")
+	shaderFiles:Add("TerrianProperty")
+	shaderFiles:Add("T4MTerrianProperty")
+
+    ShaderMgr:LoadPropertys(shaderFiles:ToArray())
+end
 
 --销毁--
 function Game.OnDestroy()
@@ -108,6 +121,7 @@ function Game.LoadSceneViaPreloading( sceneId )
         return
     end
 
+    -- map.SceneName = "10001_test"
     if mapData.LoadType == 1 then
         sceneMgr:LoadSceneViaPreloading(MainStage.new(map.SceneName))
     else
@@ -134,7 +148,7 @@ function Game.ChangeSceneClear()
 end
 
 function Game.UpdateHeroAttrs(attrs)
-    
+
 end
 
 function Game.AddLogicEvent()

@@ -11,7 +11,7 @@ public class AppConstWrap
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("DebugMode", get_DebugMode, set_DebugMode);
 		L.RegVar("UpdateMode", get_UpdateMode, set_UpdateMode);
-		L.RegConstant("LuaByteMode", 1);
+		L.RegVar("LuaByteMode", get_LuaByteMode, set_LuaByteMode);
 		L.RegVar("AssetBundleMode", get_AssetBundleMode, set_AssetBundleMode);
 		L.RegVar("LuaBundleMode", get_LuaBundleMode, set_LuaBundleMode);
 		L.RegConstant("TimerInterval", 1);
@@ -73,6 +73,20 @@ public class AppConstWrap
 		try
 		{
 			LuaDLL.lua_pushboolean(L, AppConst.UpdateMode);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_LuaByteMode(IntPtr L)
+	{
+		try
+		{
+			LuaDLL.lua_pushboolean(L, AppConst.LuaByteMode);
 			return 1;
 		}
 		catch (Exception e)
@@ -257,6 +271,21 @@ public class AppConstWrap
 		{
 			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
 			AppConst.UpdateMode = arg0;
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_LuaByteMode(IntPtr L)
+	{
+		try
+		{
+			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+			AppConst.LuaByteMode = arg0;
 			return 0;
 		}
 		catch (Exception e)

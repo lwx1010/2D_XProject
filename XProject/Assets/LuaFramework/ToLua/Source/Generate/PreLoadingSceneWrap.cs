@@ -16,8 +16,6 @@ public class PreLoadingSceneWrap
 		L.RegVar("al", get_al, set_al);
 		L.RegVar("loadingCanvas", get_loadingCanvas, set_loadingCanvas);
 		L.RegVar("backImage", get_backImage, set_backImage);
-		L.RegVar("progressBar", get_progressBar, set_progressBar);
-		L.RegVar("progressBarBg", get_progressBarBg, set_progressBarBg);
 		L.RegVar("processAction", get_processAction, set_processAction);
 		L.RegVar("curIndex", get_curIndex, set_curIndex);
 		L.EndClass();
@@ -151,44 +149,6 @@ public class PreLoadingSceneWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_progressBar(IntPtr L)
-	{
-		object o = null;
-
-		try
-		{
-			o = ToLua.ToObject(L, 1);
-			PreLoadingScene obj = (PreLoadingScene)o;
-			UnityEngine.UI.Image ret = obj.progressBar;
-			ToLua.Push(L, ret);
-			return 1;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index progressBar on a nil value");
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_progressBarBg(IntPtr L)
-	{
-		object o = null;
-
-		try
-		{
-			o = ToLua.ToObject(L, 1);
-			PreLoadingScene obj = (PreLoadingScene)o;
-			UnityEngine.UI.Image ret = obj.progressBarBg;
-			ToLua.Push(L, ret);
-			return 1;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index progressBarBg on a nil value");
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_processAction(IntPtr L)
 	{
 		object o = null;
@@ -316,44 +276,6 @@ public class PreLoadingSceneWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index backImage on a nil value");
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int set_progressBar(IntPtr L)
-	{
-		object o = null;
-
-		try
-		{
-			o = ToLua.ToObject(L, 1);
-			PreLoadingScene obj = (PreLoadingScene)o;
-			UnityEngine.UI.Image arg0 = (UnityEngine.UI.Image)ToLua.CheckObject<UnityEngine.UI.Image>(L, 2);
-			obj.progressBar = arg0;
-			return 0;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index progressBar on a nil value");
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int set_progressBarBg(IntPtr L)
-	{
-		object o = null;
-
-		try
-		{
-			o = ToLua.ToObject(L, 1);
-			PreLoadingScene obj = (PreLoadingScene)o;
-			UnityEngine.UI.Image arg0 = (UnityEngine.UI.Image)ToLua.CheckObject<UnityEngine.UI.Image>(L, 2);
-			obj.progressBarBg = arg0;
-			return 0;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e, o, "attempt to index progressBarBg on a nil value");
 		}
 	}
 

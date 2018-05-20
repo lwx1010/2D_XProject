@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+#if NGUI 
 public class AnimateTexture : MonoBehaviour
 {
     public string[] sequenceNames;
@@ -69,3 +70,4 @@ public class AnimateTexture : MonoBehaviour
     }
 
 }
+#endif

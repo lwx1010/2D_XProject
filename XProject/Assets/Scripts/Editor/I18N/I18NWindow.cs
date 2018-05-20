@@ -91,11 +91,11 @@ namespace Riverlake.Editor.I18N
 
         private void OnGUI()
         {
-            NGUIEditorTools.DrawHeader("Import");
+            GUILayoutHelper.DrawHeader("Import");
             
             this.importFoldersGUI();
 
-            NGUIEditorTools.DrawHeader("Option");
+            GUILayoutHelper.DrawHeader("Option");
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("翻译：" , GUILayout.Width(80));
@@ -117,7 +117,7 @@ namespace Riverlake.Editor.I18N
             {
                 this.exportSourcesAndOnlineLanguage();
             }
-            //            NGUIEditorTools.DrawHeader("Translater");
+            //            GUILayoutHelper.DrawHeader("Translater");
             
             EditorGUILayout.EndHorizontal();
 

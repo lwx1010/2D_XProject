@@ -59,20 +59,20 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Android
-    maxTextureSize: 128
+    maxTextureSize: 1024
     textureFormat: 47
     textureCompression: 0
     compressionQuality: 100
     crunchedCompression: 0
-    allowsAlphaSplitting: 1
+    allowsAlphaSplitting: 0
     overridden: 1
   - buildTarget: iPhone
-    maxTextureSize: 128
+    maxTextureSize: 1024
     textureFormat: 33
     textureCompression: 0
     compressionQuality: 100
     crunchedCompression: 0
-    allowsAlphaSplitting: 1
+    allowsAlphaSplitting: 0
     overridden: 1
   spriteSheet:
     serializedVersion: 2

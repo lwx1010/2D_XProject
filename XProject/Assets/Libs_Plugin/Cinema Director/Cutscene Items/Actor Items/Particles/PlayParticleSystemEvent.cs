@@ -20,7 +20,7 @@ namespace CinemaDirector
             {
                 if (Application.isPlaying && actor.transform.childCount == 0)
                 {
-                    GameObject newObj = ResourceManager.LoadPrefab(this.ActorTrackGroup.AssetPath.Replace(".prefab" , ""));
+                    GameObject newObj = ResourceManager.LoadPrefabBundle(this.ActorTrackGroup.AssetPath.Replace(".prefab" , ""));
                     newObj = GameObject.Instantiate(newObj) as GameObject;
                     ////Util.SetParent(newObj , actor);   
                 }

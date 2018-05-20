@@ -9,6 +9,7 @@ public class LuaFramework_CutsceneManagerWrap
 		L.BeginClass(typeof(LuaFramework.CutsceneManager), typeof(Manager));
 		L.RegFunction("OnCutsceneEvent", OnCutsceneEvent);
 		L.RegFunction("BackNomalEvent", BackNomalEvent);
+		L.RegFunction("SetSceneShadow", SetSceneShadow);
 		L.RegFunction("AddTrigger", AddTrigger);
 		L.RegFunction("RemoveTrigger", RemoveTrigger);
 		L.RegFunction("Clear", Clear);
@@ -50,6 +51,23 @@ public class LuaFramework_CutsceneManagerWrap
 			ToLua.CheckArgsCount(L, 1);
 			LuaFramework.CutsceneManager obj = (LuaFramework.CutsceneManager)ToLua.CheckObject<LuaFramework.CutsceneManager>(L, 1);
 			obj.BackNomalEvent();
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetSceneShadow(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			LuaFramework.CutsceneManager obj = (LuaFramework.CutsceneManager)ToLua.CheckObject<LuaFramework.CutsceneManager>(L, 1);
+			bool arg0 = LuaDLL.luaL_checkboolean(L, 2);
+			obj.SetSceneShadow(arg0);
 			return 0;
 		}
 		catch (Exception e)

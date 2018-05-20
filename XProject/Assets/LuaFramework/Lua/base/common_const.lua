@@ -5,6 +5,11 @@ mTABLETYPE =  type({})			--数组类型
 mFUNCTYPE = type(function() end)
 
 ---------------------------------------------------------------------------------------------
+--职业类型
+PROFESSION_SWORD = 1	--剑
+PROFESSION_LANCE = 2	--枪
+PROFESSION_THORN = 3	--刺
+
 --道具类型
 ITEM_TYPE_NORMAL = 1		--物品
 ITEM_TYPE_EQUIP  = 2		--装备
@@ -23,8 +28,10 @@ EP_ARMOR		=   5		--铠甲
 EP_SHOULDER		=	6		--护肩
 EP_BELT			=	7		--腰带
 EP_SHOES		=	8		--鞋子
-EP_FASHION		=	9		--时装
-EP_WEDRING		=	10		--婚戒
+EP_TALISMAN		=	9		--护符
+EP_MEDAL		=	10		--勋章
+EP_FASHION		=	11		--时装
+EP_WEDRING		=	12		--婚戒
 
 --道具绑定
 mUNBIND = 0	--未绑定

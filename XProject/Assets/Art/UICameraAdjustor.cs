@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(UICamera))]
+//[RequireComponent(typeof(UICamera))]
 public class UICameraAdjustor : MonoBehaviour
 {
     // the design size

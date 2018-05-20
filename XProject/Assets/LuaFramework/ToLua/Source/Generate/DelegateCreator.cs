@@ -61,20 +61,19 @@ public class DelegateCreator : IDelegateCreator
 		DelegateFactory.dict.Add(typeof(LuaFramework.LuaManager.OnBundleProgressChanged), creator.LuaFramework_LuaManager_OnBundleProgressChanged);
 		DelegateFactory.dict.Add(typeof(LuaFramework.TimerManager.UpdateFunc), creator.LuaFramework_TimerManager_UpdateFunc);
 		DelegateFactory.dict.Add(typeof(System.Action<Riverlake.Resources.ALoadOperation>), creator.System_Action_Riverlake_Resources_ALoadOperation);
-		DelegateFactory.dict.Add(typeof(EventDelegate.Callback), creator.EventDelegate_Callback);
 		DelegateFactory.dict.Add(typeof(System.Predicate<ServerInfo>), creator.System_Predicate_ServerInfo);
 		DelegateFactory.dict.Add(typeof(System.Action<ServerInfo>), creator.System_Action_ServerInfo);
 		DelegateFactory.dict.Add(typeof(System.Comparison<ServerInfo>), creator.System_Comparison_ServerInfo);
+		DelegateFactory.dict.Add(typeof(System.Predicate<string>), creator.System_Predicate_string);
+		DelegateFactory.dict.Add(typeof(System.Action<string>), creator.System_Action_string);
+		DelegateFactory.dict.Add(typeof(System.Comparison<string>), creator.System_Comparison_string);
 		DelegateFactory.dict.Add(typeof(System.Func<string,string>), creator.System_Func_string_string);
 		DelegateFactory.dict.Add(typeof(System.Action<DialogResult>), creator.System_Action_DialogResult);
-		DelegateFactory.dict.Add(typeof(UIWrapContent.OnInitializeItem), creator.UIWrapContent_OnInitializeItem);
 		DelegateFactory.dict.Add(typeof(CinemaDirector.CutsceneHandler), creator.CinemaDirector_CutsceneHandler);
-		DelegateFactory.dict.Add(typeof(System.Action<UnityEngine.GameObject,string>), creator.System_Action_UnityEngine_GameObject_string);
 		DelegateFactory.dict.Add(typeof(SDKInterface.LoginSucHandler), creator.SDKInterface_LoginSucHandler);
 		DelegateFactory.dict.Add(typeof(SDKInterface.LogoutHandler), creator.SDKInterface_LogoutHandler);
 		DelegateFactory.dict.Add(typeof(SDKInterface.PaySucHandler), creator.SDKInterface_PaySucHandler);
 		DelegateFactory.dict.Add(typeof(SDKInterface.GetSDKInfoHandler), creator.SDKInterface_GetSDKInfoHandler);
-		DelegateFactory.dict.Add(typeof(System.Action<string>), creator.System_Action_string);
 		DelegateFactory.dict.Add(typeof(System.Action<string,string>), creator.System_Action_string_string);
 
 		DelegateTraits<System.Action>.Init(creator.System_Action);
@@ -129,20 +128,19 @@ public class DelegateCreator : IDelegateCreator
 		DelegateTraits<LuaFramework.LuaManager.OnBundleProgressChanged>.Init(creator.LuaFramework_LuaManager_OnBundleProgressChanged);
 		DelegateTraits<LuaFramework.TimerManager.UpdateFunc>.Init(creator.LuaFramework_TimerManager_UpdateFunc);
 		DelegateTraits<System.Action<Riverlake.Resources.ALoadOperation>>.Init(creator.System_Action_Riverlake_Resources_ALoadOperation);
-		DelegateTraits<EventDelegate.Callback>.Init(creator.EventDelegate_Callback);
 		DelegateTraits<System.Predicate<ServerInfo>>.Init(creator.System_Predicate_ServerInfo);
 		DelegateTraits<System.Action<ServerInfo>>.Init(creator.System_Action_ServerInfo);
 		DelegateTraits<System.Comparison<ServerInfo>>.Init(creator.System_Comparison_ServerInfo);
+		DelegateTraits<System.Predicate<string>>.Init(creator.System_Predicate_string);
+		DelegateTraits<System.Action<string>>.Init(creator.System_Action_string);
+		DelegateTraits<System.Comparison<string>>.Init(creator.System_Comparison_string);
 		DelegateTraits<System.Func<string,string>>.Init(creator.System_Func_string_string);
 		DelegateTraits<System.Action<DialogResult>>.Init(creator.System_Action_DialogResult);
-		DelegateTraits<UIWrapContent.OnInitializeItem>.Init(creator.UIWrapContent_OnInitializeItem);
 		DelegateTraits<CinemaDirector.CutsceneHandler>.Init(creator.CinemaDirector_CutsceneHandler);
-		DelegateTraits<System.Action<UnityEngine.GameObject,string>>.Init(creator.System_Action_UnityEngine_GameObject_string);
 		DelegateTraits<SDKInterface.LoginSucHandler>.Init(creator.SDKInterface_LoginSucHandler);
 		DelegateTraits<SDKInterface.LogoutHandler>.Init(creator.SDKInterface_LogoutHandler);
 		DelegateTraits<SDKInterface.PaySucHandler>.Init(creator.SDKInterface_PaySucHandler);
 		DelegateTraits<SDKInterface.GetSDKInfoHandler>.Init(creator.SDKInterface_GetSDKInfoHandler);
-		DelegateTraits<System.Action<string>>.Init(creator.System_Action_string);
 		DelegateTraits<System.Action<string,string>>.Init(creator.System_Action_string_string);
 
 		TypeTraits<System.Action>.Init(creator.Check_System_Action);
@@ -197,20 +195,19 @@ public class DelegateCreator : IDelegateCreator
 		TypeTraits<LuaFramework.LuaManager.OnBundleProgressChanged>.Init(creator.Check_LuaFramework_LuaManager_OnBundleProgressChanged);
 		TypeTraits<LuaFramework.TimerManager.UpdateFunc>.Init(creator.Check_LuaFramework_TimerManager_UpdateFunc);
 		TypeTraits<System.Action<Riverlake.Resources.ALoadOperation>>.Init(creator.Check_System_Action_Riverlake_Resources_ALoadOperation);
-		TypeTraits<EventDelegate.Callback>.Init(creator.Check_EventDelegate_Callback);
 		TypeTraits<System.Predicate<ServerInfo>>.Init(creator.Check_System_Predicate_ServerInfo);
 		TypeTraits<System.Action<ServerInfo>>.Init(creator.Check_System_Action_ServerInfo);
 		TypeTraits<System.Comparison<ServerInfo>>.Init(creator.Check_System_Comparison_ServerInfo);
+		TypeTraits<System.Predicate<string>>.Init(creator.Check_System_Predicate_string);
+		TypeTraits<System.Action<string>>.Init(creator.Check_System_Action_string);
+		TypeTraits<System.Comparison<string>>.Init(creator.Check_System_Comparison_string);
 		TypeTraits<System.Func<string,string>>.Init(creator.Check_System_Func_string_string);
 		TypeTraits<System.Action<DialogResult>>.Init(creator.Check_System_Action_DialogResult);
-		TypeTraits<UIWrapContent.OnInitializeItem>.Init(creator.Check_UIWrapContent_OnInitializeItem);
 		TypeTraits<CinemaDirector.CutsceneHandler>.Init(creator.Check_CinemaDirector_CutsceneHandler);
-		TypeTraits<System.Action<UnityEngine.GameObject,string>>.Init(creator.Check_System_Action_UnityEngine_GameObject_string);
 		TypeTraits<SDKInterface.LoginSucHandler>.Init(creator.Check_SDKInterface_LoginSucHandler);
 		TypeTraits<SDKInterface.LogoutHandler>.Init(creator.Check_SDKInterface_LogoutHandler);
 		TypeTraits<SDKInterface.PaySucHandler>.Init(creator.Check_SDKInterface_PaySucHandler);
 		TypeTraits<SDKInterface.GetSDKInfoHandler>.Init(creator.Check_SDKInterface_GetSDKInfoHandler);
-		TypeTraits<System.Action<string>>.Init(creator.Check_System_Action_string);
 		TypeTraits<System.Action<string,string>>.Init(creator.Check_System_Action_string_string);
 
 		StackTraits<System.Action>.Push = creator.Push_System_Action;
@@ -265,20 +262,19 @@ public class DelegateCreator : IDelegateCreator
 		StackTraits<LuaFramework.LuaManager.OnBundleProgressChanged>.Push = creator.Push_LuaFramework_LuaManager_OnBundleProgressChanged;
 		StackTraits<LuaFramework.TimerManager.UpdateFunc>.Push = creator.Push_LuaFramework_TimerManager_UpdateFunc;
 		StackTraits<System.Action<Riverlake.Resources.ALoadOperation>>.Push = creator.Push_System_Action_Riverlake_Resources_ALoadOperation;
-		StackTraits<EventDelegate.Callback>.Push = creator.Push_EventDelegate_Callback;
 		StackTraits<System.Predicate<ServerInfo>>.Push = creator.Push_System_Predicate_ServerInfo;
 		StackTraits<System.Action<ServerInfo>>.Push = creator.Push_System_Action_ServerInfo;
 		StackTraits<System.Comparison<ServerInfo>>.Push = creator.Push_System_Comparison_ServerInfo;
+		StackTraits<System.Predicate<string>>.Push = creator.Push_System_Predicate_string;
+		StackTraits<System.Action<string>>.Push = creator.Push_System_Action_string;
+		StackTraits<System.Comparison<string>>.Push = creator.Push_System_Comparison_string;
 		StackTraits<System.Func<string,string>>.Push = creator.Push_System_Func_string_string;
 		StackTraits<System.Action<DialogResult>>.Push = creator.Push_System_Action_DialogResult;
-		StackTraits<UIWrapContent.OnInitializeItem>.Push = creator.Push_UIWrapContent_OnInitializeItem;
 		StackTraits<CinemaDirector.CutsceneHandler>.Push = creator.Push_CinemaDirector_CutsceneHandler;
-		StackTraits<System.Action<UnityEngine.GameObject,string>>.Push = creator.Push_System_Action_UnityEngine_GameObject_string;
 		StackTraits<SDKInterface.LoginSucHandler>.Push = creator.Push_SDKInterface_LoginSucHandler;
 		StackTraits<SDKInterface.LogoutHandler>.Push = creator.Push_SDKInterface_LogoutHandler;
 		StackTraits<SDKInterface.PaySucHandler>.Push = creator.Push_SDKInterface_PaySucHandler;
 		StackTraits<SDKInterface.GetSDKInfoHandler>.Push = creator.Push_SDKInterface_GetSDKInfoHandler;
-		StackTraits<System.Action<string>>.Push = creator.Push_System_Action_string;
 		StackTraits<System.Action<string,string>>.Push = creator.Push_System_Action_string_string;
 	}
 	class System_Action_Event : LuaDelegate
@@ -3289,59 +3285,6 @@ public class DelegateCreator : IDelegateCreator
 		ToLua.Push(L, o);
 	}
 
-	class EventDelegate_Callback_Event : LuaDelegate
-	{
-		public EventDelegate_Callback_Event(LuaFunction func) : base(func) { }
-		public EventDelegate_Callback_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public void Call()
-		{
-			func.Call();
-		}
-
-		public void CallWithSelf()
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.PCall();
-			func.EndPCall();
-		}
-	}
-
-	public EventDelegate.Callback EventDelegate_Callback(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			EventDelegate.Callback fn = delegate() { };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			EventDelegate_Callback_Event target = new EventDelegate_Callback_Event(func);
-			EventDelegate.Callback d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			EventDelegate_Callback_Event target = new EventDelegate_Callback_Event(func, self);
-			EventDelegate.Callback d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_EventDelegate_Callback(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(EventDelegate.Callback), L, pos);
-	}
-
-	void Push_EventDelegate_Callback(IntPtr L, EventDelegate.Callback o)
-	{
-		ToLua.Push(L, o);
-	}
-
 	class System_Predicate_ServerInfo_Event : LuaDelegate
 	{
 		public System_Predicate_ServerInfo_Event(LuaFunction func) : base(func) { }
@@ -3523,6 +3466,187 @@ public class DelegateCreator : IDelegateCreator
 		ToLua.Push(L, o);
 	}
 
+	class System_Predicate_string_Event : LuaDelegate
+	{
+		public System_Predicate_string_Event(LuaFunction func) : base(func) { }
+		public System_Predicate_string_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public bool Call(string param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			bool ret = func.CheckBoolean();
+			func.EndPCall();
+			return ret;
+		}
+
+		public bool CallWithSelf(string param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			bool ret = func.CheckBoolean();
+			func.EndPCall();
+			return ret;
+		}
+	}
+
+	public System.Predicate<string> System_Predicate_string(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Predicate<string> fn = delegate(string param0) { return false; };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Predicate_string_Event target = new System_Predicate_string_Event(func);
+			System.Predicate<string> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Predicate_string_Event target = new System_Predicate_string_Event(func, self);
+			System.Predicate<string> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_System_Predicate_string(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(System.Predicate<string>), L, pos);
+	}
+
+	void Push_System_Predicate_string(IntPtr L, System.Predicate<string> o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class System_Action_string_Event : LuaDelegate
+	{
+		public System_Action_string_Event(LuaFunction func) : base(func) { }
+		public System_Action_string_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public void Call(string param0)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+
+		public void CallWithSelf(string param0)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.PCall();
+			func.EndPCall();
+		}
+	}
+
+	public System.Action<string> System_Action_string(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Action<string> fn = delegate(string param0) { };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Action_string_Event target = new System_Action_string_Event(func);
+			System.Action<string> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Action_string_Event target = new System_Action_string_Event(func, self);
+			System.Action<string> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_System_Action_string(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(System.Action<string>), L, pos);
+	}
+
+	void Push_System_Action_string(IntPtr L, System.Action<string> o)
+	{
+		ToLua.Push(L, o);
+	}
+
+	class System_Comparison_string_Event : LuaDelegate
+	{
+		public System_Comparison_string_Event(LuaFunction func) : base(func) { }
+		public System_Comparison_string_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+
+		public int Call(string param0, string param1)
+		{
+			func.BeginPCall();
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			int ret = (int)func.CheckNumber();
+			func.EndPCall();
+			return ret;
+		}
+
+		public int CallWithSelf(string param0, string param1)
+		{
+			func.BeginPCall();
+			func.Push(self);
+			func.Push(param0);
+			func.Push(param1);
+			func.PCall();
+			int ret = (int)func.CheckNumber();
+			func.EndPCall();
+			return ret;
+		}
+	}
+
+	public System.Comparison<string> System_Comparison_string(LuaFunction func, LuaTable self, bool flag)
+	{
+		if (func == null)
+		{
+			System.Comparison<string> fn = delegate(string param0, string param1) { return 0; };
+			return fn;
+		}
+
+		if(!flag)
+		{
+			System_Comparison_string_Event target = new System_Comparison_string_Event(func);
+			System.Comparison<string> d = target.Call;
+			target.method = d.Method;
+			return d;
+		}
+		else
+		{
+			System_Comparison_string_Event target = new System_Comparison_string_Event(func, self);
+			System.Comparison<string> d = target.CallWithSelf;
+			target.method = d.Method;
+			return d;
+		}
+	}
+
+	bool Check_System_Comparison_string(IntPtr L, int pos)
+	{
+		return TypeChecker.CheckDelegateType(typeof(System.Comparison<string>), L, pos);
+	}
+
+	void Push_System_Comparison_string(IntPtr L, System.Comparison<string> o)
+	{
+		ToLua.Push(L, o);
+	}
+
 	class System_Func_string_string_Event : LuaDelegate
 	{
 		public System_Func_string_string_Event(LuaFunction func) : base(func) { }
@@ -3641,67 +3765,6 @@ public class DelegateCreator : IDelegateCreator
 		ToLua.Push(L, o);
 	}
 
-	class UIWrapContent_OnInitializeItem_Event : LuaDelegate
-	{
-		public UIWrapContent_OnInitializeItem_Event(LuaFunction func) : base(func) { }
-		public UIWrapContent_OnInitializeItem_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public void Call(UnityEngine.GameObject param0, int param1, int param2)
-		{
-			func.BeginPCall();
-			func.PushSealed(param0);
-			func.Push(param1);
-			func.Push(param2);
-			func.PCall();
-			func.EndPCall();
-		}
-
-		public void CallWithSelf(UnityEngine.GameObject param0, int param1, int param2)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.PushSealed(param0);
-			func.Push(param1);
-			func.Push(param2);
-			func.PCall();
-			func.EndPCall();
-		}
-	}
-
-	public UIWrapContent.OnInitializeItem UIWrapContent_OnInitializeItem(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			UIWrapContent.OnInitializeItem fn = delegate(UnityEngine.GameObject param0, int param1, int param2) { };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			UIWrapContent_OnInitializeItem_Event target = new UIWrapContent_OnInitializeItem_Event(func);
-			UIWrapContent.OnInitializeItem d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			UIWrapContent_OnInitializeItem_Event target = new UIWrapContent_OnInitializeItem_Event(func, self);
-			UIWrapContent.OnInitializeItem d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_UIWrapContent_OnInitializeItem(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(UIWrapContent.OnInitializeItem), L, pos);
-	}
-
-	void Push_UIWrapContent_OnInitializeItem(IntPtr L, UIWrapContent.OnInitializeItem o)
-	{
-		ToLua.Push(L, o);
-	}
-
 	class CinemaDirector_CutsceneHandler_Event : LuaDelegate
 	{
 		public CinemaDirector_CutsceneHandler_Event(LuaFunction func) : base(func) { }
@@ -3757,65 +3820,6 @@ public class DelegateCreator : IDelegateCreator
 	}
 
 	void Push_CinemaDirector_CutsceneHandler(IntPtr L, CinemaDirector.CutsceneHandler o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Action_UnityEngine_GameObject_string_Event : LuaDelegate
-	{
-		public System_Action_UnityEngine_GameObject_string_Event(LuaFunction func) : base(func) { }
-		public System_Action_UnityEngine_GameObject_string_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public void Call(UnityEngine.GameObject param0, string param1)
-		{
-			func.BeginPCall();
-			func.PushSealed(param0);
-			func.Push(param1);
-			func.PCall();
-			func.EndPCall();
-		}
-
-		public void CallWithSelf(UnityEngine.GameObject param0, string param1)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.PushSealed(param0);
-			func.Push(param1);
-			func.PCall();
-			func.EndPCall();
-		}
-	}
-
-	public System.Action<UnityEngine.GameObject,string> System_Action_UnityEngine_GameObject_string(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Action<UnityEngine.GameObject,string> fn = delegate(UnityEngine.GameObject param0, string param1) { };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Action_UnityEngine_GameObject_string_Event target = new System_Action_UnityEngine_GameObject_string_Event(func);
-			System.Action<UnityEngine.GameObject,string> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Action_UnityEngine_GameObject_string_Event target = new System_Action_UnityEngine_GameObject_string_Event(func, self);
-			System.Action<UnityEngine.GameObject,string> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Action_UnityEngine_GameObject_string(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Action<UnityEngine.GameObject,string>), L, pos);
-	}
-
-	void Push_System_Action_UnityEngine_GameObject_string(IntPtr L, System.Action<UnityEngine.GameObject,string> o)
 	{
 		ToLua.Push(L, o);
 	}
@@ -4040,63 +4044,6 @@ public class DelegateCreator : IDelegateCreator
 	}
 
 	void Push_SDKInterface_GetSDKInfoHandler(IntPtr L, SDKInterface.GetSDKInfoHandler o)
-	{
-		ToLua.Push(L, o);
-	}
-
-	class System_Action_string_Event : LuaDelegate
-	{
-		public System_Action_string_Event(LuaFunction func) : base(func) { }
-		public System_Action_string_Event(LuaFunction func, LuaTable self) : base(func, self) { }
-
-		public void Call(string param0)
-		{
-			func.BeginPCall();
-			func.Push(param0);
-			func.PCall();
-			func.EndPCall();
-		}
-
-		public void CallWithSelf(string param0)
-		{
-			func.BeginPCall();
-			func.Push(self);
-			func.Push(param0);
-			func.PCall();
-			func.EndPCall();
-		}
-	}
-
-	public System.Action<string> System_Action_string(LuaFunction func, LuaTable self, bool flag)
-	{
-		if (func == null)
-		{
-			System.Action<string> fn = delegate(string param0) { };
-			return fn;
-		}
-
-		if(!flag)
-		{
-			System_Action_string_Event target = new System_Action_string_Event(func);
-			System.Action<string> d = target.Call;
-			target.method = d.Method;
-			return d;
-		}
-		else
-		{
-			System_Action_string_Event target = new System_Action_string_Event(func, self);
-			System.Action<string> d = target.CallWithSelf;
-			target.method = d.Method;
-			return d;
-		}
-	}
-
-	bool Check_System_Action_string(IntPtr L, int pos)
-	{
-		return TypeChecker.CheckDelegateType(typeof(System.Action<string>), L, pos);
-	}
-
-	void Push_System_Action_string(IntPtr L, System.Action<string> o)
 	{
 		ToLua.Push(L, o);
 	}

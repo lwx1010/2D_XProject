@@ -12,6 +12,8 @@ local popupList
 local versionText
 local isInit = false
 local loginCollider
+this.serverIndex = 2
+
 --构建函数--
 function LoginCtrl.New()
 	log("LoginCtrl.New--->>")
@@ -167,7 +169,7 @@ function LoginCtrl.OnClick(go)
 	end
 	AppConst.SocketPort = defaultServerInfo.serverPort;
     AppConst.SocketAddress = defaultServerInfo.serverIp;
-    print("==============", defaultServerInfo.serverPort, defaultServerInfo.serverIp, defaultServerInfo.corpId, networkMgr)
+    -- print("==============", defaultServerInfo.serverPort, defaultServerInfo.serverIp, defaultServerInfo.corpId, networkMgr)
     networkMgr:SendConnect();
 
 	COMMONCTRL.CreateQuanQuan(transform.parent)
@@ -217,10 +219,10 @@ function LoginCtrl.Update()
 		this.inConnect = false
 		this.startTime = 0
 		networkMgr:Close()
-		MessageBox.DisplayMessageBox(LANGUAGE_TIP.ConnectServerError, 0, function()
+		MessageBox.Show(LANGUAGE_TIP.ConnectServerError, function()
 			this.SetEnterMsg('')
 			this.StopCheckTimeout()
-		end, null)
+		end)
 	end
 end
 
@@ -304,5 +306,6 @@ function LoginCtrl.OnLogout()
 	CenterServerManager.Instance.UserID = ""
 	LoginPanel.loginCollider:SetActive(true)
 end
+
 
 return LoginCtrl

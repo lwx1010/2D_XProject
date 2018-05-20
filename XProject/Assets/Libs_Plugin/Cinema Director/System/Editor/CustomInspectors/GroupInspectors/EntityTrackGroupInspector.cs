@@ -176,6 +176,7 @@ public class EntityTrackGroupInspector : Editor
             modelGO = GameObject.Instantiate(modelGO);
             //Util.SetParent(modelGO, actorGroup.Actor.gameObject);
             modelGO.transform.localRotation = Quaternion.Euler(-90,0,0);
+            //EntityTrackGroup.AddFastShadow(modelGO);
             return;
         }
         
@@ -191,6 +192,7 @@ public class EntityTrackGroupInspector : Editor
             Animator animator = modelGO.GetComponentInChildren<Animator>();
             if(animator)    animator.enabled = true;
             //Util.SetParent(modelGO, actorGroup.Actor.gameObject);
+            //EntityTrackGroup.AddFastShadow(modelGO);
 
             s.Invoke(modelGO);
         }).Then((go) =>

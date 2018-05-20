@@ -2,6 +2,7 @@
 
 namespace LuaDataBind
 {
+#if NGUI
     /// <summary>
     ///   Set the value of a UIInput depending on the string data value.
     /// </summary>
@@ -14,4 +15,5 @@ namespace LuaDataBind
         }
         
     }
+#endif
 }

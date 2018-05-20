@@ -7,27 +7,45 @@ public class Riverlake_Resources_ResourceManagerWrap
 	public static void Register(LuaState L)
 	{
 		L.BeginStaticLibs("ResourceManager");
-		L.RegFunction("LoadAssetAsync", LoadAssetAsync);
-		L.RegFunction("LoadAssets", LoadAssets);
+		L.RegFunction("LoadBundleAsync", LoadBundleAsync);
+		L.RegFunction("LoadCacheBundleAsync", LoadCacheBundleAsync);
+		L.RegFunction("LoadResource", LoadResource);
 		L.RegFunction("LoadTextAssets", LoadTextAssets);
 		L.RegFunction("LoadSpriteAssets", LoadSpriteAssets);
 		L.RegFunction("LoadGameObjectAssets", LoadGameObjectAssets);
-		L.RegFunction("LoadPrefab", LoadPrefab);
-		L.RegFunction("LoadBytes", LoadBytes);
-		L.RegFunction("LoadAudioClipAsync", LoadAudioClipAsync);
+		L.RegFunction("LoadPrefabBundle", LoadPrefabBundle);
+		L.RegFunction("LoadBytesBundle", LoadBytesBundle);
+		L.RegFunction("LoadSpriteFromAtlasBundle", LoadSpriteFromAtlasBundle);
+		L.RegFunction("LoadAudioClipBundleAsync", LoadAudioClipBundleAsync);
 		L.EndStaticLibs();
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int LoadAssetAsync(IntPtr L)
+	static int LoadBundleAsync(IntPtr L)
 	{
 		try
 		{
-			ToLua.CheckArgsCount(L, 1);
-			string arg0 = ToLua.CheckString(L, 1);
-			Riverlake.Resources.ALoadOperation o = Riverlake.Resources.ResourceManager.LoadAssetAsync(arg0);
-			ToLua.PushObject(L, o);
-			return 1;
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 1)
+			{
+				string arg0 = ToLua.CheckString(L, 1);
+				Riverlake.Resources.ALoadOperation o = Riverlake.Resources.ResourceManager.LoadBundleAsync(arg0);
+				ToLua.PushObject(L, o);
+				return 1;
+			}
+			else if (count == 2)
+			{
+				string arg0 = ToLua.CheckString(L, 1);
+				string arg1 = ToLua.CheckString(L, 2);
+				Riverlake.Resources.ALoadOperation o = Riverlake.Resources.ResourceManager.LoadBundleAsync(arg0, arg1);
+				ToLua.PushObject(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: Riverlake.Resources.ResourceManager.LoadBundleAsync");
+			}
 		}
 		catch (Exception e)
 		{
@@ -36,14 +54,49 @@ public class Riverlake_Resources_ResourceManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int LoadAssets(IntPtr L)
+	static int LoadCacheBundleAsync(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+
+			if (count == 2)
+			{
+				Riverlake.PoolCache.CachePoolAsync arg0 = (Riverlake.PoolCache.CachePoolAsync)ToLua.CheckObject<Riverlake.PoolCache.CachePoolAsync>(L, 1);
+				string arg1 = ToLua.CheckString(L, 2);
+				Riverlake.Resources.ALoadOperation o = Riverlake.Resources.ResourceManager.LoadCacheBundleAsync(arg0, arg1);
+				ToLua.PushObject(L, o);
+				return 1;
+			}
+			else if (count == 3)
+			{
+				Riverlake.PoolCache.CachePoolAsync arg0 = (Riverlake.PoolCache.CachePoolAsync)ToLua.CheckObject<Riverlake.PoolCache.CachePoolAsync>(L, 1);
+				string arg1 = ToLua.CheckString(L, 2);
+				string arg2 = ToLua.CheckString(L, 3);
+				Riverlake.Resources.ALoadOperation o = Riverlake.Resources.ResourceManager.LoadCacheBundleAsync(arg0, arg1, arg2);
+				ToLua.PushObject(L, o);
+				return 1;
+			}
+			else
+			{
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: Riverlake.Resources.ResourceManager.LoadCacheBundleAsync");
+			}
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LoadResource(IntPtr L)
 	{
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
 			string arg0 = ToLua.CheckString(L, 1);
 			System.Type arg1 = ToLua.CheckMonoType(L, 2);
-			UnityEngine.Object o = Riverlake.Resources.ResourceManager.LoadAssets(arg0, arg1);
+			UnityEngine.Object o = Riverlake.Resources.ResourceManager.LoadResource(arg0, arg1);
 			ToLua.Push(L, o);
 			return 1;
 		}
@@ -105,13 +158,13 @@ public class Riverlake_Resources_ResourceManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int LoadPrefab(IntPtr L)
+	static int LoadPrefabBundle(IntPtr L)
 	{
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
 			string arg0 = ToLua.CheckString(L, 1);
-			UnityEngine.GameObject o = Riverlake.Resources.ResourceManager.LoadPrefab(arg0);
+			UnityEngine.GameObject o = Riverlake.Resources.ResourceManager.LoadPrefabBundle(arg0);
 			ToLua.PushSealed(L, o);
 			return 1;
 		}
@@ -122,13 +175,13 @@ public class Riverlake_Resources_ResourceManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int LoadBytes(IntPtr L)
+	static int LoadBytesBundle(IntPtr L)
 	{
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
 			string arg0 = ToLua.CheckString(L, 1);
-			byte[] o = Riverlake.Resources.ResourceManager.LoadBytes(arg0);
+			byte[] o = Riverlake.Resources.ResourceManager.LoadBytesBundle(arg0);
 			ToLua.Push(L, o);
 			return 1;
 		}
@@ -139,14 +192,32 @@ public class Riverlake_Resources_ResourceManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int LoadAudioClipAsync(IntPtr L)
+	static int LoadSpriteFromAtlasBundle(IntPtr L)
 	{
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
 			string arg0 = ToLua.CheckString(L, 1);
 			string arg1 = ToLua.CheckString(L, 2);
-			RSG.IPromise<UnityEngine.AudioClip> o = Riverlake.Resources.ResourceManager.LoadAudioClipAsync(arg0, arg1);
+			UnityEngine.Sprite o = Riverlake.Resources.ResourceManager.LoadSpriteFromAtlasBundle(arg0, arg1);
+			ToLua.PushSealed(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LoadAudioClipBundleAsync(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			string arg0 = ToLua.CheckString(L, 1);
+			string arg1 = ToLua.CheckString(L, 2);
+			RSG.IPromise<UnityEngine.AudioClip> o = Riverlake.Resources.ResourceManager.LoadAudioClipBundleAsync(arg0, arg1);
 			ToLua.PushObject(L, o);
 			return 1;
 		}

@@ -146,7 +146,7 @@ namespace AssetChecker
 
         public void drawOverviewGUI()
         {
-            NGUIEditorTools.DrawHeader("文件详情");
+            GUILayoutHelper.DrawHeader("文件详情");
             using (new EditorGUILayout.HorizontalScope())
             {
                 GUILayout.Label("筛选：");

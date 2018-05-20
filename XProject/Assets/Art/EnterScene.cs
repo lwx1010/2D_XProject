@@ -13,9 +13,11 @@ public class EnterScene : MonoBehaviour {
         // pc包屏幕适应
         if (Application.platform == RuntimePlatform.WindowsPlayer)
         {
+#if NGUI
             var root = GetComponent<UIRoot>();
             root.scalingStyle = UIRoot.Scaling.Flexible;
             root.minimumHeight = 1080;
+#endif
         }
 
         var rigidbody = GetComponent<Rigidbody>();

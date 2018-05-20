@@ -171,7 +171,7 @@ function MainStage:onShow()
     --场景更新
     -- MapUpdateManager.Update(MapData.curMapNo)
 
-    -- roleMgr.entityCreate:AddEntityCreateEventListener("Game", handler(self , self.OnMainRoleLoaded), nil)
+    roleMgr.entityCreate:AddEntityCreateEventListener("Game", handler(self , self.OnMainRoleLoaded), nil)
     -- roleMgr.entityCreate:AddEntityCreateEventListener("CollectPanel", nil, CollectPanel.NpcBuffEventRegister)
 
     -- 开启线程下载资源
@@ -182,14 +182,6 @@ function MainStage:onShow()
     else
         local finishHandler = handler(self , self.onWaitQuadSceneFinish)
         self.loadedWaitHandler = coroutine.start(finishHandler)
-    end
-
-    SkillUiPanel.show()
-
-    print("=-==========================")
-    local ctrl = CtrlManager.GetCtrl(CtrlNames.Main);
-    if ctrl ~= nil and not ctrl.init then
-        ctrl.OnCreate()
     end
 end
 
@@ -208,6 +200,8 @@ end
 
 
 function MainStage:OnMainRoleLoaded(entity, sync)
+    PreLoadingScene.DestroySelf()
+
     if entity.entityType ~= EntityType.EntityType_Self then
         return
     end
@@ -229,11 +223,11 @@ function MainStage:OnMainRoleLoaded(entity, sync)
         --HEROSKILLMGR.SetHeroGuaJi(0, false)
     end
 
-    -- print("=-==========================")
-    -- local ctrl = CtrlManager.GetCtrl(CtrlNames.Main);
-    -- if ctrl ~= nil and not ctrl.init then
-    --     ctrl.OnCreate()
-    -- end
+    print("=-==========================")
+    local ctrl = CtrlManager.GetCtrl(CtrlNames.Main);
+    if ctrl ~= nil and not ctrl.init then
+        ctrl.OnCreate()
+    end
 
     -- roleMgr:CreateJumpGate(jumpGateData)
     -- roleMgr:CreateFakeJumpGate(fakeJumpGateData)
@@ -249,18 +243,6 @@ function MainStage:OnMainRoleLoaded(entity, sync)
         chatCtrl:Awake()
     end
 
-    if HERO.IsYunBiao and HERO.IsYunBiao > 0 then
-        if MainPanel.hasCreated then
-            roleMgr.mainRole.roleState:AddState(GAMECONST.RoleState.Husong)
-        end
-    end
-
-    --帮派秘境
-    local BPMiJingLogic = require("Logic/BPMiJingLogic")
-    if BPMiJingLogic.IsInBPMJ and ctrl and ctrl.BPMJBarCtrl then
-        ctrl.BPMJBarCtrl.UpdateDirShow()
-    end
-
     local MAPLOGIC = MAPLOGIC
     MAPLOGIC.ShowSafeSceneTip()
     MAPLOGIC.CreateClientEffects()
@@ -269,8 +251,7 @@ end
 
 function MainStage:onExit( )
     print("LoginState onExit <----")
-    MinimapModel.inst:clearNpc()
-    FieldBossManager.AttackTarget = nil
+    -- MinimapModel.inst:clearNpc()
     self.quadScene = nil
 end
 

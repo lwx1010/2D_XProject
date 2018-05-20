@@ -1,5 +1,5 @@
 
-¢
+ø
 common/toproto/aoi/aoi.proto":
 S2c_aoi_sync_int
 
@@ -163,7 +163,10 @@
 id (	
 dir (	
 x (	
-z (";
+z ("(
+S2c_aoi_dodge_rate
+
+dodge_rate (";
 S2c_aoi_dodge_error
 type (
 
@@ -171,7 +174,7 @@
 
 oz ("#
 C2s_aoi_skilllock
-tar_id (	"’
+tar_id (	"«
 Aoi_hitchar
 tar_id (	
 type (
@@ -180,7 +183,8 @@
 hpstamp (
 back_x (
 back_z (
-floatdown_buff ("×
+floatdown_buff (
+stop_tarskillid	 ("×
 S2c_aoi_skillhit_bycharpos
 skill_id (
 att_id (	
@@ -218,10 +222,11 @@
 tz (
 move_dir (
 move_x (
-move_z	 ("5
+move_z	 ("H
 S2c_aoi_skillcd
 skill_id (
-cooltime ("5
+cooltime (
+	n_skillid ("5
 S2c_aoi_skillstop
 skill_id (
 att_id (	";

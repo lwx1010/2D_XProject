@@ -24,6 +24,9 @@ namespace LuaFramework {
 
         private long totalExtractCount = 0;
 
+        public List<string> needDownloadFiles = new List<string>();
+        public long TotalDownloadSize { get; private set; }
+
         #region 分包下载相关
         /// <summary>
         /// 需要下载的整包资源及其状态
@@ -317,24 +320,40 @@ namespace LuaFramework {
             });
         }
 
-        public long GetTotalDownloadSize(string[] files, List<string> needDownloadFiles)
+        public IEnumerator AdjustFileStatus(string[] files, ProgressBar progressBar)
         {
-            if (needDownloadFiles == null) needDownloadFiles = new List<string>();
             string dataPath = Util.DataPath;  //数据目录
-            long totalSize = 0;
-            for (int i = 0; i < files.Length; i++)
+            for (int i = 0; i < files.Length; ++i)
             {
-                if (string.IsNullOrEmpty(files[i])) continue;
                 string[] keyValue = files[i].Split('|');
                 string f = keyValue[0];
                 string localfile = (dataPath + f).Trim();
+                string md5 = keyValue[1].Trim();
                 var status = GetFileStatus(localfile, files[i]);
-                if (status == 1)
+                if (status == 2 && !MD5.ComputeHashString(localfile).Equals(md5))
                 {
                     needDownloadFiles.Add(files[i]);
-                    totalSize += Convert.ToInt64(keyValue[2]);
+                    PlayerPrefs.DeleteKey(f + "_md5");
+                    PlayerPrefs.Save();
+                    if (needDownloadPackFiles.ContainsKey(f))
+                        needDownloadPackFiles.Remove(f);
                 }
-                if (needDownloadPackFiles.ContainsKey(f)) needDownloadPackFiles[f] = files[i];
+                float progress = (float)i / (float)files.Length;
+                progressBar.SetMessage(string.Format("{0}{1}", LanguageTips.AUTO_ADJUST_FILES, progress * 100));
+                progressBar.UpdateProgress(progress);
+                yield return Yielders.EndOfFrame;
+            }
+        }
+
+        public long GetTotalDownloadSize()
+        {
+            long totalSize = 0;
+            for (int i = 0; i < needDownloadFiles.Count; i++)
+            {
+                if (string.IsNullOrEmpty(needDownloadFiles[i])) continue;
+                string[] keyValue = needDownloadFiles[i].Split('|');
+                string f = keyValue[0];
+                totalSize += Convert.ToInt64(keyValue[2]);
             }
             return totalSize;
         }
@@ -344,7 +363,7 @@ namespace LuaFramework {
         /// </summary>
         /// <param name="file"></param>
         /// <param name="value"></param>
-        /// <returns>0:不需要下载; 1:需要下载更新;</returns>
+        /// <returns>0:不需要下载; 1:需要下载更新; 2:需要比较MD5</returns>
         int GetFileStatus(string file, string value)
         {
             int status = 0;
@@ -366,19 +385,7 @@ namespace LuaFramework {
             }
             else if (fileStatus == 1)
             {
-                var key = string.Format("{0}_md5", keyValue[0]);
-                if (!File.Exists(file))
-                {
-                    status = 1;
-                    PlayerPrefs.DeleteKey(key);
-                    PlayerPrefs.Save();
-                }
-                else
-                {
-                    var md5 = PlayerPrefs.GetString(key);
-                    var remoteMd5 = keyValue[1];
-                    if (md5 != remoteMd5) status = 1;
-                }
+                status = File.Exists(file) ? 2 : 1;
             }
             return status;
         }
@@ -738,6 +745,7 @@ namespace LuaFramework {
             LuaManager.bundleProgress = LuaBundleProgress;
             LuaManager.InitStart(() => {
                 var bar = ProgressBar.ShowCurBar();
+                bar.UpdateProgress(1);
                 bar.Hide();
                 LuaManager.DoFile("Logic/Network");         //加载网络
                 LuaManager.DoFile("Common/define");

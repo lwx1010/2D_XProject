@@ -27,7 +27,7 @@ class TextureModifier : AssetPostprocessor
             }else if (assetPath.Contains("RoleModels/Players") || assetPath.Contains("RoleModels/Weapons"))
             {
                 DealPlayerTextures(importer);
-            }else if (assetPath.Contains("NormalMap"))
+            }else if (assetPath.ToLower().Contains("normal"))
             {
                 DealNormalMapTextures(importer , !assetPath.Contains("SceneTextures"));
             }
@@ -36,6 +36,10 @@ class TextureModifier : AssetPostprocessor
                 importer.textureType = TextureImporterType.Default;
                 DealNormalTextures(importer);
             }
+        }
+        else if (assetPath.Contains("Assets/Scenes/") && assetPath.CustomEndsWith(".exr"))
+        {
+            DealLightmapTextures(importer);
         }
         else if (assetPath.Contains("Assets/Textures/"))
         {
@@ -90,12 +94,8 @@ class TextureModifier : AssetPostprocessor
         else
             importer.spritePackingTag = temps[0];
 
-        TextureImporterPlatformSettings defaultPlatformSettings = importer.GetDefaultPlatformTextureSettings();
-        if (defaultPlatformSettings.textureCompression != TextureImporterCompression.Uncompressed)
-        {
-            setAndroidTextureSetting(importer , importer.maxTextureSize, TextureImporterFormat.ETC2_RGBA8);
-            setiPhoneTextureSetting(importer, importer.maxTextureSize, TextureImporterFormat.PVRTC_RGBA4);
-        }
+        setAndroidTextureSetting(importer, importer.maxTextureSize, TextureImporterFormat.ETC2_RGBA8);
+        setiPhoneTextureSetting(importer, importer.maxTextureSize, TextureImporterFormat.PVRTC_RGBA4);
     }
 
     void DealNormalTextures(TextureImporter importer)
@@ -115,12 +115,12 @@ class TextureModifier : AssetPostprocessor
                 importer.maxTextureSize = 2048;
             } 
             else importer.maxTextureSize = 1024;
-            importer.mipmapEnabled = false;
+            //importer.mipmapEnabled = false;
         }
         else
         {
             importer.maxTextureSize = size;
-            importer.mipmapEnabled = true;
+            //importer.mipmapEnabled = true;
         }
         importer.isReadable = false;
         importer.filterMode = FilterMode.Bilinear;
@@ -146,16 +146,15 @@ class TextureModifier : AssetPostprocessor
 
     void DealLightmapTextures(TextureImporter importer)
     {
-        importer.filterMode = FilterMode.Bilinear;
         importer.anisoLevel = 4;
         importer.isReadable = false;
+        
         if (importer.textureCompression != TextureImporterCompression.Uncompressed)
         {
             importer.textureCompression = TextureImporterCompression.Uncompressed;
-            
-            setAndroidTextureSetting(importer , 1024 , TextureImporterFormat.ETC2_RGBA8);
-            setiPhoneTextureSetting(importer , 1024 , TextureImporterFormat.PVRTC_RGB4);
         }
+        setAndroidTextureSetting(importer, 1024, TextureImporterFormat.ETC2_RGBA8);
+        setiPhoneTextureSetting(importer, 1024, TextureImporterFormat.PVRTC_RGB4);
     }
     /// <summary>
     /// 处理法线贴图
@@ -170,17 +169,36 @@ class TextureModifier : AssetPostprocessor
         if (importer.textureCompression != TextureImporterCompression.Uncompressed)
         {
             importer.textureCompression = TextureImporterCompression.Uncompressed;
-
-            setAndroidTextureSetting(importer, 1024, TextureImporterFormat.ETC2_RGBA8);
-            setiPhoneTextureSetting(importer, 1024, TextureImporterFormat.PVRTC_RGB4);
         }
+        setAndroidTextureSetting(importer, 1024, TextureImporterFormat.ETC2_RGBA8);
+        setiPhoneTextureSetting(importer, 1024, TextureImporterFormat.PVRTC_RGB4);
     }
 
     void DealUISrcTextures(TextureImporter importer)
     {
-        importer.textureType = TextureImporterType.Default;
+        importer.textureType = TextureImporterType.Sprite;
+        importer.spritePackingTag = string.Empty;
         importer.textureShape = TextureImporterShape.Texture2D;
         importer.textureCompression = TextureImporterCompression.Uncompressed;
+        string[] all_sprites = Directory.GetFiles("Assets/Res/Atlas", "*.png", SearchOption.AllDirectories);
+        foreach (var file in all_sprites)
+        {
+            string tmpName = Path.GetFileNameWithoutExtension(file);
+            var sprites = AssetDatabase.LoadAllAssetsAtPath(file);
+
+            foreach (var tmp in sprites)
+            {
+                if (tmp is Sprite)
+                {
+                    var sprite = tmp as Sprite;
+                    if (sprite.name == Path.GetFileNameWithoutExtension(importer.assetPath))
+                    {
+                        importer.spriteBorder = sprite.border;
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     void DealT4MTextures(TextureImporter importer)
@@ -199,6 +217,8 @@ class TextureModifier : AssetPostprocessor
         importer.filterMode = FilterMode.Bilinear;
         importer.anisoLevel = 9;
         importer.textureCompression = TextureImporterCompression.Uncompressed;
+        setAndroidTextureSetting(importer, importer.maxTextureSize, TextureImporterFormat.ETC2_RGBA8);
+        setiPhoneTextureSetting(importer, importer.maxTextureSize, TextureImporterFormat.PVRTC_RGBA4);
     }
 
     /// <summary>
@@ -225,24 +245,32 @@ class TextureModifier : AssetPostprocessor
 
     private void setAndroidTextureSetting(TextureImporter importer , int maxTextureSize , TextureImporterFormat format)
     {
-        TextureImporterPlatformSettings androidSettings = importer.GetPlatformTextureSettings("Android");
-        androidSettings.maxTextureSize = maxTextureSize;
-        androidSettings.textureCompression = TextureImporterCompression.Uncompressed;
-        androidSettings.allowsAlphaSplitting = false;
-        androidSettings.format = format;
-        androidSettings.compressionQuality = (int)TextureCompressionQuality.Best;
-        importer.SetPlatformTextureSettings(androidSettings);
+        TextureImporterPlatformSettings settings = importer.GetPlatformTextureSettings("Android");
+        if (!settings.overridden)
+        {
+            settings.maxTextureSize = maxTextureSize;
+            settings.textureCompression = TextureImporterCompression.Uncompressed;
+            settings.allowsAlphaSplitting = false;
+            settings.format = format;
+            settings.overridden = true;
+            settings.compressionQuality = (int)TextureCompressionQuality.Best;
+            importer.SetPlatformTextureSettings(settings);
+        }
     }
 
     private void setiPhoneTextureSetting(TextureImporter importer, int maxTextureSize, TextureImporterFormat format)
     {
         TextureImporterPlatformSettings settings = importer.GetPlatformTextureSettings("iPhone");
-        settings.maxTextureSize = maxTextureSize;
-        settings.textureCompression = TextureImporterCompression.Uncompressed;
-        settings.allowsAlphaSplitting = false;
-        settings.format = format;
-        settings.compressionQuality = (int)TextureCompressionQuality.Best;
-        importer.SetPlatformTextureSettings(settings);
+        if (!settings.overridden)
+        {
+            settings.maxTextureSize = maxTextureSize;
+            settings.textureCompression = TextureImporterCompression.Uncompressed;
+            settings.allowsAlphaSplitting = false;
+            settings.format = format;
+            settings.overridden = true;
+            settings.compressionQuality = (int)TextureCompressionQuality.Best;
+            importer.SetPlatformTextureSettings(settings);
+        }
     }
 }
 

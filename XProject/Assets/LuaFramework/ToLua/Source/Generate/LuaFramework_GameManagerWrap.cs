@@ -14,6 +14,7 @@ public class LuaFramework_GameManagerWrap
 		L.RegFunction("SetMd5", SetMd5);
 		L.RegFunction("CheckUpdateClick", CheckUpdateClick);
 		L.RegFunction("OnUpdateFailed", OnUpdateFailed);
+		L.RegFunction("AdjustFileStatus", AdjustFileStatus);
 		L.RegFunction("GetTotalDownloadSize", GetTotalDownloadSize);
 		L.RegFunction("RestartUpatePack", RestartUpatePack);
 		L.RegFunction("GetExtractingPercent", GetExtractingPercent);
@@ -32,11 +33,13 @@ public class LuaFramework_GameManagerWrap
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("MessageBoxYes", get_MessageBoxYes, set_MessageBoxYes);
 		L.RegVar("MessageBoxNo", get_MessageBoxNo, set_MessageBoxNo);
+		L.RegVar("needDownloadFiles", get_needDownloadFiles, set_needDownloadFiles);
 		L.RegVar("progressChanged", get_progressChanged, set_progressChanged);
 		L.RegVar("finishedBackgroundDownloading", get_finishedBackgroundDownloading, set_finishedBackgroundDownloading);
 		L.RegVar("backgroundExtracting", get_backgroundExtracting, set_backgroundExtracting);
 		L.RegVar("localVersion", get_localVersion, set_localVersion);
 		L.RegVar("packVersion", get_packVersion, set_packVersion);
+		L.RegVar("TotalDownloadSize", get_TotalDownloadSize, null);
 		L.RegVar("pauseDownloading", get_pauseDownloading, set_pauseDownloading);
 		L.RegVar("unlimited", get_unlimited, set_unlimited);
 		L.RegVar("downloadAll", get_downloadAll, set_downloadAll);
@@ -178,15 +181,32 @@ public class LuaFramework_GameManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int GetTotalDownloadSize(IntPtr L)
+	static int AdjustFileStatus(IntPtr L)
 	{
 		try
 		{
 			ToLua.CheckArgsCount(L, 3);
 			LuaFramework.GameManager obj = (LuaFramework.GameManager)ToLua.CheckObject<LuaFramework.GameManager>(L, 1);
 			string[] arg0 = ToLua.CheckStringArray(L, 2);
-			System.Collections.Generic.List<string> arg1 = (System.Collections.Generic.List<string>)ToLua.CheckObject(L, 3, typeof(System.Collections.Generic.List<string>));
-			long o = obj.GetTotalDownloadSize(arg0, arg1);
+			Riverlake.ProgressBar arg1 = (Riverlake.ProgressBar)ToLua.CheckObject<Riverlake.ProgressBar>(L, 3);
+			System.Collections.IEnumerator o = obj.AdjustFileStatus(arg0, arg1);
+			ToLua.Push(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetTotalDownloadSize(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			LuaFramework.GameManager obj = (LuaFramework.GameManager)ToLua.CheckObject<LuaFramework.GameManager>(L, 1);
+			long o = obj.GetTotalDownloadSize();
 			LuaDLL.tolua_pushint64(L, o);
 			return 1;
 		}
@@ -468,6 +488,25 @@ public class LuaFramework_GameManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_needDownloadFiles(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			LuaFramework.GameManager obj = (LuaFramework.GameManager)o;
+			System.Collections.Generic.List<string> ret = obj.needDownloadFiles;
+			ToLua.PushSealed(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index needDownloadFiles on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_progressChanged(IntPtr L)
 	{
 		object o = null;
@@ -549,6 +588,25 @@ public class LuaFramework_GameManagerWrap
 		catch (Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_TotalDownloadSize(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			LuaFramework.GameManager obj = (LuaFramework.GameManager)o;
+			long ret = obj.TotalDownloadSize;
+			LuaDLL.tolua_pushint64(L, ret);
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index TotalDownloadSize on a nil value");
 		}
 	}
 
@@ -644,6 +702,25 @@ public class LuaFramework_GameManagerWrap
 		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e, o, "attempt to index MessageBoxNo on a nil value");
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_needDownloadFiles(IntPtr L)
+	{
+		object o = null;
+
+		try
+		{
+			o = ToLua.ToObject(L, 1);
+			LuaFramework.GameManager obj = (LuaFramework.GameManager)o;
+			System.Collections.Generic.List<string> arg0 = (System.Collections.Generic.List<string>)ToLua.CheckObject(L, 2, typeof(System.Collections.Generic.List<string>));
+			obj.needDownloadFiles = arg0;
+			return 0;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e, o, "attempt to index needDownloadFiles on a nil value");
 		}
 	}
 

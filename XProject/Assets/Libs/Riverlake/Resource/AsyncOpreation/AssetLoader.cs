@@ -44,7 +44,7 @@ namespace Riverlake.Resources
             {
                 AssetWidget uiWidget = loadList[i];
 
-                ALoadOperation loader = ResourceManager.LoadAssetAsync(uiWidget.Name);
+                ALoadOperation loader = ResourceManager.LoadBundleAsync(uiWidget.Name);
                 loader.OnFinish = uiWidget.callback;
 
                 this.contain.AddLoader(loader, 1);

@@ -2,6 +2,7 @@
 
 namespace LuaDataBind
 {
+#if NGUI
     /// <summary>
     ///   Gets the value of a UISlider element.
     /// </summary>
@@ -23,4 +24,5 @@ namespace LuaDataBind
             return target.value;
         }
     }
+#endif
 }

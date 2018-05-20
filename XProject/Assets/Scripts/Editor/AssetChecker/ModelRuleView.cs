@@ -36,7 +36,7 @@ namespace AssetChecker
         {
             if(modelSettings == null)   this.Initlizalize();
 
-            NGUIEditorTools.DrawHeader("模型规范设置");
+            GUILayoutHelper.DrawHeader("模型规范设置");
             using (new EditorGUILayout.HorizontalScope())
             {
                 GUILayout.FlexibleSpace();
@@ -59,7 +59,7 @@ namespace AssetChecker
             }
 
             GUILayout.Space(5);
-            NGUIEditorTools.DrawSeparator();
+            GUILayoutHelper.DrawSeparator();
 
             if (modelSettings != null)
             {
@@ -68,7 +68,7 @@ namespace AssetChecker
                 {
                     GUILayout.Space(5);
                     drawSetting(modelSettings[i]);
-                    NGUIEditorTools.DrawSeparator();
+                    GUILayoutHelper.DrawSeparator();
                 }
 
                 if (removeSettings.Count > 0)
@@ -160,7 +160,7 @@ namespace AssetChecker
 
                     GUILayout.BeginHorizontal();
                     GUILayout.Space(30);
-                    NGUIEditorTools.SetLabelWidth(120F);
+                    GUILayoutHelper.SetLabelWidth(120F);
                     modelSetting.MaxTriangs = EditorGUILayout.IntSlider(new GUIContent("最大三角面数"), modelSetting.MaxTriangs,
                                                                         0, MaxTriangs );
                     GUILayout.FlexibleSpace();

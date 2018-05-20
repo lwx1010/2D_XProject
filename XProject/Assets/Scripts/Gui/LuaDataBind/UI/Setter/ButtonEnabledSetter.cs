@@ -1,7 +1,7 @@
 ﻿
 namespace LuaDataBind
 {
-
+#if NGUI    
     using UnityEngine;
 
     /// <summary>
@@ -18,4 +18,5 @@ namespace LuaDataBind
         }
         
     }
+#endif
 }

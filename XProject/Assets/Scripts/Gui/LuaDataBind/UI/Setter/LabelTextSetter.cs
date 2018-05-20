@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace LuaDataBind
 {
+#if NGUI
     /// <summary>
     ///   Set the text of a UILabel depending on the string data value.
     /// </summary>
@@ -15,4 +16,5 @@ namespace LuaDataBind
            this.Target.text = newValue;
         }
     }
+#endif
 }

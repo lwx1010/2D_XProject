@@ -74,7 +74,7 @@ namespace BundleChecker
                     GUILayout.EndHorizontal();
                     
                     GUILayout.Space(10);
-                    NGUIEditorTools.DrawSeparator();
+                    GUILayoutHelper.DrawSeparator();
                     break;
             }
 

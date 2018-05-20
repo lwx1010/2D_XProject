@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+#if NGUI
 [ExecuteInEditMode]
 public class ScaleTexcoord : MonoBehaviour
 {
@@ -37,3 +38,4 @@ public class ScaleTexcoord : MonoBehaviour
        
     }
 }
+#endif

@@ -16,6 +16,51 @@ this.lastSendTime = 0
 this.isNewRole = false
 this.printPb = false
 
+--开发阶段缓存 收发协议
+local isCache = true
+local CACHE_MAX = 20
+local sendCache = {}
+local recieveCache = {}
+
+local function CacheSend(pbName,pb)
+	if not isCache then
+		return
+	end
+	local tmp = {
+		name = pbName,
+		pb = pb,
+	}
+	if #sendCache >= CACHE_MAX then
+		table.remove(sendCache,1)
+	end
+	table.insert(sendCache,tmp)
+end
+
+local function CacheRecieve(pbName,pb)
+	if not isCache then
+		return
+	end
+	local tmp = {
+		name = pbName,
+		pb = pb
+	}
+	if #recieveCache >= CACHE_MAX then
+		table.remove(recieveCache,1)
+	end
+	table.insert(recieveCache,tmp)
+end
+
+function Network.PrintCache(type)
+	if type == 1 then
+		print(TableToString(sendCache))
+	elseif type == 2 then
+		print(TableToString(recieveCache))
+	end
+end
+
+--开发阶段缓存 收发协议
+
+
 function Network.Start() 
     log("Network.Start!!")
     Event.AddListener(Protocal.Connect, this.OnConnect)
@@ -268,7 +313,7 @@ end
 function Network.processRecieveBuffer(buffer)
 	local pbId = buffer:ReadShort()
 	local pbName = _proIdNameTb[pbId]
-	log("~~~~~~收到协议 ["..pbId.."]"..pbName)
+	-- log("~~~~~~收到协议 ["..pbId.."]"..pbName)
 
 	local data = buffer:ReadPbBuffer()
 	if not _proIdNameTb[pbId] then
@@ -283,9 +328,12 @@ function Network.processRecieveBuffer(buffer)
 		logError(TableToString(data))
 	else
 		if this.printPb then
-			log("~~~~~~协议名称："..pbName.."~~~id:"..pbId)
-			log("~~~~~~协议内容："..TableToString(pb))
+			log(TableToString(pb,"id: "..pbId.."  "..pbName))
 		end
+
+		--缓存接受协议
+		CacheRecieve(pbName,pb)
+
 		local fun = Network[pbName] 
 		if( type(fun)=="function" ) then
 			xpcall(function() fun(pb) end, _errorHandler)
@@ -303,6 +351,9 @@ function Network.send( pbName, pbObj )
 		logError("找不到proId："..pbName)
 		return
 	end
+	--缓存发送协议
+	CacheSend(pbName, pbObj)
+
 	-- 检测是否是跨场景协议
 	if this.CheckCrossSceneMsg(pbName) == false then return end
 

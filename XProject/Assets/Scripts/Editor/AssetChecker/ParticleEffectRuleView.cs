@@ -36,7 +36,7 @@ namespace AssetChecker
         {
             if (settings == null) this.Initizalize();
 
-            NGUIEditorTools.DrawHeader("模型规范设置");
+            GUILayoutHelper.DrawHeader("模型规范设置");
             using (new EditorGUILayout.HorizontalScope())
             {
                 GUILayout.FlexibleSpace();
@@ -59,7 +59,7 @@ namespace AssetChecker
             }
             
             GUILayout.Space(5);
-            NGUIEditorTools.DrawSeparator();
+            GUILayoutHelper.DrawSeparator();
             if (settings != null)
             {
                 scrollPos = GUILayout.BeginScrollView(scrollPos);
@@ -67,7 +67,7 @@ namespace AssetChecker
                 {
                     GUILayout.Space(5);
                     drawSetting(settings[i]);
-                    NGUIEditorTools.DrawSeparator();
+                    GUILayoutHelper.DrawSeparator();
                 }
 
                 if (removeSettings.Count > 0)
@@ -161,7 +161,7 @@ namespace AssetChecker
 
                     GUILayout.BeginHorizontal();
                     GUILayout.Space(30);
-                    NGUIEditorTools.SetLabelWidth(120F);
+                    GUILayoutHelper.SetLabelWidth(120F);
                     modelSetting.MaxMatrials = EditorGUILayout.IntSlider(new GUIContent("最大材质数"), modelSetting.MaxMatrials,
                                                                         0, MaxMatrials);
                     GUILayout.FlexibleSpace();

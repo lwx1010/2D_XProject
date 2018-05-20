@@ -22,14 +22,14 @@ namespace EditorTool.PsdExport
 
                 UIScrollBar scrollbar = LayerWordBinder.swapComponent<UIScrollBar>(mainObj);
                 LayerWordBinder.NGUICopySprite(background.gameObject , mainObj , true);
-                NGUITools.AddWidgetCollider(mainObj);
+                GameTools.AddWidgetCollider(mainObj);
 
                 scrollbar.backgroundWidget = mainObj.GetComponent<UISprite>();
                 scrollbar.foregroundWidget = foreground;
                 scrollbar.value = 0.1f;
                 scrollbar.barSize = 0.2f;
 
-                NGUITools.AddWidgetCollider(foreground.gameObject);
+                GameTools.AddWidgetCollider(foreground.gameObject);
             }
             catch (Exception)
             {

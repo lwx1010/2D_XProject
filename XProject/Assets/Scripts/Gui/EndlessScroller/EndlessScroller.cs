@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace LuaFramework
 {
+#if NGUI
     /// <summary>
     /// Endless Scroll Manager.
     /// </summary>
@@ -186,4 +187,5 @@ namespace LuaFramework
         }
 
     }
+#endif
 }

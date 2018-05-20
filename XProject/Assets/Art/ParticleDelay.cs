@@ -7,6 +7,7 @@ public class ParticleDelay : MonoBehaviour {
 
     public float[] delays;
 
+
     void OnEnable()
     {
         if (goes == null) return;
@@ -19,14 +20,22 @@ public class ParticleDelay : MonoBehaviour {
 
         for (int i = 0; i < goes.Length; ++i)
         {
-            goes[i].SetActive(false);
-            StartCoroutine(StartDelay(goes[i], delays[i]));
+            if(goes[i]!=null)
+            {
+                goes[i].SetActive(false);
+                StartCoroutine(StartDelay(goes[i], delays[i]));
+            }
+
         }
     }
 
     IEnumerator StartDelay(GameObject go, float delay)
     {
         yield return Yielders.GetWaitForSeconds(delay);
-        go.SetActive(true);
+        if(go != null)
+        {
+            go.SetActive(true);
+
+        }
     }
 }

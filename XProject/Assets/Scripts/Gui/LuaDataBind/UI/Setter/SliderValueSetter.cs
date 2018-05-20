@@ -2,6 +2,7 @@
 
 namespace LuaDataBind
 {
+#if NGUI
     /// <summary>
     ///   Sets the value of a slider depending on a data value.
     ///   <para>Input: Number</para>
@@ -15,4 +16,5 @@ namespace LuaDataBind
         }
         
     }
+#endif
 }

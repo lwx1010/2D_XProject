@@ -198,6 +198,8 @@ public class ActorTrackGroupInspector : Editor
 
             Animator animator = actor.GetComponent<Animator>();
             if (animator) animator.enabled = true;
+
+            //EntityTrackGroup.AddFastShadow(actor);
         }
         else if (destPath.EndsWith(".ogg"))
         {

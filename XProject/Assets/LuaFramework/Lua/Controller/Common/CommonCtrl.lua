@@ -7,7 +7,7 @@ local MARRIAGE_TYPE = 3
 -- require('Logic/MarriageLogic')
 function CommonCtrl.CreateQuanQuan( transform)
 	if CtrlManager.GetCtrl("NetConnecting") == nil then
-		local netConnectPrefab = resMgr.LoadPrefab("Prefab/Gui/common/NetConnecting")
+		local netConnectPrefab = resMgr.LoadPrefabBundle("Prefab/Gui/common/NetConnecting")
 		local netConnectGo = newObject(netConnectPrefab)
 		--netConnectGo.transform:SetParent(transform)
 		--netConnectGo.transform.localScale = Vector3.New(1, 1, 1)

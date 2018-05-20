@@ -1,0 +1,1453 @@
+fileFormatVersion: 2
+guid: 815adbf1a0d7d2f41b7726c72ab4ac06
+timeCreated: 1526278043
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ui_auto_button01
+    21300002: ui_auto_button02
+    21300004: ui_boss_blood
+    21300006: ui_boss_box
+    21300008: ui_button_bag
+    21300010: ui_button_bangpai
+    21300012: ui_button_change_enemy
+    21300014: ui_button_chongzhi
+    21300016: ui_button_fanli
+    21300018: ui_button_fuben
+    21300020: ui_button_fuli
+    21300022: ui_button_jineng
+    21300024: ui_button_jump
+    21300026: ui_button_newyear
+    21300028: ui_button_paihang
+    21300030: ui_button_pet
+    21300032: ui_button_shouchong
+    21300034: ui_button_strong
+    21300036: ui_button_tishegn
+    21300038: ui_button_tujian
+    21300040: ui_chat_box_line
+    21300042: ui_chat_icon_gangs
+    21300044: ui_chat_icon_system
+    21300046: ui_chat_icon_team
+    21300048: ui_chat_icon_world
+    21300050: ui_control_button01
+    21300052: ui_control_button02
+    21300054: ui_control_button03
+    21300056: ui_friends_button
+    21300058: ui_icon_battery01
+    21300060: ui_icon_battery02
+    21300062: ui_icon_battery03
+    21300064: ui_icon_boss_location
+    21300066: ui_icon_bosshead
+    21300068: ui_icon_change_enemy
+    21300070: ui_icon_email
+    21300072: ui_icon_fightboss
+    21300074: ui_icon_notice_horn
+    21300076: ui_icon_NPC_location
+    21300078: ui_icon_pethead
+    21300080: ui_icon_playerhead
+    21300082: ui_icon_redpoint
+    21300084: ui_icon_wifi
+    21300086: ui_interact_button01
+    21300088: ui_interact_button02
+    21300090: ui_level_box
+    21300092: ui_line_pattern02
+    21300094: ui_line_pattern03
+    21300096: ui_map_takeup_button01
+    21300098: ui_map_takeup_button02
+    21300100: ui_mode_button
+    21300102: ui_normal_attack
+    21300104: ui_notice_box
+    21300106: ui_opentime_box
+    21300108: ui_passive_skill01
+    21300110: ui_passive_skill02
+    21300112: ui_passive_skill03
+    21300114: ui_passive_skill04
+    21300116: ui_passive_skill05
+    21300118: ui_pet_blood
+    21300120: ui_pet_box
+    21300122: ui_player_blood
+    21300124: ui_player_box
+    21300126: ui_player_box_zhanli
+    21300128: ui_player_exp
+    21300130: ui_player_exp_box
+    21300132: ui_preview_box
+    21300134: ui_rest_button01
+    21300136: ui_rest_button02
+    21300138: ui_ride_horse_button01
+    21300140: ui_ride_horse_button02
+    21300142: ui_small_chat_box
+    21300144: ui_smallmap_001
+    21300146: ui_smallmap_box
+    21300148: ui_smallmap_informbox
+    21300150: ui_switch_button
+    21300152: ui_task_item_box
+    21300154: ui_task_item_select
+    21300156: ui_task_normal
+    21300158: ui_task_selected
+    21300160: ui_task_takeup_button01
+    21300162: ui_task_takeup_button02
+    21300164: ui_tips_pattern01
+    21300166: ui_vipfb_vip_icon
+    21300168: ui_voice_button_gangs
+    21300170: ui_voice_icon_open
+    21300172: ui_word_peace
+    21300174: ui_zhujiemian_mask01
+    21300176: ui_blood_redbox
+    21300178: ui_monster_blood
+    21300180: ui_self_blood
+    21300182: ui_passive_skill06
+    21300184: ui_passive_skill07
+    21300186: ui_passive_skill08
+    21300188: ui_passive_skill09
+    21300190: ui_enemy_blood
+    21300192: ui_friend_blood
+    21300194: ui_small_bloodbox
+    21300196: ui_white_blood
+    21300198: ui_myselfr_blood
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: 47
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: 33
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ui_auto_button01
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 585
+        width: 53
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_auto_button02
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 612
+        width: 53
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_boss_blood
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 988
+        width: 244
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_boss_box
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 939
+        width: 323
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_bag
+      rect:
+        serializedVersion: 2
+        x: 951
+        y: 694
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_bangpai
+      rect:
+        serializedVersion: 2
+        x: 785
+        y: 674
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_change_enemy
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 641
+        width: 86
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_chongzhi
+      rect:
+        serializedVersion: 2
+        x: 875
+        y: 672
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_fanli
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 667
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_fuben
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 628
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_fuli
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 608
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_jineng
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 606
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_jump
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 666
+        width: 72
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_newyear
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 601
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_paihang
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 542
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_pet
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 535
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_shouchong
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 562
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_strong
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 540
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_tishegn
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 496
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_button_tujian
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 476
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_chat_box_line
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 910
+        width: 1
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_chat_icon_gangs
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 758
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_chat_icon_system
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 798
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_chat_icon_team
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 732
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_chat_icon_world
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 706
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_control_button01
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 760
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_control_button02
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 851
+        width: 203
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_control_button03
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 755
+        width: 182
+        height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_enemy_blood
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 828
+        width: 82
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_friend_blood
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 820
+        width: 82
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_friends_button
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 820
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_battery01
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 837
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_battery02
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 823
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_battery03
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 784
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_boss_location
+      rect:
+        serializedVersion: 2
+        x: 1010
+        y: 1012
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_bosshead
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 400
+        width: 54
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_change_enemy
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 576
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_email
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 721
+        width: 22
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_fightboss
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 838
+        width: 106
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_notice_horn
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 959
+        width: 38
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_NPC_location
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 822
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_pethead
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 478
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_playerhead
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 712
+        width: 92
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_redpoint
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 700
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_icon_wifi
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 685
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_interact_button01
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 440
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_interact_button02
+      rect:
+        serializedVersion: 2
+        x: 945
+        y: 384
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_level_box
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 610
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_line_pattern02
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 733
+        width: 75
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_line_pattern03
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 851
+        width: 122
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_map_takeup_button01
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 798
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_map_takeup_button02
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 798
+        width: 28
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_mode_button
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 825
+        width: 76
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_myselfr_blood
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 818
+        width: 82
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_normal_attack
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 867
+        width: 131
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_notice_box
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 807
+        width: 102
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 32, y: 0, z: 32, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_opentime_box
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 642
+        width: 71
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 22, y: 0, z: 22, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_passive_skill01
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 668
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_passive_skill02
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 668
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_passive_skill03
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 626
+        width: 85
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_passive_skill04
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 611
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_passive_skill05
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 611
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_passive_skill06
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 836
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_passive_skill07
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 836
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_passive_skill08
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 836
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_passive_skill09
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 749
+        width: 85
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_pet_blood
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 738
+        width: 73
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_pet_box
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 740
+        width: 77
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_player_blood
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 837
+        width: 196
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_player_box
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 923
+        width: 294
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_player_box_zhanli
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 798
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_player_exp
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 546
+        width: 31
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 0, z: 5, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_player_exp_box
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 913
+        width: 31
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_preview_box
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 740
+        width: 160
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_rest_button01
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 383
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_rest_button02
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 328
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_ride_horse_button01
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 613
+        width: 54
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_ride_horse_button02
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 587
+        width: 54
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_small_bloodbox
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 826
+        width: 84
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_small_chat_box
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 648
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 7, y: 7, z: 3, w: 7}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_smallmap_001
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 698
+        width: 187
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_smallmap_box
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 682
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 6, y: 5, z: 6, w: 5}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_smallmap_informbox
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 934
+        width: 38
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_switch_button
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 439
+        width: 55
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_task_item_box
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 669
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 8, z: 12, w: 8}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_task_item_select
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 870
+        width: 50
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 16, y: 10, z: 16, w: 10}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_task_normal
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 798
+        width: 36
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_task_selected
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 803
+        width: 36
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_task_takeup_button01
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 614
+        width: 32
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_task_takeup_button02
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 554
+        width: 32
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_tips_pattern01
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1004
+        width: 386
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_vipfb_vip_icon
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 825
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_voice_button_gangs
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 753
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_voice_icon_open
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 703
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_white_blood
+      rect:
+        serializedVersion: 2
+        x: 881
+        y: 812
+        width: 82
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_word_peace
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 646
+        width: 35
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    - serializedVersion: 2
+      name: ui_zhujiemian_mask01
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 608
+        width: 16
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: -1
+    outline: []
+  spritePackingTag: main
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

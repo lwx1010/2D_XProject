@@ -29,7 +29,8 @@ namespace Riverlake
                     }
                     else
                     {
-                        var temp = AssetBundle.LoadFromFile(Util.DataPath + deps[i]);
+                        string assetBundlePath = Util.DataPath + "AssetBundle/";
+                        var temp = AssetBundle.LoadFromFile(assetBundlePath + LuaConst.osDir +"/" + deps[i]);
                         AssetBundleManager.Instance.bundleLoaded.Add(deps[i], new BundleInfo(temp, deps[i]));
                     }
                 }
@@ -117,9 +118,12 @@ namespace Riverlake
         const float MAXDELAY_CLEAR_TIME = 10 * 60;
         private float delayClearTime;
 
+        private string assetBundlePath;
+
         void Awake()
         {
             delayClearTime = MAXDELAY_CLEAR_TIME;
+            assetBundlePath = Util.DataPath + "AssetBundle/";
         }
 
         public void AssetBundleInit(Action callback)
@@ -131,7 +135,7 @@ namespace Riverlake
 
         private void LoadAssetbundleMap()
         {
-            var content = File.ReadAllBytes(string.Format("{0}/bundlemap.ab", Util.DataPath));
+            var content = File.ReadAllBytes(string.Format("{0}{1}/bundlemap.ab", assetBundlePath, LuaConst.osDir));
             var decryptoStrs = Encoding.GetString(Riverlake.Crypto.Crypto.Decode(content)).Split('\n');
             preloadAssets = new List<string>();
             for (int i = 0; i < decryptoStrs.Length; ++i)
@@ -154,7 +158,7 @@ namespace Riverlake
 
         private void LoadManifest()
         {
-            string path = string.Format("{0}/{1}.ab", Util.DataPath, LuaConst.osDir.ToLower());
+            string path = string.Format("{0}{1}/{2}", assetBundlePath, LuaConst.osDir, LuaConst.osDir+".ab");
             if (!File.Exists(path))
             {
                 Debug.LogError(string.Format("no manifest file exists in {0}", path));
@@ -166,13 +170,14 @@ namespace Riverlake
                 allBundleManifest = allBundle.LoadAsset("AssetBundleManifest") as AssetBundleManifest;
                 allBundle.Unload(false);
                 var bundles = allBundleManifest.GetAllAssetBundles();
+                
                 for (int i = 0; i < bundles.Length; ++i)
                 {
                     if (preloadAssets.Contains(bundles[i]))
                     {
                         var deps = allBundleManifest.GetAllDependencies(bundles[i]);
                         for (int k = 0; k < deps.Length; ++k)
-                        {
+                        {            
                             if (!preloadAssets.Contains(deps[k])) preloadAssets.Add(deps[k]);
                         }
                         if (!preloadAssets.Contains(bundles[i])) preloadAssets.Add(bundles[i]);
@@ -186,7 +191,7 @@ namespace Riverlake
             for (int i = 0; i < preloadAssets.Count; ++i)
             {
                 curIndex = i;
-                string path = string.Format("{0}{1}", Util.DataPath, preloadAssets[i]);
+                string path = string.Format("{0}/{1}", assetBundlePath + LuaConst.osDir, preloadAssets[i]);
                 if (preloadAssets[i].CustomEndsWith(".ab") && File.Exists(path))
                 {
                     preloadAbcr = AssetBundle.LoadFromFileAsync(path);
@@ -243,7 +248,7 @@ namespace Riverlake
                         {
                             var deps = allBundleManifest.GetAllDependencies(key);
                             for (int i = 0; i < deps.Length; ++i)
-                            {
+                            {                               
                                 var depBundle = GetBundleFromLoaded(deps[i]);
                                 if (depBundle == null)
                                 {
@@ -254,7 +259,7 @@ namespace Riverlake
                                     }
                                     else
                                     {
-                                        var depPath = Util.DataPath + deps[i];
+                                        var depPath = assetBundlePath  + LuaConst.osDir + deps[i];
                                         if (File.Exists(depPath))
                                         {
                                             var temp = AssetBundle.LoadFromFile(depPath);
@@ -267,7 +272,7 @@ namespace Riverlake
                                     }
                                 }
                             }
-                            var path = Util.DataPath + key;
+                            var path = assetBundlePath + key;
                             if (File.Exists(path))
                             {
                                 if (!bundleLoaded.ContainsKey(key))
@@ -321,7 +326,7 @@ namespace Riverlake
                         var depBundle = GetBundleFromLoaded(deps[i]);
                         if (depBundle == null)
                         {
-                            var depPath = Util.DataPath + deps[i];
+                            var depPath = assetBundlePath + deps[i];
                             if (File.Exists(depPath))
                             {
                                 bundleLoadingQueue.Enqueue(deps[i]);
@@ -336,7 +341,7 @@ namespace Riverlake
                             }
                         }
                     }
-                    var path = Util.DataPath + key;
+                    var path = assetBundlePath + key;
                     if (File.Exists(path))
                     {
                         var mainAbcr = AssetBundle.LoadFromFileAsync(path);
@@ -423,10 +428,30 @@ namespace Riverlake
             return obj;
         }
 
-        public Texture LoadTexture(string name)
+        public Sprite LoadSprite(string spriteName, string atlasName)
         {
-            name = name.ToLower();
-            return LoadAssets<Texture>(name);
+            var assetName = atlasName.ToLower();
+            string ext = Path.GetExtension(assetName);
+            if (!string.IsNullOrEmpty(ext))
+                assetName = assetName.Replace(ext, "");
+
+            AssetBundle bundle = TryToGetBundle(assetName);
+            if (bundle == null) return null;
+            if (!assetName.CustomStartsWith("assets/res/"))
+                assetName = string.Format("assets/res/{0}", atlasName);
+
+            var assets = bundle.LoadAllAssets();
+            if (assets == null)
+                Debug.LogWarning(string.Format("Cant find ab: {0}", assetName));
+            foreach (var asset in assets)
+            {
+                if (asset is Sprite)
+                {
+                    if (asset.name.Equals(spriteName))
+                        return asset as Sprite;
+                }
+            }
+            return null;
         }
 
         /// <summary>
@@ -468,7 +493,7 @@ namespace Riverlake
         }
         #endregion
 
-        public IPromise<AudioClip> LoadAudioClipAsync(string assetName, string extension)
+        public IPromise<AudioClip> LoadAudioClipBundleAsync(string assetName, string extension)
         {
             assetName = assetName.ToLower();
             return LoadAssetAsync<AudioClip>(assetName, extension);

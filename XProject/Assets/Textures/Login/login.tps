@@ -303,6 +303,19 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">ui_character_inform_box.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>19,19,37,37</rect>
+                <key>scale9Paddings</key>
+                <rect>19,19,37,37</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">ui_chuangjianjuese_box.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -313,6 +326,19 @@
                 <rect>13,18,25,37</rect>
                 <key>scale9Paddings</key>
                 <rect>13,18,25,37</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">ui_dark_mask.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>4,4,7,7</rect>
+                <key>scale9Paddings</key>
+                <rect>4,4,7,7</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
@@ -424,6 +450,46 @@
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
+            <key type="filename">ui_drfb_icon_ren.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>6,7,11,13</rect>
+                <key>scale9Paddings</key>
+                <rect>6,7,11,13</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">ui_fenlanbiaoqian01.png</key>
+            <key type="filename">ui_fenlanbiaoqian02.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>65,12,129,24</rect>
+                <key>scale9Paddings</key>
+                <rect>65,12,129,24</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">ui_fenlanbiaoqian03.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>50,12,100,25</rect>
+                <key>scale9Paddings</key>
+                <rect>50,12,100,25</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
             <key type="filename">ui_icon_shaizi.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
@@ -434,6 +500,45 @@
                 <rect>27,28,54,55</rect>
                 <key>scale9Paddings</key>
                 <rect>27,28,54,55</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">ui_name_box.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>69,8,139,15</rect>
+                <key>scale9Paddings</key>
+                <rect>69,8,139,15</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">ui_tips_close.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>15,18,29,35</rect>
+                <key>scale9Paddings</key>
+                <rect>15,18,29,35</rect>
+                <key>scale9FromFile</key>
+                <false/>
+            </struct>
+            <key type="filename">ui_usual_tips01.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+                <key>scale9Enabled</key>
+                <false/>
+                <key>scale9Borders</key>
+                <rect>34,44,69,89</rect>
+                <key>scale9Paddings</key>
+                <rect>34,44,69,89</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>

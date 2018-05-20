@@ -4,6 +4,7 @@ using Riverlake;
 
 namespace LuaFramework
 {
+#if NGUI
     /// <summary>
     /// Word Item.
     /// </summary>
@@ -61,4 +62,5 @@ namespace LuaFramework
             LuaFramework.Util.CallMethod("ITEMLOGIC", "OnClickItemInfo", itemId); 
         }
     }
+#endif
 }

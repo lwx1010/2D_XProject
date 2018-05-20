@@ -3,8 +3,8 @@ local HEROSKILLMGR = HEROSKILLMGR
 local HERO = HERO
 local FightLogic = FightLogic
 local Time = Time
-local allSkillXls = require "xlsdata/Skill/SkillXls"
-local allMartialXls = require "xlsdata/Skill/MartialXls"
+local AllSkillXls = require "xlsdata/Skill/SkillXls"
+local AllMartialXls = require "xlsdata/Skill/MartialXls"
 local MapDataXls = require("xlsdata/Map/MapDataXls")
 
 local FightMgr = {}
@@ -27,56 +27,12 @@ function FightMgr.Init()
 	return this
 end
 
---设置技能目标相关
-function FightMgr.SetTargets( skill, targets, targetId, skillType, targetPos, htype, needChangeDir)
-	if targets ~= nil then
-		-- print("------------------------11111111111111111----------------------")
-		--skill.hurts = targets
-		if #targets > 0 then
-			if roleMgr:GetSceneEntityById(targets[1].tar_id, 0) ~= nil then
-				skill.targetGo = roleMgr:GetSceneEntityById(targets[1].tar_id, 0)
-
-				if skillType == SKILL_SINGLE then
-					skill.targetPos = skill.targetGo.transform.position
-
-					if (not htype or htype == 1 or htype == 0) and needChangeDir then
-						skill.startGo.gameObject.transform:LookAt(Vector3.New(skill.targetGo.transform.position.x, skill.startGo.transform.position.y, skill.targetGo.transform.position.z))
-					end
-				end
-			end
-		end
-	elseif roleMgr:GetSceneEntityById(targetId, 0) ~= nil then
-		-- print("------------------------22222222222222222----------------------")
-
-		skill.targetGo = roleMgr:GetSceneEntityById(targetId, 0)
-		if  skillType == SKILL_SINGLE then
-			skill.targetPos = skill.targetGo.gameObject.transform.position
-			if (not htype or htype == 1 or htype == 0) and needChangeDir then
-				-- print("------------------aaaaa---------", Time.time, skill.targetGo.transform.position.x, skill.startGo.gameObject.transform.position.y, skill.targetGo.transform.position.z )
-				skill.startGo.gameObject.transform:LookAt(Vector3.New(skill.targetGo.transform.position.x, skill.startGo.gameObject.transform.position.y, skill.targetGo.transform.position.z))
-			end
-		elseif targetPos == Vector3.New(0,0,0) then
-			targetPos = skill.targetGo.transform.position
-		end
-	end
-
-	if skillType == SKILL_AOE then
-		-- print("------------------------33333333333333333----------------------")
-
-		-- print("------------------SetTargets---------", Time.time, targetPos.x, targetPos.y, targetPos.z )
-		skill.targetPos = targetPos
-		if targetPos ~= Vector3.New(0,0,0) and (not htype or htype == 1 or htype == 0) and needChangeDir then
-			skill.startGo.gameObject.transform:LookAt(Vector3.New(targetPos.x, skill.startGo.gameObject.transform.position.y, targetPos.z))
-		end
-	end
-end
-
 --释放技能前处理
 --添加技能动作状态
 --可以移动的技能需要添加技能移动状态
 --不可以移动的技能需要停止移动，面向技能方向
 function FightMgr.DoPreSkill(attacker, isSelf, dir, skillXls)
-	if not attacker then return end
+	if IsNil(attacker) then return end
 
 	if isSelf then
 		roleMgr.mainRole.roleState:AddState(GAMECONST.RoleState.SkillActing)
@@ -85,46 +41,88 @@ function FightMgr.DoPreSkill(attacker, isSelf, dir, skillXls)
 		end
 	end
 
-	attacker.move:StopToDir(dir)
+	-- print("=================", debug.traceback())
+	if attacker.move then
+		attacker.move:StopToDir(dir)
+	end
 end
 
 --广播协议(玩家或npc技能协议按队列进行处理)
 -- @param: isDequeue 是否是队列出栈消息
 function FightMgr.StartSkill(pb, isSelf, isDequeue)
-	if not allSkillXls[pb.skill_id] then return end
+	if not AllSkillXls[pb.skill_id] then return end
 
 	local attacker
 	if isSelf then
+		HEROSKILLMGR.curActSkill = pb.skill_id
 		attacker = roleMgr.mainRole
 	else
 		attacker = roleMgr:GetSceneEntityById(pb.att_id)
 	end
 
-	this.DoPreSkill(attacker, isSelf, pb.dir, allSkillXls[pb.skill_id])
+	this.DoPreSkill(attacker, isSelf, pb.dir, AllSkillXls[pb.skill_id])
 	
-	if attacker then
-		attacker.skillCtrl:UseSkillByTabel(allSkillXls[pb.skill_id],  (pb.tx and (not pb.mtar_id or #pb.mtar_id == 0)) and SceneHelper.GetNearestPos(pb.tx, pb.tz) or Vector3.zero, true)
+	if not IsNil(attacker) and attacker.skillCtrl ~= nil then
+		attacker.skillCtrl:UseSkillByTabel(AllSkillXls[pb.skill_id]
+			,  (pb.tx and (not pb.mtar_id or #pb.mtar_id == 0)) and SceneHelper.GetNearestPos(pb.tx, pb.tz) or Vector3.zero
+			, isSelf and roleMgr.mainRole.transform.position or SceneHelper.GetNearestPos(pb.move_x, pb.move_z)
+			, AllMartialXls[math.floor(pb.skill_id/10)].Mtype == 1 and false or true)
 	end
 end
+
+local tbl = {showHp, showType, nhp, backPos, floatdown_buff}
 
 --广播技能击中协议(玩家或npc技能协议按队列进行处理)
 -- @param: isDequeue 是否是队列出栈消息
 function FightMgr.SkillHit( pb, isDequeue )
-	if not allSkillXls[pb.skill_id] then return end
+	if not AllSkillXls[pb.skill_id] then return end
 
 	--如果calcnt 字段为0和nil， 且没有前摇的时候，服务端会把act协议优化掉，收到这样的hit协议时，需要播放动作
-	if ( not pb.calcnt or pb.calcnt == 0) and (not allSkillXls[pb.skill_id].BeforeHurtTime or allSkillXls[pb.skill_id].BeforeHurtTime <= 0) then
+	if ( not pb.calcnt or pb.calcnt == 0) and (not AllSkillXls[pb.skill_id].BeforeHurtTime or AllSkillXls[pb.skill_id].BeforeHurtTime <= 0) then
 		this.StartSkill(pb)
 	end
 
 	local attacker = roleMgr:GetSceneEntityById(pb.att_id)
+
+	--血量,受击处理
+	local tbl 
+	for k, v in pairs(pb.tar_chars) do
+		local target = roleMgr:GetSceneEntityById(v.tar_id)
+		if target then 
+			tbl = {}
+			tbl.showHp = 1					--是否显示伤害（只显示与自己相关的）
+			tbl.hpType = v.type 			--0:普通伤害,1:其他(技能导致加buff,删buff等),2:暴击伤害,3:miss,4:无敌
+			tbl.hpNum = v.show_hp			--冒血值
+			tbl.backPosX = v.back_x			--被击退到的点
+			tbl.backPosZ = v.back_z
+			tbl.fdBuff = v.floatdown_buff	--浮空击倒buff
+			tbl.divideTime = AllSkillXls[pb.skill_id].DivideDamageTime and AllSkillXls[pb.skill_id].DivideDamageTime[pb.calcnt ~= 0 and pb.calcnt+1 or 1] or nil 		--分段伤害时间
+			tbl.divideNum = AllSkillXls[pb.skill_id].DivideDamageNum and AllSkillXls[pb.skill_id].DivideDamageNum[pb.calcnt ~= 0 and pb.calcnt+1 or 1] or nil 			--分段伤害数值
+			tbl.SkillResPath = this.GetSkillTreePath(target)
+
+			-- print("==============", pb.skill_id, pb.calcnt, TableToString(tbl))
+			target.skillCtrl:ExecuteHit(tbl)
+
+			if target.charData.hpstamp < v.hpstamp then
+				target.charData.hp = v.nhp
+				target.skillCtrl:UpdateHP(v.nhp, target.charData.hpmax)
+				
+				if v.nhp <= 0 then
+					target:Dead()
+				end
+			end
+		end
+	end
 end
+
 
 --动作结束需要重置主角状态
 function FightMgr.DoAfterSkill(attacker)
-	if not attacker then return end
+	if IsNil(attacker) then return end
 
 	if attacker.entityType == EntityType.EntityType_Self then
+		HEROSKILLMGR.curActSkill = 0
+
 		roleMgr.mainRole.roleState:RemoveState(GAMECONST.RoleState.SkillActing)
 		if roleMgr.mainRole.roleState:IsInState(GAMECONST.RoleState.SkillMoving) then
 			roleMgr.mainRole.roleState:RemoveState(GAMECONST.RoleState.SkillMoving)
@@ -132,305 +130,21 @@ function FightMgr.DoAfterSkill(attacker)
 	end
 end
 
---获取字体字符串
-local function GetFontString(attackertype, targettype, skilltype, hp)
-	--print("131313 ", attackertype, targettype, skilltype, hp)
-	if skilltype == 11 then
-		return "Atlas/font/NumFont_Weapon", "%" .. math.abs(hp)
-	end
+--闪
+function FightMgr.SkillDodge(entity, x, z)
+	if not entity then return end
 
-	if attackertype == 1 and hp < 0 then
-		if targettype == 1 then
-			return "Atlas/font/NumFont_Hurt", math.abs(hp)
-		elseif skilltype == 1 then	--宠物/标识，&暴击
-			return "Atlas/font/NumFont_Pet", "/&" .. math.abs(hp)
-		else
-			return "Atlas/font/NumFont_Pet", "/" .. math.abs(hp)
-		end
-	elseif attackertype == 2 and hp < 0 then
-		if targettype == 1 then
-			return "Atlas/font/NumFont_Hurt", math.abs(hp)
-		else
-			return "Atlas/font/NumFont_Weapon", "&" .. math.abs(hp)
-		end
-	end
-
-	if hp > 0 then
-		return "Atlas/font/NumFont_Add", "+" .. math.abs(hp)
-	end
-
-	if skilltype == 1 then
-		if targettype == 1 then
-			return "Atlas/font/NumFont_Hurt", math.abs(hp)
-		else
-			return "Atlas/font/NumFont_Double", "&" .. math.abs(hp)
-		end
-	end
-
-	if skilltype == 0 then
-		if targettype == 1 then
-			return "Atlas/font/NumFont_Hurt", math.abs(hp)
-		else
-			return "Atlas/font/NumFont_Monster", math.abs(hp)
-		end
-	end
-
-	if skilltype == 9 then
-		return "Atlas/font/NumFont_Monster", "&" .. math.abs(hp)
-	end
+	entity.skillCtrl:StopSkill(x, z)
 end
 
---伤害显示
-function FightMgr.ShowHurt( attacker, objType, tar_id, hp, skilltype, nhp, hpmax, skillId, isdie)
-	--UI自己血量更新
-	if HERO.Id == tar_id then
-		local MainCtrl = CtrlManager.GetCtrl(CtrlNames.Main)
-
-		if roleMgr.mainRole and skilltype ~= 11 then
-			MainCtrl.UpdatePlayerBarHp(roleMgr.mainRole.hp > nhp and nhp or roleMgr.mainRole.hp, hpmax)
-		end
-	end
-
-	if attacker and (HERO.Id == attacker.id) then
-		--UI目标血量更新
-		--HEROSKILLMGR.UpdateTargetBlood(tar_id, nhp, hpmax)
-
-		--设置为目标
-		if nhp > 0 then
-			HEROSKILLMGR.SetCurTarget(tar_id)
-		end
-	-- elseif objType > 0 and attacker and (attacker.ownerId == HERO.Id) then
-	-- 	--UI目标血量更新
-	-- 	HEROSKILLMGR.UpdateTargetBlood(tar_id, nhp, hpmax)
-	end
-
-	--0:普通伤害(加血),1:暴击伤害,2:破格伤害,3:暴击破格伤害,4:miss,5:无敌,6.非攻击技能加减血,7:加buff,8：跳闪，9：buff加减血, 10,打坐， 11护盾 12隐身无敌
-	if skilltype == 7 or skilltype == 2 or skilltype == 3 or skilltype == 6 or skilltype == 12 or skilltype == 13 then
-		return
-	end
-
-	--skilltype = 4
-	local target = roleMgr:GetSceneEntityById(tar_id, 0)
-	if target == nil then return end
-
-	local pos = FightLogic:GetTargetHurtPos(target) or target.gameObject.transform.position
-	local targettype = Util.GetEntityType(target)
-	--这里存在攻击者的时候要设置血量位置偏移，暂时不加
-	local dir = 0
-
-	if attacker and tar_id ~= HERO.Id then
-		dir = Util.WorldToUI(target.gameObject.transform.position).x - Util.WorldToUI(attacker.gameObject.transform.position).x
-	end
-
-	--弹出显示
-	if skillId > 0 then
-		if allSkillXls[skillId] == nil then
-			logWarn("333找不到技能" .. skillId)
-			this.ShowHpText(skilltype, objType, targettype, pos, hp, dir)
-			return
-		end
-
-		if #allSkillXls[skillId].DivideShow == 0 or #allSkillXls[skillId].DivideShow ~= #allSkillXls[skillId].DivideDelay then
-			this.ShowHpText(skilltype, objType, targettype, pos, hp, dir)
-			return
-		end
-
-		for i = 1, #allSkillXls[skillId].DivideShow do
-			local co
-			co = coroutine.start(function()
-				coroutine.wait(allSkillXls[skillId].DivideDelay[i])
-				target = roleMgr:GetSceneEntityById(tar_id, 0)
-				if isdie or not target then
-					this.ShowHpText(skilltype, objType, targettype, pos, math.floor(hp*allSkillXls[skillId].DivideShow[i]/100), dir)
-				else
-					--print("-----------", target)
-					pos = FightLogic:GetTargetHurtPos(target) or target.gameObject.transform.position
-					this.ShowHpText(skilltype, objType, targettype, pos, math.floor(hp*allSkillXls[skillId].DivideShow[i]/100), dir)
-				end
-				coroutine.stop(co)
-			end)
-		end
+--获取受击行为树路径
+function FightMgr.GetSkillTreePath(target)
+	if target.entityType == EntityType.EntityType_Monster then
+		return string.format("monster/%s", target.charData.shape)
 	else
-		this.ShowHpText(skilltype, objType, targettype, pos, hp, dir)
+		-- print("=====================", target.charData.skeletonNo, target.id)
+		return string.format("player/%s", target.charData.skeletonNo)
 	end
-
-end
-
-function FightMgr.ShowHpText(skilltype, attackertype, targettype, pos, hp, dir)
-	local MainCtrl = CtrlManager.GetCtrl(CtrlNames.Main)
-	local parent = MainCtrl.GetHpWidget()
-	if parent == nil then
-		return
-	end
-
-	local hpGo = GameObject.New("hptest")
-	if skilltype == 4 or skilltype == 5 then
-		--显示闪避或者无敌
-		local spr = hpGo:AddComponent(typeof(UISprite))
-		Util.SetUISprite(spr, "Atlas/main/main", "ui_word_shanbi")
-	elseif skilltype == 8 then
-		--显示跳闪
-		local spr = hpGo:AddComponent(typeof(UISprite))
-		Util.SetUISprite(spr, "Atlas/main/main", "ui_word_shantiao")
-	else
-		--显示伤害
-		local lab = hpGo:AddComponent(typeof(UILabel))
-		local fontstr, text = GetFontString(attackertype, targettype, skilltype, hp)
-		Util.SetUILabelFont(lab, fontstr, 0, 2)
-		lab.text = text
-	end
-
-	hpGo.layer = 5
-
-	hpGo.transform:SetParent(panelMgr.hpRoot)
-	local factor = targettype == 1 and 0.8 or 1		--主角自己受到的伤害显示缩放为0.5
-	hpGo.transform.localScale = Vector3.New(1,1,1)*factor
-	hpGo.transform.position = Util.WorldToUI(pos)
-
-	local mHight = 100
-	local moveTime = 0.5
-	local moveHeight = 50
-
-	local vecList = {}
-	table.insert(vecList, Vector3.New(1.5, 1.5, 1.5)*factor)
-	table.insert(vecList, Vector3.New(1, 1, 1)*factor)
-
-	local mTimes = {}
-	table.insert(mTimes, 0.5)
-	table.insert(mTimes, 0.3)
-
-	--print("------------", dir)
-	local dirWidth
-	if attackertype == 1 then
-		dirWidth = dir == 0 and 0 or 210*dir/math.abs(dir)
-	elseif attackertype == 2 then
-		dirWidth = dir == 0 and 0 or 210*dir/math.abs(dir)
-	else
-		dirWidth = dir == 0 and 0 or 230*dir/math.abs(dir)
-	end
-
-	this.DoTweenHp(hpGo, vecList, mTimes, mHight*(0.5+ math.random()), dirWidth, moveTime, moveHeight)
-end
-
-local function OnAnimationEnd( go )
-	local widget = go.transform:GetComponent("UIWidget")
-	DOTween.To(DG.Tweening.Core.DOGetter_float(function()return widget.alpha end),
-		DG.Tweening.Core.DOSetter_float(function(x) widget.alpha = x end),
-		0, 0.5):OnComplete(function() destroy(go) end)
-end
-
-local function OnMoveEnd( go, moveTime, moveHeight)
-	go.transform:DOLocalMoveY(go.transform.localPosition.y + moveHeight, moveTime, false
-		):SetEase(DG.Tweening.Ease.Linear
-		):OnComplete(function() OnAnimationEnd(go) end)
-end
-
-local function OnScaleEnd(scaleObj, vecList, mTimes)
-	local len = #vecList
-	if scaleObj.nowScaleNo < len then
-		scaleObj.nowScaleNo = scaleObj.nowScaleNo + 1
-		scaleObj.go.transform:DOScale(vecList[scaleObj.nowScaleNo], mTimes[scaleObj.nowScaleNo]
-			):SetEase(DG.Tweening.Ease.OutCubic
-			):OnComplete(function() OnScaleEnd(scaleObj, vecList, mTimes) end)
-	end
-end
-
---弹血
-function FightMgr.DoTweenHp(hpGo, vecList, mTimes, mHight, dirWidth, moveTime, moveHeight)
-	if not hpGo then return end
-
-	local totalTime = 0
-	for k, v in pairs(mTimes) do
-		totalTime = totalTime + v
-	end
-
-	hpGo.transform:DOLocalMove(Vector3.New(
-		hpGo.transform.localPosition.x + dirWidth,
-		hpGo.transform.localPosition.y + mHight, 0),
-		totalTime, false
-	):SetEase(DG.Tweening.Ease.OutBack):OnComplete(function() OnMoveEnd(hpGo, moveTime, moveHeight) end)
-
-	if not vecList or #vecList ~= #mTimes then return end
-
-	local scaleObj = {}
-	scaleObj.go = hpGo
-	scaleObj.nowScaleNo = 1
-	hpGo.transform:DOScale(vecList[1], mTimes[1]
-		):SetEase(DG.Tweening.Ease.OutCubic
-		):OnComplete(function() OnScaleEnd(scaleObj, vecList, mTimes) end)
-end
-
---判断对象是否可用攻击(自己以及目标的攻击模式，阵营，队伍等等)
-function FightMgr.ChargeTargetCanAttack()
-	return true
-end
-
-function FightMgr.ClearHpPopUpCourtine(  )
-
-end
-
---------------------------------------------------------------------------------------------------
---冒经验显示
-local expList = {}
-local lastPopTime = 0
-local POP_EXP_TIME = 0.3
-
-function FightMgr.AddShowExp(exp)
-	if (Time.time - lastPopTime) > POP_EXP_TIME then
-		this.ShowExpText(exp)
-		lastPopTime = Time.time
-	elseif #expList > 0 then
-		table.insert(expList, exp)
-	else
-		table.insert(expList, exp)
-		this.CoroutineShowExp()
-	end
-end
-
-function FightMgr.CoroutineShowExp()
-	if #expList == 0 then return end
-
-	coroutine.start(function()
-			coroutine.wait(POP_EXP_TIME - (Time.time - lastPopTime))
-			this.ShowExpText(table.remove(expList, 1))
-			lastPopTime = Time.time
-			this.CoroutineShowExp()
-		end)
-end
-
-function FightMgr.ShowExpText(exp)
-	local MainCtrl = CtrlManager.GetCtrl(CtrlNames.Main)
-	local parent = MainCtrl.GetHpWidget()
-	if parent == nil then
-		return
-	end
-
-	if not roleMgr.mainRole then return end
-
-	local expGo = GameObject.New("expGo")
-	local lab = expGo:AddComponent(typeof(UILabel))
-	Util.SetUILabelFont(lab, "Atlas/font/NumFont_Add", 0, 2)
-	lab.text = "+ &" .. exp
-
-	expGo.layer = 5
-
-	expGo.transform:SetParent(parent.transform)
-	expGo.transform.localScale = Vector3.New(1,1,1)
-	expGo.transform.position = Util.WorldToUI(FightLogic:GetTargetHeadPos(roleMgr.mainRole))
-
-	local mHight = 110
-	local moveTime = 0.2
-	local moveHeight = 30
-
-	local vecList = {}
-	table.insert(vecList, Vector3.New(1.1, 1.1, 1.1))
-	table.insert(vecList, Vector3.New(1, 1, 1))
-
-	local mTimes = {}
-	table.insert(mTimes, 0.3)
-	table.insert(mTimes, 0.1)
-
-	this.DoTweenHp(expGo, vecList, mTimes, mHight, 0, moveTime, moveHeight)
 end
 
 ---------------------------------------------------------------------------------------------------
