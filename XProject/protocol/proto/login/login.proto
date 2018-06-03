@@ -1,0 +1,63 @@
+//-----------------------------------c2s-----------------------------------
+
+//联运平台账号登录
+message C2s_login_corp_account {				
+	required int32 corp_id = 1;		//联运商编号
+	required int32 server_id = 2;	//服务器编号
+	required string acct = 3;  		//联运商玩家账号
+	required int32 adult = 4;    	//账号防沉迷信息,0,1,2
+	required int32 login_time = 5; 	//账号在平台的登录时间，登录时间超过10分钟，则票据过期
+	required string sign = 6; 		//验证票据信息,md5({corp_id}_{acct_id}_{login_time}_{平台密匙})
+	optional string extdata = 7; 	//扩展信息a=xx&b=xx&k=xx的方式获取，为了日后的其他登录信息获取
+}
+
+//-----------------------------------s2c-----------------------------------
+message S2c_login_error {				//返回登录错误信息
+	required int32 err_no = 1; 	  		//错误编号
+	required string err_desc = 2; 	  	//错误描述
+}
+
+message Login_playerinfo {
+	required string uid = 1;
+	required string name = 2;
+	required int32 grade = 3;
+}
+
+message S2c_login_playerlist {
+	repeated Login_playerinfo pinfos = 1;
+}	
+
+message C2s_login_player_add {			//创建角色
+	required string name = 1;			//角色名
+	required int32 role_no = 2;			//role.xls表格里有 
+}
+
+message C2s_login_player_enter {		//角色登录
+	required string uid = 1; 	  		//uid：玩家选择的一个uid登陆到游戏中
+}
+
+message C2s_login_player_name {
+	required string name = 1;
+}
+
+message S2c_login_player_name {
+	required int32 exist = 1;			//1存在 2不存在
+}
+
+message S2c_login_serverinfo {
+	optional string ip = 1;
+	required int32 port = 2;
+	required string secret = 3;
+}
+
+message C2s_login_c2gateserver {
+	required string acct = 1;
+	required int32 corp_id = 2; 	  	//联运商编号
+	required int32 server_id = 3;		//服务器编号
+	required string sign = 4;			//acct=%s&uid=%s&secret=%s
+}
+
+message S2c_login_c2gateserver {
+	required int32 place_holder = 1;
+}
+

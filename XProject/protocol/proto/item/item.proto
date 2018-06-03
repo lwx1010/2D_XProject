@@ -1,0 +1,38 @@
+message Item_info {
+	required string id = 1;
+	required int32 itemno = 2;
+	required int32 amount = 3;
+	required int32 isbind = 4;			//1为绑定
+}
+
+message S2c_item_frame {			//发送道具列表
+	required int32 frameno = 1;
+	repeated Item_info iinfo = 2; 		//道具列表
+}
+
+message C2s_item_frame {
+	required int32 frameno = 1;
+}
+
+message C2s_item_use {				//使用道具
+	required int32 frameno = 1;
+	required string id = 2;				//物品id
+	required int32 cnt = 3;				//使用个数
+}
+
+message S2c_item_del {				//服务端删除物品通知客户端
+	required int32 frameno = 1;
+	required string id = 2;
+}
+
+message S2c_item_add {				//服务端添加物品通知客户端
+	required int32 frameno = 1;
+	required Item_info info = 2;
+}
+
+message S2c_item_setamount {		//服务端扣除添加物品后, 发送当前物品个数给客户端
+	required int32 frameno = 1;
+	required string id = 2;
+	required int32 amount = 3;
+}
+

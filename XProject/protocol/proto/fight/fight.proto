@@ -1,0 +1,224 @@
+message Fight_skill {
+	required int32 skill_id = 1;
+	required int32 lv = 2;
+}
+
+message Fight_warrior_prop {			//战士信息
+	required string id = 1;						//id
+	required string name  = 2;					//战士名称
+	required int32 shape = 3;					//造型
+	required int32 warrior_type = 4; 			//战士类型 1:玩家,2:伙伴,3.NPC
+	required int32 camp_type = 5; 				//阵营
+	required int32 pos = 6; 					//站位
+	required int32 hp = 7;						//当前血量
+	required int32 hpmax = 8;					//最大血量
+	optional string owner_id = 9;				//拥有者id编号 (只有伙伴才有)
+}
+
+message S2c_fight_addwarrior {			//添加战士
+	repeated Fight_warrior_prop warriorp = 1;
+}
+
+message S2c_fight_upgradeskill {		//升级策略技能
+	required int32 old_skillid = 1;
+	required int32 new_skillid = 2;
+	required int32 lv = 3;
+}
+
+message S2c_fight_addskill {			//添加策略技能
+	required int32 skill_id = 1;
+	required int32 lv = 2;
+}
+
+message S2c_fight_delskill {			//删除策略技能
+	required int32 skill_id = 1;
+}
+
+message Fight_one_strategicpoint {		//一个策略点信息
+	required int32 isuse = 1;				//1为使用, 0为未使用
+	required int32 lock_state = 2;			//0没锁, 1锁, 2下一回合锁
+}
+
+message S2c_fight_strategicpoint {		//策略点信息
+	repeated Fight_one_strategicpoint spoint_info = 1;
+}
+
+message Fight_one_playerinfo {
+	required string uid = 1;				//玩家标识
+	required string name = 2;				//玩家名字
+}
+
+message S2c_fight_start { 				//战斗开始
+	required int32 war_type = 1;							//战斗类型 		1:普通pvp 2:普通pve
+	optional int32 scene_id = 2;  	 						//场景编号
+	required int32 camp_type = 3;							//自己的阵营	1:攻方 2:防守
+	repeated Fight_skill fskill = 4;						//策略技能
+	repeated Fight_warrior_prop warriorp = 5;
+	required string self_uid = 6;							//玩家自己的唯一标识
+	repeated Fight_one_playerinfo pinfo = 7;
+	required int32 enter_scenetime = 8;						//进场动画时间		1秒则发送1000
+	required int32 acter_id = 9;							//进场动画绘画行动id
+}
+
+message S2c_fight_end {					//战斗结束
+	required int32 whowin = 1;				//1攻方,2守方,3平局
+}
+
+message S2c_fight_bout {				//回合开始结束
+	required int32 bout_count = 1;			//第几回合
+	required int32 state = 2;				//1为该回合开始,2为该回合结束		
+}
+
+//某个对象行动,这开始结束2个协议里面可能包含了某对象对敌方或者友方释放技能或者攻击,某对象反击协謿,某对象躲闪了竿
+message S2c_fight_actor {				//行动开始结束协謿	
+	required string id = 1;	
+	required int32 actor_id = 2;			//行动id
+	required int32 state = 3;				//1行动开始,2行动结束
+}
+
+//某个玩家策略技能行动
+message S2c_fight_strategic_actor {		//策略技能行动开始结束
+	required string uid = 1;	
+	required int32 actor_id = 2;			//行动id
+	required int32 state = 3;				//1行动开始,2行动结束
+}
+
+message C2s_fight_actor_drawend {		//绘画完一个行动发送结束给服务穿
+	required int32 actor_id = 1;
+}
+
+message S2c_fight_strategic_hit {		//策略技能攻击协议
+	required string att_uid = 1;			//攻击玩家uid
+	required string main_tar_id = 2;		//被主攻者ID
+	repeated string tar_ids = 3;	 		//被攻者ID列表
+	required int32 skill_id = 4;			//技能编号
+	required int32 hit_time = 5;			//攻击动作时间							服务端都*1000发送的
+}	
+
+message S2c_fight_hit {					//攻击协议
+	required string att_id = 1;				//攻击者ID
+	required string main_tar_id = 2;		//被主攻者ID
+	repeated string tar_ids = 3;	 		//被攻者ID列表
+	required int32 skill_id = 4;			//技能编号
+	required int32 move_to_t = 5;			//移动过去的时长,如果原地施法则为0		服务端都*1000发送的,1秒则发送1000
+	required int32 move_bk_t = 6;			//移动回来的时长,如果原地施法则为0		服务端都*1000发送的
+	required int32 hit_time = 7;			//攻击动作时间							服务端都*1000发送的
+}	
+
+message S2c_fight_rehit {				//反攻击协謿
+	required string att_id = 1;				//攻击者ID
+	required string tar_id = 2;				//被主攻者ID
+	required int32 skill_id = 3;			//技能编卿
+	required int32 hit_time = 4;			//反击动作时间							服务端都*1000发送的
+}
+
+message S2c_fight_miss {				//躲闪协议
+	required string att_id = 1;				//攻击者ID
+	required string miss_id = 2;			//躲闪者ID		
+	required int32 miss_time = 3;			//躲闪动作时间							服务端都*1000发送的
+}
+
+message S2c_fight_shownumber {			//数值飘字
+	required string id = 1;					//受击者ID
+	required int32 type = 2;				//类型1:hp, 2:hpmax
+	required int32 value = 3;				//显示数字 +-的
+	optional int32 hurt_type = 4;			//hp类型才有该值 1普通伤害，2暴击伤害, 3反击伤害 4反击暴击伤害 5免疫
+	optional int32 hurt_type2 = 5;			//hp类型并且是技能出招伤害才有该值 1物理伤害, 2法术伤害, 3绝对伤害
+}
+
+message Fight_one_shownumber {
+	required string id = 1;					//受击者ID
+	required int32 type = 2;				//类型1:hp, 2:hpmax
+	required int32 value = 3;				//显示数字 +-的
+	optional int32 hurt_type = 4;			//hp类型才有该值 1普通伤害，2暴击伤害, 3反击伤害 4反击暴击伤害 5免疫
+	optional int32 hurt_type2 = 5;			//hp类型并且是技能出招伤害才有该值 1物理伤害, 2法术伤害, 3绝对伤害	
+}
+
+message S2c_fight_shownumber_r {		//数值飘字(一招技能可能同时打出物理伤害，法术伤害，绝对伤害)
+	repeated Fight_one_shownumber sinfo = 1;
+}
+
+message S2c_fight_shownumber_protect {	//保护类型的数值飘字
+	required string ori_tar_id = 1;			//原本要受击者ID
+	required string now_tar_id = 2;			//当前保护受击者ID
+	repeated Fight_one_shownumber sinfo = 3;
+}
+
+message S2c_fight_reset_hpmax {			//重置最大血量
+	required string id = 1;					//战士ID
+	required int32 hpmap = 2;				
+}
+
+message S2c_fight_addbuff {				//添加buff协议
+	required string id = 1;					//战士ID
+	required int32 buff_id = 2;				//buff编号
+	required int32 buff_lv = 3;				//buff等级
+	required int32 cont_type = 4;			//buff持续类型,1为回合,2为行动次数
+	required int32 c_round = 5;				//持续回合或者行动次擿
+}
+
+message S2c_fight_resetbuff {			//重置已有的buff信息
+	required string id = 1;					//战士ID
+	required int32 buff_id = 2;				//buff编号	
+	required int32 buff_lv = 3;				//buff等级
+	required int32 cont_type = 4;			//buff持续类型,1为回合,2为行动次数
+	required int32 c_round = 5;				//持续回合或者行动次擿
+}
+
+message S2c_fight_delbuff {				//删除buff协议
+	required string id = 1;					//战士ID
+	required int32 buff_id = 2;				//buff编号
+}
+
+message S2c_fight_die {					//对象死亡
+	required string id = 1;					//死亡ID
+}
+
+message S2c_fight_relive {				//表示战士复活
+	required string id = 1;					//战士ID
+}
+
+message S2c_fight_cmd_begin {			//等待哪玩家指令倒计时(根据uid可判断是否自己)
+	required string uid = 1;				//哪个玩家
+	required int32 left_time = 2;			//等待时间(秒数)
+}
+
+message S2c_fight_cmd_end {				//结束指令阶段
+	required int32 place_holder = 1;
+}
+
+message C2s_fight_cmd {					//玩家发送策略技能
+	required int32 skill_id = 1;
+	required string tar_id = 2;				//攻击对象
+}
+
+message S2c_fight_leave {				//某个角色离开
+	required string id = 1;
+}
+
+message S2c_fight_skillcd {				//技能cd，技能默认都0cd,所以服务端不发。每回合开始时，客户端所有技能cd-1，值直0
+	required int32 skill_id = 1;
+	required int32 cd = 2;	
+}
+
+message S2c_fight_chat {				//某个战士说话
+	required string id = 1;
+	required string msg = 2;				//说话内容
+}
+
+message S2c_fight_changeweather {		//天气变化
+	required int32 weather_no = 1;
+}
+
+message C2s_fight_test {
+	required int32 place_holder = 1;
+}
+
+message C2s_fight_leave {
+	required int32 place_holder = 1; 
+}
+
+message C2s_fight_cmd_finish {			//结束策略技能
+	required int32 place_holder = 1; 
+}
+

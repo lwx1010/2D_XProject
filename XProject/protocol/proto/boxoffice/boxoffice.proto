@@ -1,0 +1,20 @@
+message C2s_boxoffice_rankinfo {	// 获取排名第rank后的10名
+	required int32 rank = 1;
+}
+
+message Boxoffice_oneinfo {			// 其中一个玩家的排名信息
+	required int32 rank = 1;			// 排名
+	required string name = 2;			// 玩家名字
+	required int32 grade = 3;			// 玩家等级
+	required int32 sex = 4;				// 玩家性别
+	required int32 score = 5;			// 积分
+}
+
+message S2c_boxoffice_rankinfo {	// 发送排名第rank后的10名
+	repeated Boxoffice_oneinfo rinfo = 1;
+}
+
+message C2s_boxoffice_getreward {	// 获取排名奖励
+	required int32 place_holder = 1;	// 一般为了防止协议内容为空, 添加一个place_holder
+}
+

@@ -1,0 +1,27 @@
+message S2c_role_info_int {				//角色信息整型
+	required string key = 1; 	  			//key			例如Ap攻击,Dp防御,Vip,Exp,YuanBao,Cash等属性
+	optional int32 value = 2; 				//整型值
+}
+
+message Role_info_int {				//角色信息整型
+	required string key = 1; 	  			//key			例如Ap攻击,Dp防御,Vip,Exp,YuanBao,Cash等属性
+	optional int32 value = 2; 				//整型值
+}
+
+message S2c_role_info_int_r {			//角色整型信息列表
+	repeated Role_info_int info = 1;    //列表信息
+}
+
+message S2c_role_info_string {			//角色信息字符串
+	required string key = 1;				//key			例如Name等
+	optional string value = 2;				//字符窜
+}
+
+message Role_info_string {				//角色信息字符串
+	required string key = 1;				//key			例如Name等
+	optional string value = 2;				//字符窜
+}
+
+message S2c_role_info_string_r {		//角色字符串信息列表
+	repeated Role_info_string info = 1;	//列表信息
+}

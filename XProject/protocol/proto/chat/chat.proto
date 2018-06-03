@@ -1,0 +1,34 @@
+//频道类型
+//CHANNEL_WORLD		= 	1	--世界频道
+//CHANNEL_PRIVATE	=	2	--私聊		（用C2s_chat_private发）
+//CHANNEL_CLUB 		= 	3	--公会
+//CHANNEL_SUONA		=	4	--喇叭
+message C2s_chat_speak {			//玩家发言
+	required int32 channel = 1;			//频道
+	required string chat_msg = 2;		//说话内容
+}
+//私聊,对某人说话
+message C2s_chat_private {			//玩家私聊
+	required string dst_uid = 1;		//与话者uid
+	required string chat_msg = 2;		//说话内容
+}
+
+message S2c_chat_speak {			
+	required int32 channel = 1;			//频道
+	required string chat_msg = 2;		//说话内容
+		
+	required string uid = 3;			//说话者uid,角色的唯一表示
+	required int32 photo = 4;			//说话者头像
+	required string name = 5;			//说话者名字
+}
+
+//系统提示类型
+//SYS_ROLL 			= 1		--跑马灯
+//SYS_NOTIFY 		= 2		--中屏提示
+//SYS_SYSTEM		= 3		--系统信息
+//SYS_BOX			= 4		--右下提示框
+message S2c_chat_system {			//系统提示
+	required int32 type = 1;			//系统提示信息类型
+	required string msg = 2;			//提示内容
+	optional string extdata = 3; 		//扩展信息
+}
