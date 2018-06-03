@@ -1,0 +1,9 @@
+1.确保安装Java
+	E:\client\Tools\jsonXlsPackage\3rdtools
+	路径下安装jdk，然后配置Java环境变量,安装后如果不行，尝试重启
+2.添加配置文件
+	E:\client\Tools\jsonXlsPackage\gen\cfg
+	在次路径下参照已有的配置文件添加需要打包的表格的配置文件
+3.执行run_me_all导所有表
+	run_me_single导单独表
+(如再有疑问，寻找神虫支援)

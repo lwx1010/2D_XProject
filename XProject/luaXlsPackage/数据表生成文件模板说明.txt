@@ -1,0 +1,60 @@
+文件内容模板：
+$moduleDesc$：模块描述
+$modulePath$：模块全路径
+$typeName$：当前文件的类名，就是文件名去掉.lua
+$typeFieldContent$：类字段内容，有多个类字段组成
+$key$：xls表的key,没有的话，填空串""
+$dataContent$：数据内容
+
+
+---
+-- $moduleDesc$
+-- 该文件为代码自动生成，请不要手动修改
+-- @module $modulePath$
+--
+
+module(“$modulePath$”)
+
+---
+-- @type $typeName$
+$typeFieldContent$
+-- 
+
+--- 
+-- $typeName$
+-- @field [parent=#$modulePath$] #$typeName$ $typeName$
+-- 
+
+
+---
+-- data
+-- @field [parent=#{modulePath}] #table data $key$ -> @{$typeName$}表
+-- 
+data = 
+{
+	$dataContent$
+}
+
+
+类字段模板：
+$columnType$：xls列填的类型
+$columnName$：xls列填的名字
+$columnDesc$：xls列填的描述和是否非空
+
+-- @field #$columnType$ $columnName$ $columnDesc$
+
+
+
+
+
+
+		-- local luaFile = io.open(outfile, "r")
+		-- local luaFileInfo = luaFile:read("*all")
+		-- local cjson = require "cjson"
+		-- local jsonFile = cjson.encode(luaFileInfo)
+		-- luaFile:close()
+
+		-- File = (outfile == "-") and io.output() or io.output(outfile)
+
+		-- File:write(luaFileInfo)
+		-- File:close()
