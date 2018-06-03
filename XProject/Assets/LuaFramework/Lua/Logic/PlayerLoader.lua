@@ -99,7 +99,7 @@ function PlayerLoader.LoadMainRole(obj, nmsg)
     else
         path = "Prefab/Model/player/"..HERO.Shape
     end
-    local ObjectPool = Riverlake.ObjectPool.instance
+    local ObjectPool = AL.ObjectPool.instance
     obj.model = ObjectPool:PushToPool(path, ObjectPool.POOL_INIT_SIZE, obj.transform)
     if obj.model == nil then
         obj.model = Util.LoadBucket(obj.transform)
@@ -154,7 +154,7 @@ function PlayerLoader.LoadNpc(obj, shape)
         path = "Prefab/Model/npc/" .. shape 
     end
 
-    local ObjectPool = Riverlake.ObjectPool.instance
+    local ObjectPool = AL.ObjectPool.instance
     obj.model = ObjectPool:PushToPool(path, ObjectPool.POOL_INIT_SIZE, obj.transform)
     if obj.model == nil then
         obj.model = Util.LoadBucket(obj.transform)
@@ -175,7 +175,7 @@ function PlayerLoader.LoadPlayer(obj, shape)
         obj:RecycleRoleModel()
     end
     local path = "Prefab/Model/player/" .. shape
-    local ObjectPool = Riverlake.ObjectPool.instance
+    local ObjectPool = AL.ObjectPool.instance
     obj.model = ObjectPool:PushToPool(path, ObjectPool.POOL_INIT_SIZE, obj.transform)
     if obj.model == nil then
         obj.model = Util.LoadBucket(obj.transform)
@@ -281,7 +281,7 @@ function PlayerLoader.LoadWeapon(obj, entityType, weaponId)
     if obj.model == nil then
         return
     end
-    local ObjectPool = Riverlake.ObjectPool.instance
+    local ObjectPool = AL.ObjectPool.instance
     local weaponParent = Util.Find(obj.model.transform, 'wuqi01')
     if not weaponParent then
         logError(string.format("no weapon parent point avaliable in model: %d", weaponId))
@@ -325,7 +325,7 @@ function PlayerLoader.LoadLingqin(obj, entityType, lingqinId)
     if obj.lingqin_model ~= nil then
         obj:RecycleOtherModel(this.lingqin_model)
     end
-    local ObjectPool = Riverlake.ObjectPool.instance
+    local ObjectPool = AL.ObjectPool.instance
     obj.lingqin_model = ObjectPool:PushToPool(prefabPath, 2, obj.transform)
     if obj.lingqin_model == nil then
         return
@@ -364,7 +364,7 @@ function PlayerLoader.LoadShenyi(obj, shenyiId)
     if obj.model == nil then
         return
     end
-    local ObjectPool = Riverlake.ObjectPool.instance
+    local ObjectPool = AL.ObjectPool.instance
     obj.shenyi_model = ObjectPool:PushToPool(prefabPath, 5, Util.Find(obj.model.transform, 'chibang01'), 0, 0, 0, 0, -90, 0)
     if obj.shenyi_model == nil then
         return
@@ -407,7 +407,7 @@ function PlayerLoader.Loadlingyi(obj, entityType, lingyiId)
     if obj.model == nil then
         return
     end
-    local ObjectPool = Riverlake.ObjectPool.instance
+    local ObjectPool = AL.ObjectPool.instance
     obj.lingyi_model = ObjectPool:PushToPool(prefabPath, 2, Util.Find(obj.model.transform, 'chibang01'), 0, 0, 0, 90, 0, 0)
     if obj.lingyi_model == nil then
         return
@@ -456,7 +456,7 @@ function PlayerLoader.LoadHorse(obj, entityType, horseId)
             break
         end
     end
-    local ObjectPool = Riverlake.ObjectPool.instance
+    local ObjectPool = AL.ObjectPool.instance
     obj.horse.horseGo = ObjectPool:PushToPool(prefabPath, initSize, obj.transform)
     if obj.horse.horseGo == nil then
         return
@@ -484,7 +484,7 @@ function PlayerLoader.LoadLingqi(obj, lingqiId, callback)
     if obj.lingqiObj and obj.lingqiObj.model ~= nil then
         obj.lingqiObj:RecycleRoleModel()
     end
-    Riverlake.ObjectPool.instance:AsyncPushToPool(prefabPath, 2, obj.lingqiObj.transform, 0, 0, 0, callback)
+    AL.ObjectPool.instance:AsyncPushToPool(prefabPath, 2, obj.lingqiObj.transform, 0, 0, 0, callback)
 end
 
 function PlayerLoader.LoadPartner(obj, partnerId, callback)
@@ -501,7 +501,7 @@ function PlayerLoader.LoadPartner(obj, partnerId, callback)
     if obj.partnerObj and obj.partnerObj.model ~= nil then
         obj.partnerObj:RecycleRoleModel()
     end
-    Riverlake.ObjectPool.instance:AsyncPushToPool(prefabPath, 2, obj.partnerObj.transform, 0, 0, 0, callback)
+    AL.ObjectPool.instance:AsyncPushToPool(prefabPath, 2, obj.partnerObj.transform, 0, 0, 0, callback)
 end
 
 --加载助战小伙伴
@@ -509,7 +509,7 @@ function PlayerLoader.LoadAider(obj, aiderId, callback)
     --print("-------------", obj, model)
     local prefabPath = "Prefab/Model/npc/"..aiderId
 
-    Riverlake.ObjectPool.instance:AsyncPushToPool(prefabPath, 1, obj.transform, 0, 0, 0, callback)
+    AL.ObjectPool.instance:AsyncPushToPool(prefabPath, 1, obj.transform, 0, 0, 0, callback)
 end
 
 --加载巡逻npc
@@ -517,7 +517,7 @@ function PlayerLoader.LoadXunLuoNpc(obj, shape, callback)
     --print("-------------", obj, model)
     local prefabPath = "Prefab/Model/npc/"..shape
 
-    Riverlake.ObjectPool.instance:AsyncPushToPool(prefabPath, 1, obj.transform, 0, 0, 0, callback)
+    AL.ObjectPool.instance:AsyncPushToPool(prefabPath, 1, obj.transform, 0, 0, 0, callback)
 end
 
 
@@ -542,7 +542,7 @@ function PlayerLoader.LoadPet(obj, petId, callback)
     end
     local prefabPath = "Prefab/Model/pet/"..id
     obj.pet = petId
-    Riverlake.ObjectPool.instance:AsyncPushToPool(prefabPath, 2, obj.petObj.transform, 0, 0, 0, callback)
+    AL.ObjectPool.instance:AsyncPushToPool(prefabPath, 2, obj.petObj.transform, 0, 0, 0, callback)
 end
 
 --加载神使

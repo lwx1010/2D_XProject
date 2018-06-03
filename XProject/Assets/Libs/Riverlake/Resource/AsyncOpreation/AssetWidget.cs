@@ -1,7 +1,7 @@
 ﻿using LuaFramework;
 using System;
 
-namespace Riverlake.Resources
+namespace AL.Resources
 {
     public class AssetWidget
     {

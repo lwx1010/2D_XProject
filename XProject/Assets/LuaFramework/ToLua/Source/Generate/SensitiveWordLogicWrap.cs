@@ -6,7 +6,7 @@ public class SensitiveWordLogicWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(SensitiveWordLogic), typeof(Riverlake.Singleton<SensitiveWordLogic>));
+		L.BeginClass(typeof(SensitiveWordLogic), typeof(AL.Singleton<SensitiveWordLogic>));
 		L.RegFunction("GetInstance", GetInstance);
 		L.RegFunction("filter", filter);
 		L.RegFunction("RemoveSensitiveWord", RemoveSensitiveWord);

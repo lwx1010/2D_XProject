@@ -3,7 +3,7 @@ using System.Collections;
 using System;
 using System.Linq;
 
-namespace Riverlake.Crypto
+namespace AL.Crypto
 {
 	#region SecretBytes
 	public class SecretBytes

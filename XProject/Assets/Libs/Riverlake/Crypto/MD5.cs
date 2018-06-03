@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-namespace Riverlake.Crypto
+namespace AL.Crypto
 {
 	public class MD5
 	{

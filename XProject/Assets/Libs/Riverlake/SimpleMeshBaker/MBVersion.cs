@@ -4,7 +4,7 @@
 using System;
 using UnityEngine;
 
-namespace Riverlake.SMB.Core{
+namespace AL.SMB.Core{
 
 	public static class MBVersion
     {

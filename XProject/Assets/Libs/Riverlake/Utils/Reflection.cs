@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Riverlake
+namespace AL
 {
 	public static class Reflection
 	{

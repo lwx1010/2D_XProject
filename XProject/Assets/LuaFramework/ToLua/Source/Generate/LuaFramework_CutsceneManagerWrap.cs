@@ -220,7 +220,7 @@ public class LuaFramework_CutsceneManagerWrap
 			ToLua.CheckArgsCount(L, 3);
 			LuaFramework.CutsceneManager obj = (LuaFramework.CutsceneManager)ToLua.CheckObject<LuaFramework.CutsceneManager>(L, 1);
 			UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckObject(L, 2, typeof(UnityEngine.GameObject));
-			Riverlake.Resources.LoadStageAsync arg1 = (Riverlake.Resources.LoadStageAsync)ToLua.CheckObject<Riverlake.Resources.LoadStageAsync>(L, 3);
+			AL.Resources.LoadStageAsync arg1 = (AL.Resources.LoadStageAsync)ToLua.CheckObject<AL.Resources.LoadStageAsync>(L, 3);
 			obj.PreLoadCutscene(arg0, arg1);
 			return 0;
 		}

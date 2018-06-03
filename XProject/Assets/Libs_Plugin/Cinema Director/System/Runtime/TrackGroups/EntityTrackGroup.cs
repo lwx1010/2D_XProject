@@ -2,7 +2,7 @@
 using LuaFramework;
 using RSG;
 using UnityEngine;
-using Riverlake.Resources;
+using AL.Resources;
 
 namespace CinemaDirector
 {

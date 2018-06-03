@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
-using Riverlake.Crypto;
+using AL.Crypto;
 using UnityEngine;
 
-namespace Riverlake.Editor.I18N
+namespace AL.Editor.I18N
 {
     /// <summary>
     /// 在线翻译

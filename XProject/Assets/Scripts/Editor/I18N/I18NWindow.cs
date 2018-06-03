@@ -4,7 +4,7 @@ using System.Text;
 using UnityEditor;
 using UnityEngine;
 
-namespace Riverlake.Editor.I18N
+namespace AL.Editor.I18N
 {
     /// <summary>
     /// 语言本地化主窗口

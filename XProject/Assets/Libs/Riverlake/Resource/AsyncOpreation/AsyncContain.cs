@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using LuaFramework;
 
-namespace Riverlake.Resources
+namespace AL.Resources
 {
     /// <summary>
     /// 异步加载容器,容器内部自动缓存加载器,需要手动释放

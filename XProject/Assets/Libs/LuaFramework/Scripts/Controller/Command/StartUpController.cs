@@ -2,13 +2,13 @@
 using System.Collections;
 using System;
 using System.IO;
-using Riverlake;
+using AL;
 using LuaFramework;
 using Config;
 using DG.Tweening;
 using LuaInterface;
 using System.Text;
-using Riverlake.Crypto;
+using AL.Crypto;
 
 public sealed class StartUpController : MonoBehaviour 
 {
@@ -57,7 +57,7 @@ public sealed class StartUpController : MonoBehaviour
     {
         TextAsset keyAssets = Resources.Load<TextAsset>("crypto");
         string[] keys = keyAssets.text.Split('|');
-        Crypto.Proxy.SetKey(MD5.ComputeHash(Riverlake.Encoding.GetBytes(keys[0])), Riverlake.Encoding.GetBytes(keys[1]));
+        Crypto.Proxy.SetKey(MD5.ComputeHash(AL.Encoding.GetBytes(keys[0])), AL.Encoding.GetBytes(keys[1]));
     }
 
     IEnumerator WaitForSDKInit()

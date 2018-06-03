@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using Config;
 using RSG;
-using Riverlake.Resources;
+using AL.Resources;
 
 namespace LuaFramework {
     public sealed class SoundManager : Manager {

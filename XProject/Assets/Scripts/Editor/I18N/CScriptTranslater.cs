@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
-namespace Riverlake.Editor.I18N
+namespace AL.Editor.I18N
 {
     /// <summary>
     /// CSharp代码中文字符翻译

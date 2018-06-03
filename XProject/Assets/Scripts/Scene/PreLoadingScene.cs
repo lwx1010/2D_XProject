@@ -4,9 +4,9 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using LuaFramework;
 using System.IO;
-using Riverlake;
-using Riverlake.LuaFramework.Controller.Transition;
-using Riverlake.Resources;
+using AL;
+using AL.LuaFramework.Controller.Transition;
+using AL.Resources;
 using UnityEngine.UI;
 
 public sealed class PreLoadingScene : ASceneLoadingTransition

@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Text;
 
-namespace Riverlake.SMB.Core{
+namespace AL.SMB.Core{
 	 
 	public enum MBLogLevel{
 		none,

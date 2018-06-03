@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Riverlake.Editor.I18N
+namespace AL.Editor.I18N
 {
     /// <summary>
     /// 翻译词映射

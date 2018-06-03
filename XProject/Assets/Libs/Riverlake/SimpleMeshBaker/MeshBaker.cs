@@ -3,9 +3,9 @@
 // Copyright © 2011-2012 Ian Deane
 //----------------------------------------------
 using UnityEngine;
-using Riverlake.SMB.Core;
+using AL.SMB.Core;
 
-namespace Riverlake.SMB
+namespace AL.SMB
 {
     /// <summary>
     /// Component that manages a single combined mesh. 

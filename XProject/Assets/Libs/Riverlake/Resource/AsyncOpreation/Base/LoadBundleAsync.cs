@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Riverlake.Resources
+namespace AL.Resources
 {
     /// <summary>
     /// 处理异步加载AssetBundle

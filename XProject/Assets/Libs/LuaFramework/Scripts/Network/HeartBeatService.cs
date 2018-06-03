@@ -1,7 +1,7 @@
 ﻿using System;
 using LuaFramework;
 
-namespace Riverlake.Network
+namespace AL.Network
 {
     /// <summary>
     /// 心跳管理器
@@ -42,7 +42,7 @@ namespace Riverlake.Network
         {
             int protocal = Protocal.PingUpdate;
             ByteBuffer buffer = new ByteBuffer();
-            buffer.WriteShort((ushort)protocal);
+            buffer.WriteShort((short)protocal);
             ConnectObserver.DispatchEvent(protocal, buffer);
         }
 

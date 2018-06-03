@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System;
 using RSG;
 
-namespace Riverlake
+namespace AL
 {
     public class BundleInfo
     {
@@ -136,7 +136,7 @@ namespace Riverlake
         private void LoadAssetbundleMap()
         {
             var content = File.ReadAllBytes(string.Format("{0}{1}/bundlemap.ab", assetBundlePath, LuaConst.osDir));
-            var decryptoStrs = Encoding.GetString(Riverlake.Crypto.Crypto.Decode(content)).Split('\n');
+            var decryptoStrs = Encoding.GetString(AL.Crypto.Crypto.Decode(content)).Split('\n');
             preloadAssets = new List<string>();
             for (int i = 0; i < decryptoStrs.Length; ++i)
             {

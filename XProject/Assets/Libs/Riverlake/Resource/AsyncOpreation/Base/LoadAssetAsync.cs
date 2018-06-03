@@ -1,7 +1,7 @@
 ﻿using System;
 using LuaInterface;
 
-namespace Riverlake.Resources
+namespace AL.Resources
 {
     /// <summary>
     /// 加载开发期的资源

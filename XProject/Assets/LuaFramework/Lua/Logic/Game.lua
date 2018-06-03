@@ -55,20 +55,7 @@ function Game.OnInitOK()
 	-- NativeSDK.StartPushService(pushJson);
 
 	-- 加载Shader Property
-	this._loadShaderPropertys()
-
 	this.EnterLogin()
-end
-
--- 加载Shader全局参数
-function Game._loadShaderPropertys()
-
-    local shaderFiles = List_string.New()
-    shaderFiles:Add("ActorPropertys")
-	shaderFiles:Add("TerrianProperty")
-	shaderFiles:Add("T4MTerrianProperty")
-
-    ShaderMgr:LoadPropertys(shaderFiles:ToArray())
 end
 
 --销毁--
@@ -92,9 +79,7 @@ function Game.LoadPb()
 end
 
 function Game.TurnToLoginScene()
-    roleMgr.entityCreate:ClearWhenChangeScene()
     panelMgr.sceneUIRoot:SetActive(false)
-    worldPathfinding:StopWorldPathfinding()
     sceneMgr:LoadScene(PreLoginStage.new())
 end
 
@@ -256,7 +241,7 @@ end
 
 function Game.OnApplicationPause(paused, lostConnect)
     local cmd = {}
-    if paused then
+    --[[if paused then
         cmd.is_back = 1
         Network.send("C2s_hero_background", cmd)
         print(TableToString(cmd))
@@ -265,7 +250,7 @@ function Game.OnApplicationPause(paused, lostConnect)
         Network.send("C2s_hero_background", cmd)
         print(TableToString(cmd))
     end
-    Network.OnHeartBeat2Server()
+    Network.OnHeartBeat2Server()]]
 
     --fps屏蔽相关处理
     if paused then

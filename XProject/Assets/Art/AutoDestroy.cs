@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-using Riverlake;
+using AL;
 
 public class AutoDestroy : MonoBehaviour 
 {

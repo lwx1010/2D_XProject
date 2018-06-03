@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using System;
-using Riverlake;
+using AL;
 
 /// <summary>
 ///  SDK 回调 Android和IOS走同样的回调接口，保证接口的统一性

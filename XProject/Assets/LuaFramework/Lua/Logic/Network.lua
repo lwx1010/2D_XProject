@@ -64,6 +64,7 @@ end
 function Network.Start() 
     log("Network.Start!!")
     Event.AddListener(Protocal.Connect, this.OnConnect)
+    Event.AddListener(Protocal.ConnectedToGate, this.OnConnectedToGate)
     Event.AddListener(Protocal.Message, this.OnMessage)
     Event.AddListener(Protocal.Exception, this.OnException)
     Event.AddListener(Protocal.Disconnect, this.OnDisconnect)
@@ -74,6 +75,7 @@ function Network.Start()
     Event.AddListener(Protocal.AccConflict, this.OnAccConflict)
     Event.AddListener(Protocal.HeartBeat, this.OnHeartBeat2Server)
     Event.AddListener(Protocal.WeakMessage, this.OnMessage)
+    Event.AddListener(Protocal.ConnectToGate, this.OnConnectToGateServer)
 end
 
 --Socket消息--
@@ -88,11 +90,19 @@ end
 
 --当连接建立时--
 function Network.OnConnect()
-	print("=============Network.OnConnect===========", SceneHelper.GetCurrentSceneName())
-	if SceneHelper.GetCurrentSceneName() == "updatescene" then
-    	local LoginCtrl = CtrlManager.GetCtrl(CtrlNames.Login)
-		LoginCtrl.OnConnectCallback()
-	end
+	--print("=============Network.OnConnect==========="..connectToGate)
+	local LoginCtrl = CtrlManager.GetCtrl(CtrlNames.Login)
+	LoginCtrl.OnConnectCallback()
+end
+
+function Network.OnConnectedToGate()
+	local cmd = {}
+	cmd.acc = Network.server_info.acct
+	cmd.corp_id = Network.server_info.corp_id
+	cmd.server_id = Network.server_info.server_id
+	cmd.sign = string.format("acct=%s&secret=%s", Network.server_info.acct, AppConst.GateSecret)
+	print("C2s_login_c2gateserver"..TableToString(cmd))
+	this.send("C2s_login_c2gateserver", cmd)
 end
 
 --异常断线--
@@ -201,6 +211,12 @@ function Network.OnAccConflict()
 	end, null)
 end
 
+function Network.OnConnectToGateServer()
+	COMMONCTRL.CreateQuanQuan(nil)
+	print("OnConnectToGateServer")
+	networkMgr:SendConnectToGateServer()
+end
+
 --卸载网络监听--
 function Network.Unload()
     Event.RemoveListener(Protocal.Connect)
@@ -213,6 +229,7 @@ function Network.Unload()
     Event.RemoveListener(Protocal.PingUpdate)
     Event.RemoveListener(Protocal.AccConflict)
     Event.RemoveListener(Protocal.HeartBeat)
+    Event.RemoveListener(Protocal.ConnectToGate)
     log('Unload Network...')
 end
 
@@ -311,7 +328,7 @@ local function _errorHandler( err )
 end
 
 function Network.processRecieveBuffer(buffer)
-	local pbId = buffer:ReadShort()
+	local pbId = buffer:ReadNetShort()
 	local pbName = _proIdNameTb[pbId]
 	-- log("~~~~~~收到协议 ["..pbId.."]"..pbName)
 
@@ -344,7 +361,7 @@ function Network.processRecieveBuffer(buffer)
 end
 
 function Network.send( pbName, pbObj )
-	-- print("-=-----------------", pbName)
+	print("1-=-----------------", pbName)
 	if( not _proIdNameTb or not pbName or not pbObj ) then return end
 	local proId = _proIdNameTb[pbName]
 	if not proId then
@@ -359,10 +376,11 @@ function Network.send( pbName, pbObj )
 
 	local pb = protobuf.encode(pbName, pbObj)
 	local buffer = ByteBuffer.New()
-    buffer:WriteInt(string.len(pb))
-    buffer:WriteShort(proId)
+    buffer:WriteNetShort(string.len(pb) + 2)
+    buffer:WriteNetShort(proId)
     buffer:WriteBuffer(pb)
     networkMgr:SendMessage(buffer)
+    --print("2-=-----------------")
 end
 
 function Network.CheckCrossSceneMsg( pbName )
@@ -385,44 +403,7 @@ local function Get7Number(num)
 	return (math.floor(10^(7-cnt)*num))*10^cnt
 end
 
-function Network.sendMove(args)
-	local aoi_move = {}
-	-- aoi_move.x = Get7Number(args[0]) --math.floor(args[0]*10000000)
-	-- aoi_move.z = Get7Number(args[1]) --math.floor(args[1]*10000000)
-	aoi_move.x = args[0]
-	aoi_move.z = args[1]
-	aoi_move.dir = args[2]
-
-	-- print("=======C2s_aoi_move_start=======", args[2], args[0], aoi_move.x, args[1], aoi_move.z)
-	this.send("C2s_aoi_move_start", aoi_move)
-
-	-- aoi_move.id = HERO.Id .. "_1"
-	-- this["S2c_aoi_move_start"](aoi_move)
-end
-
-function Network.sendMoveStop(args)
-	local aoi_move = {}
-	-- aoi_move.x = Get7Number(args[0]) --math.floor(args[0]*10000000)
-	-- aoi_move.z = Get7Number(args[1]) --math.floor(args[1]*10000000)
-	aoi_move.x = args[0]
-	aoi_move.z = args[1]
-	aoi_move.dir = args[2]
-
-	-- print("=========C2s_aoi_move_stop=====", args[2], args[0], aoi_move.x, args[1], aoi_move.z)
-	this.send("C2s_aoi_move_stop", aoi_move)
-
-	-- aoi_move.id = HERO.Id .. "_1"
-	-- this["S2c_aoi_move_stop"](aoi_move)
-end
-
 -----------------------------------------------------------
-function Network.SendRideHorse(ride)
-	local C2s_mount_upmount = {}
-	C2s_mount_upmount.ison = ride
-	Network.send("C2s_mount_upmount", C2s_mount_upmount)
-	CtrlManager.GetCtrl(CtrlNames.Main).UpdateHorseBtnState()
-end
-
 function Network.SendLoginSuccess()
 	if this.isNewRole == true then
 		local C2s_login_newok = {}
@@ -434,8 +415,8 @@ end
 
 function Network.OnHeartBeat2Server()
 	print("send heart beat 2 server")
-	local C2s_hero_beat = { place_holder = 1}
-	Network.send("C2s_hero_beat", C2s_hero_beat)
+	--local C2s_hero_beat = { place_holder = 1}
+	--Network.send("C2s_hero_beat", C2s_hero_beat)
 end
 
 function Network.OnPackageDownloadComplete(percent)

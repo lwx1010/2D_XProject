@@ -4,9 +4,9 @@
 //----------------------------------------------
 using UnityEngine;
 using System.Collections.Generic;
-using Riverlake.SMB.Core;
+using AL.SMB.Core;
 
-namespace Riverlake.SMB
+namespace AL.SMB
 {
     /// <summary>
     /// Root class of all the baking Scripts

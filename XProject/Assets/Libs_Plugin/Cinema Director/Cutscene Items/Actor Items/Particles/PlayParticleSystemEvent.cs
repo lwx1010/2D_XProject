@@ -1,6 +1,6 @@
 using LuaFramework;
 using UnityEngine;
-using Riverlake.Resources;
+using AL.Resources;
 
 namespace CinemaDirector
 {

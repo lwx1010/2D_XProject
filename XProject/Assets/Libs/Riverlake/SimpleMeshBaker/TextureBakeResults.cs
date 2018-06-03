@@ -2,9 +2,9 @@ using UnityEngine;
 using System;
 using System.Text;
 using System.Collections.Generic;
-using Riverlake.SMB.Core;
+using AL.SMB.Core;
 
-namespace Riverlake.SMB
+namespace AL.SMB
 {
     /// <summary>
     /// Used internally during the material baking process

@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using LuaFramework;
 using UnityEngine;
 
-namespace Riverlake.Resources
+namespace AL.Resources
 {
     /// <summary>
     /// 预设加载器

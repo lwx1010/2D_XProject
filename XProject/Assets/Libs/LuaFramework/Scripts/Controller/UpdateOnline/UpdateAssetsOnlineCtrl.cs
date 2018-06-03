@@ -7,8 +7,8 @@ using LuaFramework;
 using LuaInterface;
 using UnityEngine;
 using Config;
-using Riverlake.Crypto;
-using Riverlake;
+using AL.Crypto;
+using AL;
 
 /// <summary>
 /// 在线资源更新

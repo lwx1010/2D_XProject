@@ -1,5 +1,5 @@
 
-namespace Riverlake.SMB.Core{
+namespace AL.SMB.Core{
 	
 	public enum MB_ObjsToCombineTypes{
 		prefabOnly,

@@ -7,9 +7,9 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Riverlake.SMB.Core;
+using AL.SMB.Core;
 
-namespace Riverlake.SMB
+namespace AL.SMB
 {
     /// <summary>
     /// Component that handles baking materials into a combined material.

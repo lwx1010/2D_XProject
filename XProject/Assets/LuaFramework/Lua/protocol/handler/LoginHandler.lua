@@ -1,16 +1,17 @@
 local Network = Network
 local COMMONCTRL = COMMONCTRL
 
-Network["S2c_login_player_list"] = function(pb)
-	log("服务器返回角色列表S2c_login_player_list")
-	networkMgr:StartHeartBeat()
+Network["S2c_login_playerlist"] = function(pb)
+	log("服务器返回角色列表S2c_login_playerlist")
+	--networkMgr:StartHeartBeat()
 	local login = CtrlManager.GetCtrl(CtrlNames.Login)
 	if login ~= nil then
 		login.SetEnterMsg(LANGUAGE_TIP.EnterServer)
 	end
 
-	--log(TableToString(pb))
-	if next(pb.list_info) == nil then
+	log(TableToString(pb))
+	if next(pb.pinfos) == nil then
+		print("没有角色，进入创角")
 		--Util.LoadScene("CreateRoleScene")
 		-- Network.isNewRole = true
 		-- sceneMgr:LoadScene(CreateRoleStage.new())
@@ -19,38 +20,31 @@ Network["S2c_login_player_list"] = function(pb)
 		local RandomName = require "language/RandomName"
 		local curSex = math.random() > 0.5
 		cmd.name = RandomName.create(curSex)
-		cmd.head_id = 0
-		cmd.profession = 1
-		cmd.sex = curSex and 1 or 2
+		cmd.role_no = curSex and 1 or 2
 
 		Network.send("C2s_login_player_add", cmd)
 	else
+		print("已有角色，直接进入游戏")
 		local cmd = {}
-		cmd.id = pb.list_info[1].id
-		cmd.scene_name = {}
-		local list = gameMgr:GetSceneFileList()
-		if list.Length == 0 then
-			cmd.isall = 1
-		else
-			cmd.isall = 0
-			for i = 0, list.Length - 1 do
-				table.insert(cmd.scene_name, list[i])
-			end
+		for i = 1, #pb.pinfos do
+			print("需要实现多角色登陆")
+			print(TableToString(pb.pinfos[i]))
 		end
+		cmd.uid = pb.pinfos[1].uid
 		Network.send("C2s_login_player_enter", cmd)
 
 		--启动FightManager
-		FIGHTMGR.Init()
+		--FIGHTMGR.Init()
 		--启动主界面
 		-- SkillUiPanel.show()
 	end
 end
 
-Network["S2c_login_check_time"] = function(pb)
+--[[Network["S2c_login_check_time"] = function(pb)
 	log("收到S2c_login_check_time")
 	log(TableToString(pb))
 	TimeManager.instance:SetServerTime(pb.sec, pb.usec)
-end
+end]]
 
 Network["S2c_login_playername"] = function(pb)
 	log("S2c_login_playername")
@@ -65,19 +59,7 @@ end
 Network["S2c_login_error"] = function(pb)
 	COMMONCTRL.RemoveQuanQuan()
 
-	if panelMgr:IsPanelVisible("LoginPanel") then
-		local wnd = MessageBox.DisplayMessageBox(LANGUAGE_TIP.LoginError..pb.err_desc
-			, 0, null, null)
-
-		local login = CtrlManager.GetCtrl(CtrlNames.Login)
-		if login ~= nil then
-			login.SetEnterMsg('')
-			login.inConnect = false
-		end
-	elseif panelMgr:IsPanelVisible("CreateRolePanel") then
-		CtrlManager.PopUpNotifyText(pb.err_desc, nil, nil, nil, nil, CreateRolePanel.notifyPanel)
-	end
-
+	MessageBox.Show(LANGUAGE_TIP.LoginError..pb.err_desc)
 	--CtrlManager.PopUpNotifyText(LANGUAGE_TIP.LoginError..pb.err_desc)
 	--logError(pb.err_desc)
 end
@@ -114,4 +96,21 @@ Network["S2c_login_kickout"] = function(pb)
 	else
 		networkMgr:KickOut(tonumber(Protocal.KickOut))
 	end
+end
+
+--重新分配服务器Gateid
+Network["S2c_login_serverinfo"] = function(pb)
+	print("S2c_login_serverinfo"..TableToString(pb))
+	AppConst.GatePort = pb.port
+	AppConst.GateAddress = pb.ip and pb.ip ~= "" or AppConst.SocketAddress
+    AppConst.GateSecret = pb.secret
+    print(AppConst.GateAddress)
+    print(AppConst.GatePort)
+    networkMgr:KickOut(Protocal.ConnectToGate)
+end
+
+--正式进入游戏
+Network["S2c_login_c2gateserver"] = function (pb)
+	networkMgr:StartHeartBeat()
+	print("从这里开始游戏主逻辑")
 end

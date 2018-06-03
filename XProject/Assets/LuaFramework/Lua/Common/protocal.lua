@@ -10,7 +10,9 @@ Protocal = {
 	PingUpdate 		= '108'; 	--检测ping值
 	AccConflict 	= '109'; 	--被顶号
 	HeartBeat 		= '110'; 	--发送心跳给服务器
-	WeakMessage 	= '111';	--弱优先级消息处理	
+	WeakMessage 	= '111';	--弱优先级消息处理
+	ConnectToGate 	= '112'; 	--连接服务器分配的ip
+	ConnectedToGate = '113'; 	--连接到服务器最终ip
 }
 
 

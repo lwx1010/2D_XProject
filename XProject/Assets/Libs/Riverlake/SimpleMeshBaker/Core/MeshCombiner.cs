@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace Riverlake.SMB.Core{
+namespace AL.SMB.Core{
 	/*
 	[System.Serializable]
 	public class MB_UnwrappingParams{

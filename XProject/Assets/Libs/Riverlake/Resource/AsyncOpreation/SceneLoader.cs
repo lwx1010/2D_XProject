@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Riverlake.Resources
+namespace AL.Resources
 {
     /// <summary>
     /// 场景资源加载器

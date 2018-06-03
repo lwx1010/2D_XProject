@@ -11,6 +11,7 @@ public class LuaFramework_ByteBufferWrap
 		L.RegFunction("WriteByte", WriteByte);
 		L.RegFunction("WriteInt", WriteInt);
 		L.RegFunction("WriteShort", WriteShort);
+		L.RegFunction("WriteNetShort", WriteNetShort);
 		L.RegFunction("WriteLong", WriteLong);
 		L.RegFunction("WriteFloat", WriteFloat);
 		L.RegFunction("WriteDouble", WriteDouble);
@@ -20,6 +21,7 @@ public class LuaFramework_ByteBufferWrap
 		L.RegFunction("ReadByte", ReadByte);
 		L.RegFunction("ReadInt", ReadInt);
 		L.RegFunction("ReadShort", ReadShort);
+		L.RegFunction("ReadNetShort", ReadNetShort);
 		L.RegFunction("ReadLong", ReadLong);
 		L.RegFunction("ReadFloat", ReadFloat);
 		L.RegFunction("ReadDouble", ReadDouble);
@@ -124,8 +126,25 @@ public class LuaFramework_ByteBufferWrap
 		{
 			ToLua.CheckArgsCount(L, 2);
 			LuaFramework.ByteBuffer obj = (LuaFramework.ByteBuffer)ToLua.CheckObject<LuaFramework.ByteBuffer>(L, 1);
-			ushort arg0 = (ushort)LuaDLL.luaL_checknumber(L, 2);
+			short arg0 = (short)LuaDLL.luaL_checknumber(L, 2);
 			obj.WriteShort(arg0);
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int WriteNetShort(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 2);
+			LuaFramework.ByteBuffer obj = (LuaFramework.ByteBuffer)ToLua.CheckObject<LuaFramework.ByteBuffer>(L, 1);
+			short arg0 = (short)LuaDLL.luaL_checknumber(L, 2);
+			obj.WriteNetShort(arg0);
 			return 0;
 		}
 		catch (Exception e)
@@ -278,6 +297,23 @@ public class LuaFramework_ByteBufferWrap
 			ToLua.CheckArgsCount(L, 1);
 			LuaFramework.ByteBuffer obj = (LuaFramework.ByteBuffer)ToLua.CheckObject<LuaFramework.ByteBuffer>(L, 1);
 			ushort o = obj.ReadShort();
+			LuaDLL.lua_pushnumber(L, o);
+			return 1;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ReadNetShort(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			LuaFramework.ByteBuffer obj = (LuaFramework.ByteBuffer)ToLua.CheckObject<LuaFramework.ByteBuffer>(L, 1);
+			short o = obj.ReadNetShort();
 			LuaDLL.lua_pushnumber(L, o);
 			return 1;
 		}

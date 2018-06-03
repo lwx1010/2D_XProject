@@ -3,7 +3,7 @@ using LuaFramework;
 using LuaInterface;
 using UnityEngine;
 
-namespace Riverlake.Resources
+namespace AL.Resources
 {
     /// <summary>
     /// 加载延迟时间 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Windows.Security.Cryptography;
 using Windows.Storage.Streams;
 
-namespace Riverlake.WinRT
+namespace AL.WinRT
 {
 	static class IBufferExtensions
 	{

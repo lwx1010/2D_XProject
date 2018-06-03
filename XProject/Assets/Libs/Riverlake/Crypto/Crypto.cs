@@ -11,11 +11,11 @@ using System.Net.NetworkInformation;
 using Windows.Security.Cryptography;
 using Windows.Security.Cryptography.Core;
 using Windows.Storage.Streams;
-using Riverlake.WinRT;
+using AL.WinRT;
 #endif
 
 
-namespace Riverlake.Crypto
+namespace AL.Crypto
 {
 	public class Crypto
 	{
@@ -75,8 +75,8 @@ namespace Riverlake.Crypto
 		/// </summary>
 		class AesProxy : IProxy
 		{
-			private Riverlake.SecretBytes KEY;
-			private Riverlake.SecretBytes IV;
+			private AL.SecretBytes KEY;
+			private AL.SecretBytes IV;
 
 			#region IProxy 成员
 

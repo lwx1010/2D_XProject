@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace Riverlake
+namespace AL
 {
     public sealed class AssetWatcher : MonoBehaviour
     {

@@ -6,7 +6,7 @@ using System;
 // from UVs outside the 0,0..1,1 box and material tiling
 // Rect objects are used to store the transform
 
-namespace Riverlake.SMB.Core
+namespace AL.SMB.Core
 {
     public struct DRect
     {

@@ -14,6 +14,7 @@ public class MessageBoxWrap
 		L.RegVar("PrefabResourceName", get_PrefabResourceName, set_PrefabResourceName);
 		L.RegVar("Localize", get_Localize, set_Localize);
 		L.RegVar("LocalizeTitleAndMessage", get_LocalizeTitleAndMessage, set_LocalizeTitleAndMessage);
+		L.RegFunction("OnDialogClicked", MessageBox_OnDialogClicked);
 		L.EndClass();
 	}
 
@@ -39,27 +40,27 @@ public class MessageBoxWrap
 				ToLua.Push(L, o);
 				return 1;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes<System.Action<DialogResult>>(L, 2))
+			else if (count == 2 && TypeChecker.CheckTypes<MessageBox.OnDialogClicked>(L, 2))
 			{
 				string arg0 = ToLua.CheckString(L, 1);
-				System.Action<DialogResult> arg1 = (System.Action<DialogResult>)ToLua.ToObject(L, 2);
+				MessageBox.OnDialogClicked arg1 = (MessageBox.OnDialogClicked)ToLua.ToObject(L, 2);
 				MessageBox o = MessageBox.Show(arg0, arg1);
 				ToLua.Push(L, o);
 				return 1;
 			}
-			else if (count == 3 && TypeChecker.CheckTypes<string, System.Action<DialogResult>>(L, 2))
+			else if (count == 3 && TypeChecker.CheckTypes<string, MessageBox.OnDialogClicked>(L, 2))
 			{
 				string arg0 = ToLua.CheckString(L, 1);
 				string arg1 = ToLua.ToString(L, 2);
-				System.Action<DialogResult> arg2 = (System.Action<DialogResult>)ToLua.ToObject(L, 3);
+				MessageBox.OnDialogClicked arg2 = (MessageBox.OnDialogClicked)ToLua.ToObject(L, 3);
 				MessageBox o = MessageBox.Show(arg0, arg1, arg2);
 				ToLua.Push(L, o);
 				return 1;
 			}
-			else if (count == 3 && TypeChecker.CheckTypes<System.Action<DialogResult>, MessageBoxButtons>(L, 2))
+			else if (count == 3 && TypeChecker.CheckTypes<MessageBox.OnDialogClicked, MessageBoxButtons>(L, 2))
 			{
 				string arg0 = ToLua.CheckString(L, 1);
-				System.Action<DialogResult> arg1 = (System.Action<DialogResult>)ToLua.ToObject(L, 2);
+				MessageBox.OnDialogClicked arg1 = (MessageBox.OnDialogClicked)ToLua.ToObject(L, 2);
 				MessageBoxButtons arg2 = (MessageBoxButtons)ToLua.ToObject(L, 3);
 				MessageBox o = MessageBox.Show(arg0, arg1, arg2);
 				ToLua.Push(L, o);
@@ -69,7 +70,7 @@ public class MessageBoxWrap
 			{
 				string arg0 = ToLua.CheckString(L, 1);
 				string arg1 = ToLua.CheckString(L, 2);
-				System.Action<DialogResult> arg2 = (System.Action<DialogResult>)ToLua.CheckDelegate<System.Action<DialogResult>>(L, 3);
+				MessageBox.OnDialogClicked arg2 = (MessageBox.OnDialogClicked)ToLua.CheckDelegate<MessageBox.OnDialogClicked>(L, 3);
 				MessageBoxButtons arg3 = (MessageBoxButtons)ToLua.CheckObject(L, 4, typeof(MessageBoxButtons));
 				MessageBox o = MessageBox.Show(arg0, arg1, arg2, arg3);
 				ToLua.Push(L, o);
@@ -202,6 +203,33 @@ public class MessageBoxWrap
 			return 0;
 		}
 		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int MessageBox_OnDialogClicked(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<MessageBox.OnDialogClicked>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<MessageBox.OnDialogClicked>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
 		{
 			return LuaDLL.toluaL_exception(L, e);
 		}

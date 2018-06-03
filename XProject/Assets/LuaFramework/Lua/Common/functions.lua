@@ -51,11 +51,10 @@ function find(str)
 end
 
 function destroy(obj)
-    if obj == nil or obj.gameObject:Equals(nil) then 
+    if obj == nil then 
         return
     end
-    Riverlake.ObjectPool.RecycleFromLua(obj)
-	--GameObject.Destroy(obj);
+	GameObject.Destroy(obj);
 end
 
 function newObject(prefab, depth)

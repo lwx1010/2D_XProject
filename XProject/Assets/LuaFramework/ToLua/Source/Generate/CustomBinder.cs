@@ -217,29 +217,29 @@ public class CustomBinder : IBinder
 		L.RegFunction("UpdateFunc", LuaFramework_TimerManager_UpdateFunc);
 		L.EndModule();
 		L.EndModule();
-		L.BeginModule("Riverlake");
+		L.BeginModule("AL");
 		PanelManagerWrap.Register(L);
-		Riverlake_IniFileWrap.Register(L);
-		Riverlake_Singleton_PanelManagerWrap.Register(L);
-		Riverlake_Singleton_TimeManagerWrap.Register(L);
-		Riverlake_Singleton_SensitiveWordLogicWrap.Register(L);
-		Riverlake_Singleton_FpsWrap.Register(L);
+		AL_IniFileWrap.Register(L);
+		AL_Singleton_PanelManagerWrap.Register(L);
+		AL_Singleton_TimeManagerWrap.Register(L);
+		AL_Singleton_SensitiveWordLogicWrap.Register(L);
+		AL_Singleton_FpsWrap.Register(L);
 		L.BeginModule("LuaFramework");
 		LuaFramework_SceneStageManagerWrap.Register(L);
 		L.BeginModule("Controller");
 		L.BeginModule("Transition");
-		Riverlake_LuaFramework_Controller_Transition_ASceneLoadingTransitionWrap.Register(L);
+		AL_LuaFramework_Controller_Transition_ASceneLoadingTransitionWrap.Register(L);
 		L.EndModule();
 		L.EndModule();
 		L.EndModule();
 		L.BeginModule("Resources");
-		Riverlake_Resources_LoadStageAsyncWrap.Register(L);
-		Riverlake_Resources_LoadDelayAsyncWrap.Register(L);
-		Riverlake_Resources_ResourceManagerWrap.Register(L);
-		Riverlake_Resources_ALoadOperationWrap.Register(L);
+		AL_Resources_LoadStageAsyncWrap.Register(L);
+		AL_Resources_LoadDelayAsyncWrap.Register(L);
+		AL_Resources_ResourceManagerWrap.Register(L);
+		AL_Resources_ALoadOperationWrap.Register(L);
 		L.EndModule();
 		L.BeginModule("Crypto");
-		Riverlake_Crypto_MD5Wrap.Register(L);
+		AL_Crypto_MD5Wrap.Register(L);
 		L.EndModule();
 		L.EndModule();
 		L.BeginModule("Config");
@@ -253,7 +253,7 @@ public class CustomBinder : IBinder
 		L.RegFunction("Comparison_int", System_Comparison_int);
 		L.RegFunction("Func_int_int", System_Func_int_int);
 		L.RegFunction("Action_float", System_Action_float);
-		L.RegFunction("Action_Riverlake_Resources_ALoadOperation", System_Action_Riverlake_Resources_ALoadOperation);
+		L.RegFunction("Action_AL_Resources_ALoadOperation", System_Action_AL_Resources_ALoadOperation);
 		L.RegFunction("Predicate_ServerInfo", System_Predicate_ServerInfo);
 		L.RegFunction("Action_ServerInfo", System_Action_ServerInfo);
 		L.RegFunction("Comparison_ServerInfo", System_Comparison_ServerInfo);
@@ -261,7 +261,6 @@ public class CustomBinder : IBinder
 		L.RegFunction("Action_string", System_Action_string);
 		L.RegFunction("Comparison_string", System_Comparison_string);
 		L.RegFunction("Func_string_string", System_Func_string_string);
-		L.RegFunction("Action_DialogResult", System_Action_DialogResult);
 		L.RegFunction("Action_string_string", System_Action_string_string);
 		L.BeginModule("Collections");
 		L.BeginModule("Generic");
@@ -276,6 +275,9 @@ public class CustomBinder : IBinder
 		L.BeginModule("Cutscene");
 		CinemaDirector_Cutscene_CutsceneStateWrap.Register(L);
 		L.EndModule();
+		L.EndModule();
+		L.BeginModule("MessageBox");
+		L.RegFunction("OnDialogClicked", MessageBox_OnDialogClicked);
 		L.EndModule();
 		L.BeginModule("SDKInterface");
 		L.RegFunction("LoginSucHandler", SDKInterface_LoginSucHandler);
@@ -1679,7 +1681,7 @@ public class CustomBinder : IBinder
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int System_Action_Riverlake_Resources_ALoadOperation(IntPtr L)
+	static int System_Action_AL_Resources_ALoadOperation(IntPtr L)
 	{
 		try
 		{
@@ -1688,13 +1690,13 @@ public class CustomBinder : IBinder
 
 			if (count == 1)
 			{
-				Delegate arg1 = DelegateTraits<System.Action<Riverlake.Resources.ALoadOperation>>.Create(func);
+				Delegate arg1 = DelegateTraits<System.Action<AL.Resources.ALoadOperation>>.Create(func);
 				ToLua.Push(L, arg1);
 			}
 			else
 			{
 				LuaTable self = ToLua.CheckLuaTable(L, 2);
-				Delegate arg1 = DelegateTraits<System.Action<Riverlake.Resources.ALoadOperation>>.Create(func, self);
+				Delegate arg1 = DelegateTraits<System.Action<AL.Resources.ALoadOperation>>.Create(func, self);
 				ToLua.Push(L, arg1);
 			}
 			return 1;
@@ -1895,33 +1897,6 @@ public class CustomBinder : IBinder
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int System_Action_DialogResult(IntPtr L)
-	{
-		try
-		{
-			int count = LuaDLL.lua_gettop(L);
-			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
-
-			if (count == 1)
-			{
-				Delegate arg1 = DelegateTraits<System.Action<DialogResult>>.Create(func);
-				ToLua.Push(L, arg1);
-			}
-			else
-			{
-				LuaTable self = ToLua.CheckLuaTable(L, 2);
-				Delegate arg1 = DelegateTraits<System.Action<DialogResult>>.Create(func, self);
-				ToLua.Push(L, arg1);
-			}
-			return 1;
-		}
-		catch(Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int System_Action_string_string(IntPtr L)
 	{
 		try
@@ -1965,6 +1940,33 @@ public class CustomBinder : IBinder
 			{
 				LuaTable self = ToLua.CheckLuaTable(L, 2);
 				Delegate arg1 = DelegateTraits<CinemaDirector.CutsceneHandler>.Create(func, self);
+				ToLua.Push(L, arg1);
+			}
+			return 1;
+		}
+		catch(Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int MessageBox_OnDialogClicked(IntPtr L)
+	{
+		try
+		{
+			int count = LuaDLL.lua_gettop(L);
+			LuaFunction func = ToLua.CheckLuaFunction(L, 1);
+
+			if (count == 1)
+			{
+				Delegate arg1 = DelegateTraits<MessageBox.OnDialogClicked>.Create(func);
+				ToLua.Push(L, arg1);
+			}
+			else
+			{
+				LuaTable self = ToLua.CheckLuaTable(L, 2);
+				Delegate arg1 = DelegateTraits<MessageBox.OnDialogClicked>.Create(func, self);
 				ToLua.Push(L, arg1);
 			}
 			return 1;

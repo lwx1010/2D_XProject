@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using LuaFramework;
-using Riverlake.Plot;
+using AL.Plot;
 
 /// <summary>
 /// 剧情相机

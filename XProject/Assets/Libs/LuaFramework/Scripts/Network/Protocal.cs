@@ -13,5 +13,7 @@ namespace LuaFramework {
         public const int AccountConflict = 109; //被顶号
         public const int HeartBeat2Server = 110; //发送心跳给服务器
         public const int WeakMessage = 111;     //aoi等不重要的协议另外处理
+		public const int ConnectToGate = 112; //连接到主服务器（服务器重新分配ip）
+        public const int ConnectedToGate = 113; //连接到游戏服务器
     }
 }

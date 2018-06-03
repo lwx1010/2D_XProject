@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System;
 using System.Text;
 
-namespace Riverlake
+namespace AL
 {
 	/// <summary>
 	/// 提供受限的增删接口，并提供增删通知事件的字典容器

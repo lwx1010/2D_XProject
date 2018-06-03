@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System;
 using LuaInterface;
+using System.Net;
 
 namespace LuaFramework {
     public class ByteBuffer {
@@ -52,8 +53,12 @@ namespace LuaFramework {
             writer.Write((int)v);
         }
 
-        public void WriteShort(ushort v) {
-            writer.Write((ushort)v);
+        public void WriteShort(short v) {
+            writer.Write(v);
+        }
+
+        public void WriteNetShort(short v) {
+            writer.Write(IPAddress.HostToNetworkOrder(v));
         }
 
         public void WriteLong(long v) {
@@ -97,6 +102,10 @@ namespace LuaFramework {
 
         public ushort ReadShort() {
             return (ushort)reader.ReadInt16();
+        }
+
+        public short ReadNetShort() {
+            return IPAddress.NetworkToHostOrder(reader.ReadInt16());
         }
 
         public long ReadLong() {

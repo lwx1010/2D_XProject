@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Riverlake.Editor.I18N
+namespace AL.Editor.I18N
 {
     /// <summary>
     /// Prefab资源内UILabel文本提取及翻译

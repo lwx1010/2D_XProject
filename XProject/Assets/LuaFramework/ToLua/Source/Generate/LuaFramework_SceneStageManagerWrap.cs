@@ -200,7 +200,7 @@ public class LuaFramework_SceneStageManagerWrap
 		{
 			o = ToLua.ToObject(L, 1);
 			LuaFramework.SceneStageManager obj = (LuaFramework.SceneStageManager)o;
-			Riverlake.Resources.LoadStageAsync ret = obj.stageLoader;
+			AL.Resources.LoadStageAsync ret = obj.stageLoader;
 			ToLua.PushObject(L, ret);
 			return 1;
 		}

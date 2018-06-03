@@ -5,8 +5,8 @@ using System.Collections.Generic;
 using LuaInterface;
 using System.IO;
 using System.Linq;
-using Riverlake;
-using Riverlake.Crypto;
+using AL;
+using AL.Crypto;
 using Config;
 
 namespace LuaFramework {

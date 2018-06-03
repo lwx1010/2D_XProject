@@ -3,9 +3,9 @@
 // Copyright © 2011-2012 Ian Deane
 //----------------------------------------------
 using UnityEngine;
-using Riverlake.SMB.Core;
+using AL.SMB.Core;
 
-namespace Riverlake.SMB
+namespace AL.SMB
 {
     /// <summary>
     /// Component that is an endless mesh. You don't need to worry about the 65k limit when adding meshes. It is like a List of combined meshes. Internally it manages

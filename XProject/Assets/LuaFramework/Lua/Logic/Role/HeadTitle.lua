@@ -207,12 +207,12 @@ function HeadTitle.LoadTitleSprite(titleScript, entity, female)
 	    titleScript.titlespr:MakePixelPerfect()
 	    titleScript.autoShow.repositionNow = true
 	    if IsNil(titleScript.titleEffectObj) == false then
-            Riverlake.ObjectPool.Recycle(titleScript.titleEffectObj)
+            AL.ObjectPool.Recycle(titleScript.titleEffectObj)
 	        titleScript.titleEffectObj = nil
 	    end
 	    local titleEffect = female == nil and entity:GetValueByKey("title_effect") or entity:GetValueByKey("ftitle_effect")
 	    if titleEffect ~= "" then
-	        titleScript.titleEffectObj = Riverlake.ObjectPool.instance:PushToPool("Prefab/UIEffect/title/"..titleEffect, 3, titleScript.titlespr.transform, 0, 0, 0)
+	        titleScript.titleEffectObj = AL.ObjectPool.instance:PushToPool("Prefab/UIEffect/title/"..titleEffect, 3, titleScript.titlespr.transform, 0, 0, 0)
 	        local eft = titleScript.titleEffectObj.gameObject:GetComponent('UIParticles')
 	        eft.parentWidget = titleScript.titlespr.transform:GetComponent('UIWidget')
 	        eft.IsForward = true

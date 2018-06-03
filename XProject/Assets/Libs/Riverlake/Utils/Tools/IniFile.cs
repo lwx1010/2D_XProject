@@ -18,7 +18,7 @@ using UR = UnityEngine.Resources;
  * 
  * */
 
-namespace Riverlake
+namespace AL
 {
     public class IniFile
     {

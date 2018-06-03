@@ -3,7 +3,7 @@ using System.Collections;
 using System.Text;
 using System;
 
-namespace Riverlake
+namespace AL
 {
     public static class SensitiveWord
     {

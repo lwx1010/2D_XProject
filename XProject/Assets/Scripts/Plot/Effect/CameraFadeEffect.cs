@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Riverlake.Plot
+namespace AL.Plot
 {
     [RequireComponent(typeof(Camera))]
     public class CameraFadeEffect : MonoBehaviour

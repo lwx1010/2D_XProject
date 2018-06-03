@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Text;
-using Riverlake.Crypto;
+using AL.Crypto;
 using System;
 using System.Linq;
 using ZstdNet;
@@ -566,7 +566,7 @@ public class AssetBundleEditor : EditorWindow
     {
         string content = File.ReadAllText("Assets/Resources/crypto.txt");
         string[] keys = content.Split('|');
-        Crypto.Proxy.SetKey(MD5.ComputeHash(Riverlake.Encoding.GetBytes(keys[0])), Riverlake.Encoding.GetBytes(keys[1]));
+        Crypto.Proxy.SetKey(MD5.ComputeHash(AL.Encoding.GetBytes(keys[0])), AL.Encoding.GetBytes(keys[1]));
     }
 
     void PackRes()
@@ -822,7 +822,7 @@ public class AssetBundleEditor : EditorWindow
         }
         if (File.Exists(savePath)) File.Delete(savePath);
         Debug.Log(sb.ToString());
-        File.WriteAllBytes(savePath, Crypto.Encode(Riverlake.Encoding.GetBytes(sb.ToString())));
+        File.WriteAllBytes(savePath, Crypto.Encode(AL.Encoding.GetBytes(sb.ToString())));
         AssetDatabase.Refresh();
     }
 

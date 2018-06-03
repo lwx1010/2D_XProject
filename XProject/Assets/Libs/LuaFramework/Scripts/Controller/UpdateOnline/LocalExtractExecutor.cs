@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Frankfort.Threading;
-using Riverlake.Crypto;
+using AL.Crypto;
 
 /// <summary>
 /// 启动时的整包资源，本地释放

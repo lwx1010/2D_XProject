@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-namespace Riverlake
+namespace AL
 {
 	public class EventArgs<T> : EventArgs
 	{

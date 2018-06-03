@@ -9,5 +9,11 @@ end
 
 module('protocol.pbcs')
 
-protobuf.register_file(GetFullPath('protocol/pbc/all/all.pb'))
-protobuf.register_file(GetFullPath('protocol/pbc/aoi/aoi.pb'))
+protobuf.register_file(GetFullPath('protocol/pbc/boxoffice/boxoffice.pb'))
+protobuf.register_file(GetFullPath('protocol/pbc/chat/chat.pb'))
+protobuf.register_file(GetFullPath('protocol/pbc/fight/fight.pb'))
+protobuf.register_file(GetFullPath('protocol/pbc/item/item.pb'))
+protobuf.register_file(GetFullPath('protocol/pbc/login/login.pb'))
+protobuf.register_file(GetFullPath('protocol/pbc/role/role.pb'))
+protobuf.register_file(GetFullPath('protocol/pbc/test/test.pb'))
+protobuf.register_file(GetFullPath('protocol/pbc/wizcmd/wizcmd.pb'))

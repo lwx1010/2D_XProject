@@ -25,7 +25,7 @@ Solutions:
     2) Uncheck "normal map" on importer before bake and re-check after bake. This is the solution I am using.
 
 */
-namespace Riverlake.SMB.Core{
+namespace AL.SMB.Core{
     
     public class ShaderTextureProperty
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections;
 using LuaFramework;
-using Riverlake.Resources;
+using AL.Resources;
 using UnityEngine;
 
-namespace Riverlake.LuaFramework.Controller.Transition
+namespace AL.LuaFramework.Controller.Transition
 {
     /// <summary>
     /// 场景加载过滤策略

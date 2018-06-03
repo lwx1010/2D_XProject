@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-namespace Riverlake.SMB.Core{
+namespace AL.SMB.Core{
 	public class MBTexturePacker {
 		
 		public MBLogLevel LOG_LEVEL = MBLogLevel.info;

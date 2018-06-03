@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 
-namespace Riverlake.Resources
+namespace AL.Resources
 {
     public abstract class ALoadOperation : IEnumerator
     {

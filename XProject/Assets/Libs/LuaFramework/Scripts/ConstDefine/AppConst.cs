@@ -49,6 +49,10 @@ public class AppConst {
     public static string UserId = string.Empty;                 //用户ID
     public static int SocketPort = 0;                           //Socket服务器端口
     public static string SocketAddress = string.Empty;          //Socket服务器地址
+
+	public static string GateAddress = string.Empty; 		//GateServer服务器地址
+	public static int GatePort = 0; 						//GateServer服务器端口
+	public static string GateSecret = string.Empty; 	    //Gate登陆服务器秘钥
     /// <summary>
     /// 是否使用动态阴影,true表示使用
     /// </summary>

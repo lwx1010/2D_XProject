@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using LuaInterface;
-using Riverlake.Network;
+using AL.Network;
 
 namespace LuaFramework {
     public sealed class NetworkManager : Manager {
@@ -163,8 +163,12 @@ namespace LuaFramework {
         /// ∑¢ÀÕ¡¥Ω”«Î«Û
         /// </summary>
         public void SendConnect() {
-            SocketClient.SendConnect(AppConst.SocketAddress, AppConst.SocketPort);
+            SocketClient.SendConnect(AppConst.SocketAddress, AppConst.SocketPort, false);
         }
+
+		public void SendConnectToGateServer() {
+			SocketClient.SendConnect(AppConst.GateAddress, AppConst.GatePort, true);
+		}
 
         public void StartHeartBeat()
         {

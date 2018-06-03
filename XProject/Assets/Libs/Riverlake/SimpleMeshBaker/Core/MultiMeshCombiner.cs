@@ -5,7 +5,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace Riverlake.SMB.Core{
+namespace AL.SMB.Core{
 	
     /// <summary>
     /// This class is an endless mesh. You don't need to worry about the 65k limit when adding meshes. It is like a List of combined meshes. Internally it manages

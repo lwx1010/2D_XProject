@@ -188,7 +188,7 @@ public class LuaFramework_GameManagerWrap
 			ToLua.CheckArgsCount(L, 3);
 			LuaFramework.GameManager obj = (LuaFramework.GameManager)ToLua.CheckObject<LuaFramework.GameManager>(L, 1);
 			string[] arg0 = ToLua.CheckStringArray(L, 2);
-			Riverlake.ProgressBar arg1 = (Riverlake.ProgressBar)ToLua.CheckObject<Riverlake.ProgressBar>(L, 3);
+			AL.ProgressBar arg1 = (AL.ProgressBar)ToLua.CheckObject<AL.ProgressBar>(L, 3);
 			System.Collections.IEnumerator o = obj.AdjustFileStatus(arg0, arg1);
 			ToLua.Push(L, o);
 			return 1;

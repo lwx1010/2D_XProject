@@ -616,7 +616,7 @@ local allClientEffectXls = {} --require("xlsdata/Map/MapClientEffectXls")
 
 function MapLogic.CreateClientEffect(info)
 	local prefabPath = "Prefab/"..info.Resource
-	Riverlake.ObjectPool.instance:AsyncPushToPool(prefabPath, 1, nil, 0, 0, 0, function(go)
+	AL.ObjectPool.instance:AsyncPushToPool(prefabPath, 1, nil, 0, 0, 0, function(go)
 			go.name = string.format("ClientEffect_%s", info.EffectNo)
 			go.transform.localScale = Vector3.one*info.Scale
 			go.transform.eulerAngles = Vector3.New(0, info.Rotate, 0)

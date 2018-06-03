@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using Config;
-using Riverlake.Crypto;
+using AL.Crypto;
 using LuaFramework;
 using LuaInterface;
 

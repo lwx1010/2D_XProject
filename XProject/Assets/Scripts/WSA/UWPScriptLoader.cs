@@ -54,9 +54,9 @@ namespace MoonSharp.Interpreter.Loaders
             {
                 if (beZip)
                 {
-                    string filePath = string.Format("{0}/{1}", Global_Tools.GetResourcesPath(), Riverlake.MD5.ComputeString("textasset.bytes"));
+                    string filePath = string.Format("{0}/{1}", Global_Tools.GetResourcesPath(), AL.MD5.ComputeString("textasset.bytes"));
                     byte[] data = File.ReadAllBytes(filePath);
-                    UnityEngine.AssetBundle bundle = UnityEngine.AssetBundle.LoadFromMemory(Riverlake.Crypto.Decode(data));
+                    UnityEngine.AssetBundle bundle = UnityEngine.AssetBundle.LoadFromMemory(AL.Crypto.Decode(data));
                     foreach (UnityEngine.TextAsset lua in bundle.LoadAllAssets())
                     {
                         m_Resources.Add(lua.name, System.Text.Encoding.UTF8.GetString(lua.bytes));

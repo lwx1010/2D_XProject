@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using LuaFramework;
 using System.Runtime.InteropServices;
 
-namespace Riverlake.Network
+namespace AL.Network
 {
     public enum DisType
     {
@@ -38,6 +38,8 @@ namespace Riverlake.Network
 
         public ReconnectedAction reconnectAction;
 
+        private bool isGate = false;
+
         // Use this for initialization
         public SocketClient(ReconnectedAction reconnectAction, HeartBeatService.OnLostConnectAction lostAction)
         {
@@ -60,6 +62,7 @@ namespace Riverlake.Network
         public void OnRemove()
         {
             this.Close();
+            isGate = false;
             if (reader != null)
             {
                 reader.Close();
@@ -79,9 +82,10 @@ namespace Riverlake.Network
         {
             StopHeartBeat();
             Close();
+            if (protocal == Protocal.ConnectToGate) OnRemove();
             if (protocal == 0) protocal = Protocal.KickOut;
             ByteBuffer buffer = new ByteBuffer();
-            buffer.WriteShort((ushort)protocal);
+            buffer.WriteShort((short)protocal);
             ConnectObserver.DispatchEvent(protocal, buffer);
         }
 
@@ -139,7 +143,14 @@ namespace Riverlake.Network
                 outStream = client.GetStream();
                 client.GetStream().BeginRead(byteBuffer, 0, MAX_READ, new AsyncCallback(OnRead), null);
                 if (!ConnectObserver.inReconnect)
-                    ConnectObserver.DispatchEvent(Protocal.Connect, new ByteBuffer());
+                {
+                    if (isGate)
+                    {
+                        ConnectObserver.DispatchEvent(Protocal.ConnectedToGate, new ByteBuffer());
+                    }
+                    else
+                        ConnectObserver.DispatchEvent(Protocal.Connect, new ByteBuffer());
+                }
             }
             catch (Exception e)
             {
@@ -222,7 +233,7 @@ namespace Riverlake.Network
                 Protocal.Exception : Protocal.Disconnect;
 
                 ByteBuffer buffer = new ByteBuffer();
-                buffer.WriteShort((ushort)protocal);
+                buffer.WriteShort((short)protocal);
                 ConnectObserver.DispatchEvent(protocal, buffer);
                 if (ConnectObserver.inReconnect)
                     ConnectObserver.inReconnect = false;
@@ -269,17 +280,17 @@ namespace Riverlake.Network
             memStream.Write(bytes, 0, length);
             //Reset to beginning
             memStream.Seek(0, SeekOrigin.Begin);
-            while (RemainingBytes() >= 6)
+            while (RemainingBytes() >= 4)
             {
-                int messageLen = reader.ReadInt32();
-                if (RemainingBytes() >= messageLen + 2)
+				short messageLen = IPAddress.NetworkToHostOrder(reader.ReadInt16());
+                if (RemainingBytes() >= messageLen)
                 {
-                    OnReceivedMessage(reader.ReadBytes(messageLen + 2));
+                    OnReceivedMessage(reader.ReadBytes(messageLen));
                 }
                 else
                 {
-                    //Back up the position six bytes: 4 bytes length + 2 bytes id
-                    memStream.Position = memStream.Position - 4;
+                    //Back up the position six bytes: 2 bytes length + 2 bytes id
+                    memStream.Position = memStream.Position - 2;
                     break;
                 }
             }
@@ -305,7 +316,7 @@ namespace Riverlake.Network
         {
             ByteBuffer buffer = new ByteBuffer(message);
             //放在lua中解析pbid
-            int pbId = buffer.ReadShort();
+            int pbId = IPAddress.NetworkToHostOrder(buffer.ReadShort());
             if (pbId == 10000)
             {
                 if (ConnectObserver.inReconnect)
@@ -348,8 +359,9 @@ namespace Riverlake.Network
         /// <summary>
         /// 发送连接请求
         /// </summary>
-        public void SendConnect(string host, int port)
+        public void SendConnect(string host, int port, bool isGate)
         {
+            this.isGate = isGate;
             ConnectServer(host, port);
         }
 

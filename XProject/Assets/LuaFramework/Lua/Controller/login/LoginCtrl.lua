@@ -127,8 +127,10 @@ end
 --@param serverInfo
 function LoginCtrl.setCurrentServer( serverInfo )
 	popupList.text = serverInfo.serverName
+	print(serverInfo.serverName)
 	this.curServer = serverInfo
     User_Config.default_server = serverInfo.serverNo
+	print(serverInfo.serverNo)
 
 	if User_Config.internal_sdk == 1 then
 		local csm = CenterServerManager.Instance
@@ -219,10 +221,10 @@ function LoginCtrl.Update()
 		this.inConnect = false
 		this.startTime = 0
 		networkMgr:Close()
-		MessageBox.Show(LANGUAGE_TIP.ConnectServerError, function()
+		MessageBox.Show(LANGUAGE_TIP.ConnectServerError, MessageBox.OnDialogClicked(function()
 			this.SetEnterMsg('')
 			this.StopCheckTimeout()
-		end)
+		end))
 	end
 end
 
@@ -232,30 +234,40 @@ function LoginCtrl.StopCheckTimeout()
 end
 
 function LoginCtrl.OnConnectCallback()
-	-- print("-=-------------------------------------", User_Config.internal_sdk, this.curServer.hostId)
+	print("-=-------------------------------------", User_Config.internal_sdk, this.curServer.hostId)
 	--服务端时间检查
-	Network.send("C2s_login_check_time", {place_holder=1})
+	--Network.send("C2s_login_check_time", {place_holder=1})
 
 	-- 发送登陆信息
     local account_info = {}
 
 	if User_Config.internal_sdk == 1 then	--sdk
 		local csm = CenterServerManager.Instance
+		account_info.server_id = "需要在C#CSM中提供服务器id" --csm.hostId
 		account_info.corp_id = csm.Pid == 0 and 1000 or csm.Pid
 		account_info.login_time = csm.Time
 		account_info.adult = 1
 		account_info.acct = csm.AccName
 		account_info.sign = csm.Token
-		account_info.extdata = string.format("jihuo=1|serverid=%s|acct_id=%s|servername=%s|appid=%s", csm.Sid, csm.AccName, this.curServer.serverName, csm.AppID)
+		account_info.extdata = string.format("jihuo=1&serverid=%s&acct_id=%s&servername=%s&appid=%s", csm.Sid, csm.AccName, this.curServer.serverName, csm.AppID)
 		csm:SetLastServer()
 	else
+		account_info.server_id = this.curServer.hostId
 		account_info.corp_id = this.curServer.corpId
 		account_info.login_time = os.time()
 		account_info.adult = 0
 		account_info.acct = accInput.text
 		account_info.sign = ""
-		account_info.extdata = string.format("jihuo=1|serverid=%s|acct_id=%s|servername=%s", this.curServer.hostId, accInput.text, this.curServer.serverName)
+		account_info.extdata = string.format("jihuo=1&serverid=%s&acct_id=%s&servername=%s", this.curServer.hostId, accInput.text, this.curServer.serverName)
 	end
+
+	if Network.server_info == nil then Network.server_info = {} end
+	Network.server_info.acct = account_info.acct
+	Network.server_info.corp_id = account_info.corp_id
+	Network.server_info.server_id = this.curServer.serverNo
+	
+	print(TableToString(Network.server_info))
+	print("C2s_login_corp_account  "..TableToString(account_info))
     Network.send("C2s_login_corp_account", account_info)
 end
 

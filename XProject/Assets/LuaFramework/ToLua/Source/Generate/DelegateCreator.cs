@@ -60,7 +60,7 @@ public class DelegateCreator : IDelegateCreator
 		DelegateFactory.dict.Add(typeof(LuaFramework.GameManager.DownloadPackProgressChanged), creator.LuaFramework_GameManager_DownloadPackProgressChanged);
 		DelegateFactory.dict.Add(typeof(LuaFramework.LuaManager.OnBundleProgressChanged), creator.LuaFramework_LuaManager_OnBundleProgressChanged);
 		DelegateFactory.dict.Add(typeof(LuaFramework.TimerManager.UpdateFunc), creator.LuaFramework_TimerManager_UpdateFunc);
-		DelegateFactory.dict.Add(typeof(System.Action<Riverlake.Resources.ALoadOperation>), creator.System_Action_Riverlake_Resources_ALoadOperation);
+		DelegateFactory.dict.Add(typeof(System.Action<AL.Resources.ALoadOperation>), creator.System_Action_AL_Resources_ALoadOperation);
 		DelegateFactory.dict.Add(typeof(System.Predicate<ServerInfo>), creator.System_Predicate_ServerInfo);
 		DelegateFactory.dict.Add(typeof(System.Action<ServerInfo>), creator.System_Action_ServerInfo);
 		DelegateFactory.dict.Add(typeof(System.Comparison<ServerInfo>), creator.System_Comparison_ServerInfo);
@@ -68,7 +68,7 @@ public class DelegateCreator : IDelegateCreator
 		DelegateFactory.dict.Add(typeof(System.Action<string>), creator.System_Action_string);
 		DelegateFactory.dict.Add(typeof(System.Comparison<string>), creator.System_Comparison_string);
 		DelegateFactory.dict.Add(typeof(System.Func<string,string>), creator.System_Func_string_string);
-		DelegateFactory.dict.Add(typeof(System.Action<DialogResult>), creator.System_Action_DialogResult);
+		DelegateFactory.dict.Add(typeof(MessageBox.OnDialogClicked), creator.MessageBox_OnDialogClicked);
 		DelegateFactory.dict.Add(typeof(CinemaDirector.CutsceneHandler), creator.CinemaDirector_CutsceneHandler);
 		DelegateFactory.dict.Add(typeof(SDKInterface.LoginSucHandler), creator.SDKInterface_LoginSucHandler);
 		DelegateFactory.dict.Add(typeof(SDKInterface.LogoutHandler), creator.SDKInterface_LogoutHandler);
@@ -127,7 +127,7 @@ public class DelegateCreator : IDelegateCreator
 		DelegateTraits<LuaFramework.GameManager.DownloadPackProgressChanged>.Init(creator.LuaFramework_GameManager_DownloadPackProgressChanged);
 		DelegateTraits<LuaFramework.LuaManager.OnBundleProgressChanged>.Init(creator.LuaFramework_LuaManager_OnBundleProgressChanged);
 		DelegateTraits<LuaFramework.TimerManager.UpdateFunc>.Init(creator.LuaFramework_TimerManager_UpdateFunc);
-		DelegateTraits<System.Action<Riverlake.Resources.ALoadOperation>>.Init(creator.System_Action_Riverlake_Resources_ALoadOperation);
+		DelegateTraits<System.Action<AL.Resources.ALoadOperation>>.Init(creator.System_Action_AL_Resources_ALoadOperation);
 		DelegateTraits<System.Predicate<ServerInfo>>.Init(creator.System_Predicate_ServerInfo);
 		DelegateTraits<System.Action<ServerInfo>>.Init(creator.System_Action_ServerInfo);
 		DelegateTraits<System.Comparison<ServerInfo>>.Init(creator.System_Comparison_ServerInfo);
@@ -135,7 +135,7 @@ public class DelegateCreator : IDelegateCreator
 		DelegateTraits<System.Action<string>>.Init(creator.System_Action_string);
 		DelegateTraits<System.Comparison<string>>.Init(creator.System_Comparison_string);
 		DelegateTraits<System.Func<string,string>>.Init(creator.System_Func_string_string);
-		DelegateTraits<System.Action<DialogResult>>.Init(creator.System_Action_DialogResult);
+		DelegateTraits<MessageBox.OnDialogClicked>.Init(creator.MessageBox_OnDialogClicked);
 		DelegateTraits<CinemaDirector.CutsceneHandler>.Init(creator.CinemaDirector_CutsceneHandler);
 		DelegateTraits<SDKInterface.LoginSucHandler>.Init(creator.SDKInterface_LoginSucHandler);
 		DelegateTraits<SDKInterface.LogoutHandler>.Init(creator.SDKInterface_LogoutHandler);
@@ -194,7 +194,7 @@ public class DelegateCreator : IDelegateCreator
 		TypeTraits<LuaFramework.GameManager.DownloadPackProgressChanged>.Init(creator.Check_LuaFramework_GameManager_DownloadPackProgressChanged);
 		TypeTraits<LuaFramework.LuaManager.OnBundleProgressChanged>.Init(creator.Check_LuaFramework_LuaManager_OnBundleProgressChanged);
 		TypeTraits<LuaFramework.TimerManager.UpdateFunc>.Init(creator.Check_LuaFramework_TimerManager_UpdateFunc);
-		TypeTraits<System.Action<Riverlake.Resources.ALoadOperation>>.Init(creator.Check_System_Action_Riverlake_Resources_ALoadOperation);
+		TypeTraits<System.Action<AL.Resources.ALoadOperation>>.Init(creator.Check_System_Action_AL_Resources_ALoadOperation);
 		TypeTraits<System.Predicate<ServerInfo>>.Init(creator.Check_System_Predicate_ServerInfo);
 		TypeTraits<System.Action<ServerInfo>>.Init(creator.Check_System_Action_ServerInfo);
 		TypeTraits<System.Comparison<ServerInfo>>.Init(creator.Check_System_Comparison_ServerInfo);
@@ -202,7 +202,7 @@ public class DelegateCreator : IDelegateCreator
 		TypeTraits<System.Action<string>>.Init(creator.Check_System_Action_string);
 		TypeTraits<System.Comparison<string>>.Init(creator.Check_System_Comparison_string);
 		TypeTraits<System.Func<string,string>>.Init(creator.Check_System_Func_string_string);
-		TypeTraits<System.Action<DialogResult>>.Init(creator.Check_System_Action_DialogResult);
+		TypeTraits<MessageBox.OnDialogClicked>.Init(creator.Check_MessageBox_OnDialogClicked);
 		TypeTraits<CinemaDirector.CutsceneHandler>.Init(creator.Check_CinemaDirector_CutsceneHandler);
 		TypeTraits<SDKInterface.LoginSucHandler>.Init(creator.Check_SDKInterface_LoginSucHandler);
 		TypeTraits<SDKInterface.LogoutHandler>.Init(creator.Check_SDKInterface_LogoutHandler);
@@ -261,7 +261,7 @@ public class DelegateCreator : IDelegateCreator
 		StackTraits<LuaFramework.GameManager.DownloadPackProgressChanged>.Push = creator.Push_LuaFramework_GameManager_DownloadPackProgressChanged;
 		StackTraits<LuaFramework.LuaManager.OnBundleProgressChanged>.Push = creator.Push_LuaFramework_LuaManager_OnBundleProgressChanged;
 		StackTraits<LuaFramework.TimerManager.UpdateFunc>.Push = creator.Push_LuaFramework_TimerManager_UpdateFunc;
-		StackTraits<System.Action<Riverlake.Resources.ALoadOperation>>.Push = creator.Push_System_Action_Riverlake_Resources_ALoadOperation;
+		StackTraits<System.Action<AL.Resources.ALoadOperation>>.Push = creator.Push_System_Action_AL_Resources_ALoadOperation;
 		StackTraits<System.Predicate<ServerInfo>>.Push = creator.Push_System_Predicate_ServerInfo;
 		StackTraits<System.Action<ServerInfo>>.Push = creator.Push_System_Action_ServerInfo;
 		StackTraits<System.Comparison<ServerInfo>>.Push = creator.Push_System_Comparison_ServerInfo;
@@ -269,7 +269,7 @@ public class DelegateCreator : IDelegateCreator
 		StackTraits<System.Action<string>>.Push = creator.Push_System_Action_string;
 		StackTraits<System.Comparison<string>>.Push = creator.Push_System_Comparison_string;
 		StackTraits<System.Func<string,string>>.Push = creator.Push_System_Func_string_string;
-		StackTraits<System.Action<DialogResult>>.Push = creator.Push_System_Action_DialogResult;
+		StackTraits<MessageBox.OnDialogClicked>.Push = creator.Push_MessageBox_OnDialogClicked;
 		StackTraits<CinemaDirector.CutsceneHandler>.Push = creator.Push_CinemaDirector_CutsceneHandler;
 		StackTraits<SDKInterface.LoginSucHandler>.Push = creator.Push_SDKInterface_LoginSucHandler;
 		StackTraits<SDKInterface.LogoutHandler>.Push = creator.Push_SDKInterface_LogoutHandler;
@@ -3228,12 +3228,12 @@ public class DelegateCreator : IDelegateCreator
 		ToLua.Push(L, o);
 	}
 
-	class System_Action_Riverlake_Resources_ALoadOperation_Event : LuaDelegate
+	class System_Action_AL_Resources_ALoadOperation_Event : LuaDelegate
 	{
-		public System_Action_Riverlake_Resources_ALoadOperation_Event(LuaFunction func) : base(func) { }
-		public System_Action_Riverlake_Resources_ALoadOperation_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+		public System_Action_AL_Resources_ALoadOperation_Event(LuaFunction func) : base(func) { }
+		public System_Action_AL_Resources_ALoadOperation_Event(LuaFunction func, LuaTable self) : base(func, self) { }
 
-		public void Call(Riverlake.Resources.ALoadOperation param0)
+		public void Call(AL.Resources.ALoadOperation param0)
 		{
 			func.BeginPCall();
 			func.PushObject(param0);
@@ -3241,7 +3241,7 @@ public class DelegateCreator : IDelegateCreator
 			func.EndPCall();
 		}
 
-		public void CallWithSelf(Riverlake.Resources.ALoadOperation param0)
+		public void CallWithSelf(AL.Resources.ALoadOperation param0)
 		{
 			func.BeginPCall();
 			func.Push(self);
@@ -3251,36 +3251,36 @@ public class DelegateCreator : IDelegateCreator
 		}
 	}
 
-	public System.Action<Riverlake.Resources.ALoadOperation> System_Action_Riverlake_Resources_ALoadOperation(LuaFunction func, LuaTable self, bool flag)
+	public System.Action<AL.Resources.ALoadOperation> System_Action_AL_Resources_ALoadOperation(LuaFunction func, LuaTable self, bool flag)
 	{
 		if (func == null)
 		{
-			System.Action<Riverlake.Resources.ALoadOperation> fn = delegate(Riverlake.Resources.ALoadOperation param0) { };
+			System.Action<AL.Resources.ALoadOperation> fn = delegate(AL.Resources.ALoadOperation param0) { };
 			return fn;
 		}
 
 		if(!flag)
 		{
-			System_Action_Riverlake_Resources_ALoadOperation_Event target = new System_Action_Riverlake_Resources_ALoadOperation_Event(func);
-			System.Action<Riverlake.Resources.ALoadOperation> d = target.Call;
+			System_Action_AL_Resources_ALoadOperation_Event target = new System_Action_AL_Resources_ALoadOperation_Event(func);
+			System.Action<AL.Resources.ALoadOperation> d = target.Call;
 			target.method = d.Method;
 			return d;
 		}
 		else
 		{
-			System_Action_Riverlake_Resources_ALoadOperation_Event target = new System_Action_Riverlake_Resources_ALoadOperation_Event(func, self);
-			System.Action<Riverlake.Resources.ALoadOperation> d = target.CallWithSelf;
+			System_Action_AL_Resources_ALoadOperation_Event target = new System_Action_AL_Resources_ALoadOperation_Event(func, self);
+			System.Action<AL.Resources.ALoadOperation> d = target.CallWithSelf;
 			target.method = d.Method;
 			return d;
 		}
 	}
 
-	bool Check_System_Action_Riverlake_Resources_ALoadOperation(IntPtr L, int pos)
+	bool Check_System_Action_AL_Resources_ALoadOperation(IntPtr L, int pos)
 	{
-		return TypeChecker.CheckDelegateType(typeof(System.Action<Riverlake.Resources.ALoadOperation>), L, pos);
+		return TypeChecker.CheckDelegateType(typeof(System.Action<AL.Resources.ALoadOperation>), L, pos);
 	}
 
-	void Push_System_Action_Riverlake_Resources_ALoadOperation(IntPtr L, System.Action<Riverlake.Resources.ALoadOperation> o)
+	void Push_System_Action_AL_Resources_ALoadOperation(IntPtr L, System.Action<AL.Resources.ALoadOperation> o)
 	{
 		ToLua.Push(L, o);
 	}
@@ -3708,10 +3708,10 @@ public class DelegateCreator : IDelegateCreator
 		ToLua.Push(L, o);
 	}
 
-	class System_Action_DialogResult_Event : LuaDelegate
+	class MessageBox_OnDialogClicked_Event : LuaDelegate
 	{
-		public System_Action_DialogResult_Event(LuaFunction func) : base(func) { }
-		public System_Action_DialogResult_Event(LuaFunction func, LuaTable self) : base(func, self) { }
+		public MessageBox_OnDialogClicked_Event(LuaFunction func) : base(func) { }
+		public MessageBox_OnDialogClicked_Event(LuaFunction func, LuaTable self) : base(func, self) { }
 
 		public void Call(DialogResult param0)
 		{
@@ -3731,36 +3731,36 @@ public class DelegateCreator : IDelegateCreator
 		}
 	}
 
-	public System.Action<DialogResult> System_Action_DialogResult(LuaFunction func, LuaTable self, bool flag)
+	public MessageBox.OnDialogClicked MessageBox_OnDialogClicked(LuaFunction func, LuaTable self, bool flag)
 	{
 		if (func == null)
 		{
-			System.Action<DialogResult> fn = delegate(DialogResult param0) { };
+			MessageBox.OnDialogClicked fn = delegate(DialogResult param0) { };
 			return fn;
 		}
 
 		if(!flag)
 		{
-			System_Action_DialogResult_Event target = new System_Action_DialogResult_Event(func);
-			System.Action<DialogResult> d = target.Call;
+			MessageBox_OnDialogClicked_Event target = new MessageBox_OnDialogClicked_Event(func);
+			MessageBox.OnDialogClicked d = target.Call;
 			target.method = d.Method;
 			return d;
 		}
 		else
 		{
-			System_Action_DialogResult_Event target = new System_Action_DialogResult_Event(func, self);
-			System.Action<DialogResult> d = target.CallWithSelf;
+			MessageBox_OnDialogClicked_Event target = new MessageBox_OnDialogClicked_Event(func, self);
+			MessageBox.OnDialogClicked d = target.CallWithSelf;
 			target.method = d.Method;
 			return d;
 		}
 	}
 
-	bool Check_System_Action_DialogResult(IntPtr L, int pos)
+	bool Check_MessageBox_OnDialogClicked(IntPtr L, int pos)
 	{
-		return TypeChecker.CheckDelegateType(typeof(System.Action<DialogResult>), L, pos);
+		return TypeChecker.CheckDelegateType(typeof(MessageBox.OnDialogClicked), L, pos);
 	}
 
-	void Push_System_Action_DialogResult(IntPtr L, System.Action<DialogResult> o)
+	void Push_MessageBox_OnDialogClicked(IntPtr L, MessageBox.OnDialogClicked o)
 	{
 		ToLua.Push(L, o);
 	}

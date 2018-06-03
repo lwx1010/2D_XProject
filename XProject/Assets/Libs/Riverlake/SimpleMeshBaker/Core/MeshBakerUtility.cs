@@ -5,7 +5,7 @@
 using UnityEngine;
 using System;
 
-namespace Riverlake.SMB.Core{
+namespace AL.SMB.Core{
 public class MeshBakerUtility{
 
 	public struct MeshAnalysisResult{

@@ -3,7 +3,7 @@ using System.IO;
 using System;
 using LuaInterface;
 using RSG;
-using Riverlake.PoolCache;
+using AL.PoolCache;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -11,7 +11,7 @@ using UnityEditor;
 using UO = UnityEngine.Object;
 using UR = UnityEngine.Resources;
 
-namespace Riverlake.Resources
+namespace AL.Resources
 {
     public static class ResourceManager
     {

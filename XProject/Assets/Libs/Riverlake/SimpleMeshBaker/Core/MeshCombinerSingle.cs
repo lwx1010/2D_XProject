@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 using System;
 using System.Collections.Generic;
 
-namespace Riverlake.SMB.Core
+namespace AL.SMB.Core
 {
     /// <summary>
     /// Manages a single combined mesh.This class is the core of the mesh combining API.

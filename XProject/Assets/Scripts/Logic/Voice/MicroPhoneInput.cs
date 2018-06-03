@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 using System.Collections;
 using System.Runtime.InteropServices;
-using Riverlake.Crypto;
+using AL.Crypto;
 using Config;
 using LuaInterface;
 

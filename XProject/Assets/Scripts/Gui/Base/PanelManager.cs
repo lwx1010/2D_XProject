@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using LuaInterface;
-using Riverlake.Resources;
+using AL.Resources;
 using System;
 using System.Text;
 using LuaFramework;
-using Riverlake;
+using AL;
 using System.IO;
 
 class PanelData

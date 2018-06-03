@@ -4,9 +4,9 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 using UR = UnityEngine.Resources;
-using Riverlake.Resources;
+using AL.Resources;
 
-namespace Riverlake
+namespace AL
 {
     public class ProgressBar : MonoBehaviour
     {

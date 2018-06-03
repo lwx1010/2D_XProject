@@ -1,4 +1,4 @@
-﻿namespace Riverlake.Editor.I18N
+﻿namespace AL.Editor.I18N
 {
     /// <summary>
     /// 翻译接口

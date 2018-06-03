@@ -12,6 +12,7 @@ public class LuaFramework_NetworkManagerWrap
 		L.RegFunction("CallMethod", CallMethod);
 		L.RegFunction("AddEvent", AddEvent);
 		L.RegFunction("SendConnect", SendConnect);
+		L.RegFunction("SendConnectToGateServer", SendConnectToGateServer);
 		L.RegFunction("StartHeartBeat", StartHeartBeat);
 		L.RegFunction("KickOut", KickOut);
 		L.RegFunction("SetPowerSaveMode", SetPowerSaveMode);
@@ -102,6 +103,22 @@ public class LuaFramework_NetworkManagerWrap
 			ToLua.CheckArgsCount(L, 1);
 			LuaFramework.NetworkManager obj = (LuaFramework.NetworkManager)ToLua.CheckObject(L, 1, typeof(LuaFramework.NetworkManager));
 			obj.SendConnect();
+			return 0;
+		}
+		catch (Exception e)
+		{
+			return LuaDLL.toluaL_exception(L, e);
+		}
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SendConnectToGateServer(IntPtr L)
+	{
+		try
+		{
+			ToLua.CheckArgsCount(L, 1);
+			LuaFramework.NetworkManager obj = (LuaFramework.NetworkManager)ToLua.CheckObject(L, 1, typeof(LuaFramework.NetworkManager));
+			obj.SendConnectToGateServer();
 			return 0;
 		}
 		catch (Exception e)

@@ -76,7 +76,7 @@ function AvatarCreator.CreateAvatar(path, parent, renderQueue, panel, createCall
         this.OnCreate()
     end
 
-    local co = avatarBehaviour:StartCoroutine(Riverlake.ObjectPool.instance:AsyncPushAvatarToPool(path, function(prefab, prefabPath)
+    local co = avatarBehaviour:StartCoroutine(AL.ObjectPool.instance:AsyncPushAvatarToPool(path, function(prefab, prefabPath)
             if not prefab then
                 CtrlManager.PopUpNotifyText(LANGUAGE_TIP.model_notexist)
                 local model = this.CreateBucket(parent, renderQueue, uidepth)
@@ -227,7 +227,7 @@ function AvatarCreator.CreateWeapon(weaponId, charModel, renderQueue, panel, cre
     end
     
     local weaponPath = "Prefab/Model/weapon/"..weaponId
-    local co = avatarBehaviour:StartCoroutine(Riverlake.ObjectPool.instance:AsyncPushAvatarToPool(weaponPath
+    local co = avatarBehaviour:StartCoroutine(AL.ObjectPool.instance:AsyncPushAvatarToPool(weaponPath
         , function(prefab, path)
             if not prefab then 
                 logError("武器模型加载错误" .. path)
@@ -297,7 +297,7 @@ function AvatarCreator.CreateWings(id, charModel, renderQueue, panel, createCall
     end
 
     local prefabPath = "Prefab/Model/wings/"..id
-    local co = avatarBehaviour:StartCoroutine(Riverlake.ObjectPool.instance:AsyncPushAvatarToPool(prefabPath
+    local co = avatarBehaviour:StartCoroutine(AL.ObjectPool.instance:AsyncPushAvatarToPool(prefabPath
         , function(prefab, path)
             if not prefab or not charModel then 
                 logError("翅膀模型加载错误" + path)
@@ -365,7 +365,7 @@ function AvatarCreator.CreateHorse(horseId, parent, charModel, renderQueue, pane
     end
 
     local prefabPath = "Prefab/Model/horse/" .. horseId
-    local co = avatarBehaviour:StartCoroutine(Riverlake.ObjectPool.instance:AsyncPushAvatarToPool(prefabPath
+    local co = avatarBehaviour:StartCoroutine(AL.ObjectPool.instance:AsyncPushAvatarToPool(prefabPath
         , function(prefab, path)
             if not prefab then 
                 logError("坐骑加载错误" .. path)

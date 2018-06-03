@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Riverlake;
+using AL;
 
 public sealed class AutoRecycle : MonoBehaviour
 {

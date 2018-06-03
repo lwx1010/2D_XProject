@@ -6,7 +6,7 @@ public class TimeManagerWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(TimeManager), typeof(Riverlake.Singleton<TimeManager>));
+		L.BeginClass(typeof(TimeManager), typeof(AL.Singleton<TimeManager>));
 		L.RegFunction("SetServerTime", SetServerTime);
 		L.RegFunction("FormatDateTime", FormatDateTime);
 		L.RegFunction("TotalSecondsToCurrentTime", TotalSecondsToCurrentTime);

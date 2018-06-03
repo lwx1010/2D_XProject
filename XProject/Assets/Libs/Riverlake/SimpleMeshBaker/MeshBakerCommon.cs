@@ -4,10 +4,10 @@
 //----------------------------------------------
 using UnityEngine;
 using System.Collections.Generic;
-using Riverlake.SMB.Core;
+using AL.SMB.Core;
 
 
-namespace Riverlake.SMB
+namespace AL.SMB
 {
     /// <summary>
     /// Abstract root of the mesh combining classes

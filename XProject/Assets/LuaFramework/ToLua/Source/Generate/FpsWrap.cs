@@ -6,7 +6,7 @@ public class FpsWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(Fps), typeof(Riverlake.Singleton<Fps>));
+		L.BeginClass(typeof(Fps), typeof(AL.Singleton<Fps>));
 		L.RegFunction("Init", Init);
 		L.RegFunction("TickToMilliSec", TickToMilliSec);
 		L.RegFunction("StopCheckFps", StopCheckFps);

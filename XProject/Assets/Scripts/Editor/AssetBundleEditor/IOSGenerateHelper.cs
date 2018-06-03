@@ -4,9 +4,9 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using UnityEditor;
-using Riverlake.Crypto;
+using AL.Crypto;
 using System.Xml;
-using Riverlake;
+using AL;
 
 public class IOSGenerateHelper
 {

@@ -6,7 +6,7 @@ public class PreLoadingSceneWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(PreLoadingScene), typeof(Riverlake.LuaFramework.Controller.Transition.ASceneLoadingTransition));
+		L.BeginClass(typeof(PreLoadingScene), typeof(AL.LuaFramework.Controller.Transition.ASceneLoadingTransition));
 		L.RegFunction("DestroySelf", DestroySelf);
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);

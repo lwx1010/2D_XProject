@@ -6,7 +6,7 @@ public class PanelManagerWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(PanelManager), typeof(Riverlake.Singleton<PanelManager>));
+		L.BeginClass(typeof(PanelManager), typeof(AL.Singleton<PanelManager>));
 		L.RegFunction("GetSingleton", GetSingleton);
 		L.RegFunction("GetNotifyTrans", GetNotifyTrans);
 		L.RegFunction("CreatePanel", CreatePanel);

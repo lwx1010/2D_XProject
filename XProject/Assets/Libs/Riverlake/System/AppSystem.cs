@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Profiling;
 
-namespace Riverlake
+namespace AL
 {
     /// <summary>
     /// 应用系统级的API接口

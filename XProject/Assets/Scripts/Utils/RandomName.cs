@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Text;
 
-namespace Riverlake
+namespace AL
 {
     public static class RandomName
     {

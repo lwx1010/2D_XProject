@@ -35,8 +35,9 @@ public class MessageBox : ModalBox
     [Tooltip("Set to true to send the title and message of message boxes and menus thru the Localize function.")]
     public static bool LocalizeTitleAndMessage = false;
 
+    public delegate void OnDialogClicked(DialogResult result);
     DialogResult result;
-    Action<DialogResult> onFinish;
+    OnDialogClicked onFinish;
 
     /// <summary>
     /// Display a message box.
@@ -45,7 +46,7 @@ public class MessageBox : ModalBox
     /// <param name="onFinished">An action to be called when the dialog is closed.</param>
     /// <param name="buttons">Selects what buttons are shown on the dialog.</param>
     /// <returns>The message box game object.</returns>
-    public static MessageBox Show(string message, Action<DialogResult> onFinished, MessageBoxButtons buttons = MessageBoxButtons.OK)
+    public static MessageBox Show(string message, OnDialogClicked onFinished, MessageBoxButtons buttons = MessageBoxButtons.OK)
     {
         return Show(message, null, onFinished, buttons);
     }
@@ -58,7 +59,7 @@ public class MessageBox : ModalBox
     /// <param name="onFinished">An action to be called when the dialog is closed.</param>
     /// <param name="buttons">Selects what buttons are shown on the dialog.</param>
     /// <returns>The message box game object.</returns>
-    public static MessageBox Show(string message, string title = null, Action<DialogResult> onFinished = null, MessageBoxButtons buttons = MessageBoxButtons.OK)
+    public static MessageBox Show(string message, string title = null, OnDialogClicked onFinished = null, MessageBoxButtons buttons = MessageBoxButtons.OK)
     {
         var box = (Instantiate(Resources.Load<GameObject>(PrefabResourceName)) as GameObject).GetComponent<MessageBox>();
 

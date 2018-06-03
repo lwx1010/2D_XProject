@@ -26,18 +26,14 @@ FIHGT_CONRRECT_DISTANCE = 2
 --当前使用的协议类型--
 TestProtoType = ProtocalType.PBC
 
-cameraMgr = CameraManager.GetInstance()
-roleMgr = RoleManager.GetInstance()
 Util = LuaFramework.Util
-SceneHelper = SceneHelper
 AppConst = AppConst
 LuaHelper = LuaFramework.LuaHelper
 ByteBuffer = LuaFramework.ByteBuffer
 LuaComponent = LuaComponent
-EntityType = EntityBase.EntityType
 
 LuaBehaviour = LuaFramework.LuaBehaviour
-panelMgr = Riverlake.PanelManager.GetSingleton()
+panelMgr = AL.PanelManager.GetSingleton()
 soundMgr = LuaHelper.GetSoundManager()
 networkMgr = LuaHelper.GetNetManager()
 timerMgr = LuaHelper.GetTimerManager()
@@ -70,16 +66,10 @@ EventDelegate = EventDelegate
 RotateMode = DG.Tweening.RotateMode
 Sequence = DG.Tweening.DOTween.Sequence
 DOTween = DG.Tweening.DOTween
-MD5 = Riverlake.Crypto.MD5
-resMgr = Riverlake.Resources.ResourceManager
+MD5 = AL.Crypto.MD5
+resMgr = AL.Resources.ResourceManager
 
 User_Config = Config.User_Config
-
-S2c_aoi_addself = Aoi.S2c_aoi_addself
-S2c_aoi_addnpc = Aoi.S2c_aoi_addnpc
-S2c_aoi_addplayer = Aoi.S2c_aoi_addplayer
-Aoi_syncplayer = Aoi.Aoi_syncplayer
-Aoi_syncnpc = Aoi.Aoi_syncnpc
 
 FpsInst = Fps.Instance
 SensitiveWord = SensitiveWordLogic.GetInstance()
@@ -87,14 +77,8 @@ ChatVoiceService = ChatVoiceService.Instance
 
 Cutscene = CinemaDirector.Cutscene
 Cutscene.CutsceneState = CinemaDirector.Cutscene.CutsceneState
-QuadScene = Riverlake.Resources.QuadScene
-LoadDelayAsync = Riverlake.Resources.LoadDelayAsync
-LoadStageAsync = Riverlake.Resources.LoadStageAsync
-SuperScene = Riverlake.Scene.SuperScene
-
-ShaderMgr = ShaderManager.Instance
-
-SkillAreaType = SkillAreaType
+LoadDelayAsync = AL.Resources.LoadDelayAsync
+LoadStageAsync = AL.Resources.LoadStageAsync
 
 -----------------------------------------------------
 require "Common/SystemSetting"
@@ -108,15 +92,8 @@ require "Common/ToolHelper"
 HERO = require "Logic/Hero"
 UIID = require "Logic/UiId"
 
-HEROSKILLMGR = require "Logic/HeroSkillManager"
-FIGHTMGR = require "Logic/FightManager"
-PLAYERLOADER = require "Logic/PlayerLoader"
 ITEMLOGIC = require "Logic/ItemLogic"
-FUBENLOGIC = require "Logic/FuBenLogic"
-ENTITYCREATE = require "logic/Role/EntityCreate"
-HEADTITLE = require "logic/Role/HeadTitle"
 
-MAPLOGIC = require "Logic/MapLogic"
 TIPLOGIC = require('Logic/TipLogic')
 
 require "xlsdata.init"
@@ -129,5 +106,3 @@ require "View.init"
 require "Model.init"
 require "Controller.init"
 
-
-AvatarCreator = require "Logic/AvatarCreator"

@@ -5,7 +5,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Diagnostics;
 using LuaFramework;
-using Riverlake.Crypto;
+using AL.Crypto;
 
 public class Packager {
     public static string platform = string.Empty;

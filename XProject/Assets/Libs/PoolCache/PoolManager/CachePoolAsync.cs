@@ -5,7 +5,7 @@
 using PathologicalGames;
 using UnityEngine;
 
-namespace Riverlake.PoolCache
+namespace AL.PoolCache
 {
     /// <summary>
     /// 异步缓存池

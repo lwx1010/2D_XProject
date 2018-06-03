@@ -7,12 +7,12 @@ using UnityEditor;
 
 using BindType = ToLuaMenu.BindType;
 using UnityEngine.UI;
-using Riverlake;
-using Riverlake.Crypto;
+using AL;
+using AL.Crypto;
 using Config;
 using CinemaDirector;
-using Riverlake.LuaFramework.Controller.Transition;
-using Riverlake.Resources;
+using AL.LuaFramework.Controller.Transition;
+using AL.Resources;
 using UnityEngine.EventSystems;
 
 public static class CustomSettings
@@ -43,8 +43,8 @@ public static class CustomSettings
         typeof(UnityEngine.GL),
         typeof(UnityEngine.Graphics),
         typeof(Config.User_Config),
-        typeof(Riverlake.Crypto.MD5),
-        typeof(Riverlake.Resources.ResourceManager),
+        typeof(AL.Crypto.MD5),
+        typeof(AL.Resources.ResourceManager),
         typeof(TimeConverter),
     };
 
@@ -192,18 +192,18 @@ public static class CustomSettings
 
         _GT(typeof(GameManager)),
         _GT(typeof(LuaManager)),
-        _GT(typeof(PanelManager)).SetNameSpace("Riverlake"),
+        _GT(typeof(PanelManager)).SetNameSpace("AL"),
         _GT(typeof(SoundManager)),
         _GT(typeof(TimerManager)),
         _GT(typeof(ThreadManager)),
         _GT(typeof(NetworkManager)),
-        _GT(typeof(ASceneLoadingTransition)).SetNameSpace("Riverlake.LuaFramework.Controller.Transition"),
-        _GT(typeof(SceneStageManager)).SetNameSpace("Riverlake.LuaFramework"),
+        _GT(typeof(ASceneLoadingTransition)).SetNameSpace("AL.LuaFramework.Controller.Transition"),
+        _GT(typeof(SceneStageManager)).SetNameSpace("AL.LuaFramework"),
         _GT(typeof(CutsceneManager)),
         _GT(typeof(Rect)),
 
-        _GT(typeof(LoadStageAsync)).SetNameSpace("Riverlake.Resources"),
-        _GT(typeof(LoadDelayAsync)).SetNameSpace("Riverlake.Resources"),
+        _GT(typeof(LoadStageAsync)).SetNameSpace("AL.Resources"),
+        _GT(typeof(LoadDelayAsync)).SetNameSpace("AL.Resources"),
         _GT(typeof(NetworkReachability)),
 
 #if NGUI
@@ -244,9 +244,9 @@ public static class CustomSettings
         _GT(typeof(Fps)),
 
         //Riverlake
-        _GT(typeof(IniFile)).SetNameSpace("Riverlake"),
-        _GT(typeof(MD5)).SetNameSpace("Riverlake.Crypto"),
-        _GT(typeof(ResourceManager)).SetNameSpace("Riverlake.Resources"),
+        _GT(typeof(IniFile)).SetNameSpace("AL"),
+        _GT(typeof(MD5)).SetNameSpace("AL.Crypto"),
+        _GT(typeof(ResourceManager)).SetNameSpace("AL.Resources"),
 
         //SDK
         _GT(typeof(SDKInterface)),

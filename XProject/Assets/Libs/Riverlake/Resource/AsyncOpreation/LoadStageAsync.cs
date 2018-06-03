@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using LuaFramework;
 
-namespace Riverlake.Resources
+namespace AL.Resources
 {
     /// <summary>
     /// 异步加载场景

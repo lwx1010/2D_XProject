@@ -2,7 +2,7 @@
 using System.Collections;
 using System.IO;
 using LuaInterface;
-using Riverlake.Crypto;
+using AL.Crypto;
 
 namespace LuaFramework {
     /// <summary>

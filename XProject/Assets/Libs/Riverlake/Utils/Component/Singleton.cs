@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
-namespace Riverlake
+namespace AL
 {
 	/// <summary>
 	/// Be aware this will not prevent a non singleton constructor
